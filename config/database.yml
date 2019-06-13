@@ -52,4 +52,4 @@ production:
   <<: *default
   database: freemarket_sample_52d_production
   username: freemarket_sample_52d
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  password: tech1899
