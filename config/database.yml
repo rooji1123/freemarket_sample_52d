@@ -51,5 +51,5 @@ test:
 production:
   <<: *default
   database: freemarket_sample_52d_production
-  username: freemarket_sample_52d
+  username: root
   password: tech1899
