@@ -9,12 +9,12 @@
 |avatar_image|string|null: true|
 
 ### Assosiation
-has_one :user_infomation
-has_one :user_address
-has_one :credit_card
-has_many :points
-has_many :comments
-has_many :items
+has_one :user_infomation, dependent: :destroy
+has_one :user_address, dependent: :destroy
+has_one :credit_card, dependent: :destroy
+has_many :points, dependent: :destroy
+has_many :comments, dependent: :destroy
+has_many :items, dependent: :destroy
 
 
 ## user_informationsテーブル
@@ -78,9 +78,9 @@ belongs_to :user
 |category|references|foreign_key: true|
 
 ### Assosiation
-has_many :comments
-has_many :images
-has_one :delivery
+has_many :comments, dependent: :destroy
+has_many :images, dependent: :destroy
+has_one :delivery, dependent: :destroy
 belongs_to :user
 belongs_to :brand
 belongs_to :category
@@ -93,7 +93,7 @@ belongs_to :category
 |item_id|references|foreign_key: true, null:false|
 
 ### Assosiation
-belongs_to :image
+belongs_to :item
 
 
 ## deliveriesテーブル
@@ -130,7 +130,7 @@ belongs_to :item
 |ancestry|string|null:false|
 
 ### Assosiation
-has_many :details
+has_many :items
 has_ancestry
 
 
@@ -140,7 +140,7 @@ has_ancestry
 |name|string|null:false, index: true|
 
 ### Assosiation
-has_many :brand_module
+has_many :brand_modules
 has_many :brand_categorys, through: :brand_module
 has_many :items
 
