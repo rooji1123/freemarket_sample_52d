@@ -49,9 +49,9 @@ belongs_to :user
 |Column|Type|Options|
 |------|-----|------|
 |card_number|integer|null:false|
-|card_year|integer|null: false|
 |card_manth|integer|null: false|
-|cequritycode|integer|null: false|
+|card_year|integer|null: false|
+|cecuritycode|integer|null: false|
 |user_id|references|foreign_key: true, null:false|
 
 ### Assosiation
