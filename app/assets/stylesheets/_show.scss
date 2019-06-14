@@ -45,16 +45,20 @@
             .table-out{
               box-sizing: border-box;
               height: 400px;
+              width: 100%;
+              max-width: 300px;
                th{
                  background-color: #fafafa;
                  line-height: inherit;
-                 font-size: inherit;
-                 width: 39%
+                 font-size: 12px;
+                 width: 39%;
+                 padding: 16px 8px;
                }
                td{
                 line-height: inherit;
-                font-size: inherit;
+                font-size: 12px;
                 width: 61%;
+                padding: 16px 8px;
                }
             }
           }
@@ -64,6 +68,7 @@
         display: inline-block;
         width: 100%;
         text-align: center;
+        margin-top: 24px;
         &-price{
           font-size: 32px;
           display: inline;
@@ -71,15 +76,17 @@
         }
         &-tax{
           display: inline;
+          font-size: 10px;
         }
         &-cost{
           display: inline;
+          font-size: 16px;
         }
       }
       .detail__buy-btm{
         background-color: red;
         text-align: center;
-        margin: 16px 0 0;
+        margin: 18px 0 0;
         font-weight: 600;
         color: #fff;
         height: 56px; 
@@ -88,10 +95,12 @@
       }
       .detail__usercomment{
         width: 100%;
+        margin-top: 24px;
       }
       .detail__action{
         display: inline-block;
         width: 100%;
+        font-size: 12px;
         &__likes{
           display: inline-block;
           border: 1px solid red;
@@ -128,8 +137,9 @@
       margin-top: 10px;
       max-width: 700px;
       .detail__form-info{
-        background-color: orange;
+        background-color: #fff6be;
         padding: 8px;
+        color: #333333
       }
       .detail__textarea{
         box-sizing: border-box;
@@ -137,6 +147,7 @@
         width: 100%;
         padding: 10px;
         margin-top: 10px;
+        min-height: 104px;
       }
       .detail__send-btm{
         background-color: darkgrey;
@@ -149,6 +160,7 @@
     .move__items{
       margin: 40px 0;
       display: block;
+      color: blue;
       .move__items-next{
         display: inline-block;
         width: 45%;
@@ -162,8 +174,8 @@
       }
       .move__items-back{
         display: inline-block;
-        width: 45%;
         float: right;
+        max-width: 45%;
         &-name{
           display: inline;
           text-align: right;
@@ -185,18 +197,22 @@
       .link-facebook{
         display: inline;
         font-size: 44px;
+        color: rgb(68, 0, 255);
       }
       .link-twitter{
         display: inline;
         font-size: 44px;
+        color: rgb(0, 195, 255);
       }
       .link-line{
         display: inline;
         font-size: 44px;
+        color: rgb(29, 209, 29);
       }
       .link-pinterest{
         display: inline;
         font-size: 44px;
+        color: rgb(158, 35, 35)
       }
     }
     .other__items{
@@ -211,7 +227,6 @@
         display: block;
         &__box {
           display: inline-block;
-          background-color: wheat;
           justify-content: space-between;
           &-photo {
             box-sizing: border-box;
