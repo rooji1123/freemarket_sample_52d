@@ -9,7 +9,7 @@
           .sell-form__image__head
             %h3
               出品画像
-            %span 必須
+            %span.new-item 必須
             %p 最大10枚までアップロードできます
           .sell-form__image__box
             -# = f.label :images do
@@ -18,12 +18,12 @@
           .sell-form__content__name
             %h5
               商品名
-            %span 必須
+            %span.new-item 必須
           -# = f.text_field :name, class: "sell-form__content__name__wrap", placeholder: "商品名（必須 40文字まで)"
           .sell-form__content__description
             %h5
               商品の説明
-            %span 必須
+            %span.new-item 必須
             -# = f.text_area :name, class: "sell-form__content__description__wrap", rows: "5", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
         .sell-form__detail
           %h6 
@@ -32,12 +32,12 @@
             .sell-form__detail__form-box__category
               %h5
                 カテゴリー
-              %span 必須
+              %span.new-item 必須
             %select category
             .sell-form__detail__form-box__status
               %h5
                 商品の状態
-              %span 必須
+              %span.new-item 必須
             %select
         .sell-form__delivery
           %h3 
@@ -47,17 +47,17 @@
             .sell-form__delivery__form-box__fee
               %h5
                 配送料の負担
-              %span 必須
+              %span.new-item 必須
             %select
             .sell-form__delivery__form-box__disrict
               %h5
                 発送元の地域
-              %span 必須
+              %span.new-item 必須
             %select
             .sell-form__delivery__form-box__date
               %h5
                 発送までの日数
-              %span 必須
+              %span.new-item 必須
             %select
         .sell-form__selling-price
           %h3
@@ -68,7 +68,7 @@
               .sell-form__selling-price__input__left
                 %h5
                   価格
-                %span 必須
+                %span.new-item 必須
               .sell-form__selling-price__input__right
                 %p 
                   ¥
