@@ -48,7 +48,10 @@ belongs_to :user
 ## credit_cardsテーブル
 |Column|Type|Options|
 |------|-----|------|
-|credit_token|string|null:false|
+|card_number|integer|null:false|
+|card_year|integer|null: false|
+|card_manth|integer|null: false|
+|cequritycode|integer|null: false|
 |user_id|references|foreign_key: true, null:false|
 
 ### Assosiation
@@ -59,7 +62,7 @@ belongs_to :user
 |------|-----|------|
 |point|integer|null:true|
 |expiration_date|integer|null_false|
-|user|references|foreign_key: true, null:false|
+|user_id|references|foreign_key: true, null:false|
 
 ### Assosiation
 belongs_to :user
@@ -71,11 +74,13 @@ belongs_to :user
 |name|string|null_false, index:true|
 |introduction|text|null: false|
 |price|integer|null: false|
+|size|string|null: false|
 |state|string|null: false|
 |seller_id|references|foreign_key: true, null: false|
 |buyer_id|references|foreign_key: true,null: true|
 |brand|references|foreign_key: true|
 |category|references|foreign_key: true|
+|deal|string|nill: true|
 
 ### Assosiation
 has_many :comments, dependent: :destroy
@@ -115,18 +120,18 @@ belongs_to :item
 |comment|text|null: false|
 |user_id|references|foreign_key: true, null: false|
 |item_id|references|foreign_key: true, null: false|
-|item_state|string|null: false|
+|item_deal|string|null: false|
 
 ### Assosiation
 belongs_to :user
 belongs_to :item
 
 
-## categorysテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|-----|------|
 |name|string|null:false, index: true|
-|size|string|null:false|
+|size|string|null: true|
 |ancestry|string|null:false|
 
 ### Assosiation
@@ -137,7 +142,7 @@ has_ancestry
 ## brandsテーブル
 |Column|Type|Options|
 |------|-----|------|
-|name|string|null:false, index: true|
+|brand_name|string|null: false, index: true|
 
 ### Assosiation
 has_many :brand_modules
@@ -145,10 +150,10 @@ has_many :brand_categorys, through: :brand_module
 has_many :items
 
 
-## brand_categorysテーブル
+## brand_categorisテーブル
 |Column|Type|Options|
 |------|-----|------|
-|name|string|null:false|
+|brand_name|string|null:false|
 
 ### Assosiation
 has_many :brand_categorys
