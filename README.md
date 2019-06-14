@@ -48,7 +48,7 @@ belongs_to :user
 ## credit_cardsテーブル
 |Column|Type|Options|
 |------|-----|------|
-|credit_number|integer|null:false|
+|credit_token|string|null:false|
 |user_id|references|foreign_key: true, null:false|
 
 ### Assosiation
