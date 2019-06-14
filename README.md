@@ -24,7 +24,6 @@ has_many :items
 |last_name|string|null:false|
 |first_name_kana|string|null:false|
 |last_name_kana|string|null:false|
-|phone_number|integer|null:false|
 |birthday|string|null:false|
 |user_id|references|foreign_key: true, null:false|
 
@@ -34,12 +33,12 @@ belongs_to :user
 ## user_addressテーブル
 |Column|Type|Options|
 |------|-----|------|
-|postal_code|integer|null:false|
+|postal_code|string|null:false|
 |country_id|interger|null:false|
 |city|string|null:false|
 |address|string|null:false|
 |building_name|string|null: true|
-|phone_number|integer|null: true|
+|phone_number|string|null:false|
 |user_id|references|foreign_key: true, null:false|
 
 ### Assosiation
@@ -89,7 +88,7 @@ belongs_to :category
 ## imagesテーブル
 |Column|Type|Options|
 |------|-----|------|
-|image|text|null: false|
+|image|string|null: false|
 |item_id|references|foreign_key: true, null:false|
 
 ### Assosiation
