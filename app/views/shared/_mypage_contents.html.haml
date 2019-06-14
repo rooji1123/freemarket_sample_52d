@@ -1,0 +1,69 @@
+.contents
+  %section.mypage-user-icon
+    = link_to root_path, class:"mypage-user-icon__link" do
+      %figure.mypage-user-icon__link__image
+        = image_tag "", size: "60x60", alt: "figure", class: 'mypage-user-icon__image__figure'
+      %h2.mypage-user-icon__link__user-name
+        ユーザー名
+      .mypage-user-icon__link__mypage-number
+        .mypage-user-icon__link__mypage-number__rate
+          評価
+          %span.mypage-user-icon__link__mypage-number__rate__number
+            108
+        .mypage-user-icon__link__mypage-number__items
+          出品数
+          %span.mypage-user-icon__link__mypage-number__items__number
+            108
+
+  %section.mypage-tab
+    %ul.mypage-tab__tabs
+      %li.mypage-tab__tabs__left
+        %h3.active-tab
+          = link_to root_path, class:"mypage-tab__tabs__left__link" do
+            お知らせ
+      %li.mypage-tab__tabs__right
+        %h3.none-active-tab
+          = link_to root_path, class:"mypage-tab__tabs__right__link" do
+            やることリスト
+    .mypage-tab__contents
+      %ul.mypage-tab__contents__notice-list.display-true
+        %li.mypage-tab__contents__notice-list__item.display-true
+          = link_to root_path, class:"mypage-tab__contents__notice-list__item__link" do
+            %figure.mypage-tab__contents__notice-list__item__link__figure
+              = image_tag "", size: "48x48", alt: "icon"
+            .mypage-tab__contents__notice-list__item__link__body
+              .mypage-tab__contents__notice-list__item__link__body__text
+                《ご登録記念》¥1,000の商品を「実質１円」でご購入いただけます！
+              %time.mypage-tab__contents__notice-list__item__link__body__time
+                = fa_icon 'history'
+                %span １日前
+            %i.mypage-tab__contents__notice-list__item__link__icon-arrow-right
+              = fa_icon 'chevron-right'
+        %li.mypage-tab__contents__notice-list__go-to-index
+          = link_to "一覧を見る", root_path, class:"mypage-tab__contents__notice-list__go-to-index__link"
+        .mypage-tab__contents__none.display-true
+          %li.mypage-tab__contents__none__text
+            お知らせがありません
+  %section.mypage-tab-deal
+    %h2.mypage-tab-deal__title
+      購入した商品
+    %ul.mypage-tab__tabs
+      %li.mypage-tab__tabs__left
+        %h3.active-tab
+          = link_to root_path, class:"mypage-tab__tabs__left__link" do
+            取引中
+      %li.mypage-tab__tabs__right
+        %h3.none-active-tab
+          = link_to root_path, class:"mypage-tab__tabs__right__link" do
+            過去の取引
+
+  %h2.set-profile-header
+    プロフィール
+  = form_for user_path do |f|
+    .set-profile-upper
+      %figure.set-profile-upper__avator
+        = image_tag "", size: "60x60", alt: "figure"
+      = f.text_field :name, placeholder: "例）AYA☆セール中", class: "set-profile-upper__form"
+    .set-profile-lower
+      = f.text_area :name, placeholder: "例）こんにちは☆ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪", class: "set-profile-lower__form"
+      = f.submit class:"set-profile-lower__submit-button"

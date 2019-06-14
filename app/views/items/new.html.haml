@@ -1,0 +1,103 @@
+.container
+  = render "shared/second__header"
+  .new-item__main
+    .form
+      .new-item__main__container
+        .new-item__main__container__head
+          %h2 商品の情報を入力
+        .sell-form__image
+          .sell-form__image__head
+            %h3
+              出品画像
+            %span 必須
+            %p 最大10枚までアップロードできます
+          .sell-form__image__box
+            -# = f.label :images do
+            -#   = f.file_field :images, multiple: true
+        .sell-form__content
+          .sell-form__content__name
+            %h5
+              商品名
+            %span 必須
+          -# = f.text_field :name, class: "sell-form__content__name__wrap", placeholder: "商品名（必須 40文字まで)"
+          .sell-form__content__description
+            %h5
+              商品の説明
+            %span 必須
+            -# = f.text_area :name, class: "sell-form__content__description__wrap", rows: "5", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        .sell-form__detail
+          %h6 
+            商品の詳細
+          .sell-form__detail__form-box
+            .sell-form__detail__form-box__category
+              %h5
+                カテゴリー
+              %span 必須
+            %select category
+            .sell-form__detail__form-box__status
+              %h5
+                商品の状態
+              %span 必須
+            %select
+        .sell-form__delivery
+          %h3 
+            配送について
+            = link_to "?", "/", class: "question"
+          .sell-form__delivery__form-box
+            .sell-form__delivery__form-box__fee
+              %h5
+                配送料の負担
+              %span 必須
+            %select
+            .sell-form__delivery__form-box__disrict
+              %h5
+                発送元の地域
+              %span 必須
+            %select
+            .sell-form__delivery__form-box__date
+              %h5
+                発送までの日数
+              %span 必須
+            %select
+        .sell-form__selling-price
+          %h3
+            販売価格(300〜9,999,999)
+            = link_to "?", "/", class: "question"
+          .sell-form__selling-price__box
+            .sell-form__selling-price__input
+              .sell-form__selling-price__input__left
+                %h5
+                  価格
+                %span 必須
+              .sell-form__selling-price__input__right
+                %p 
+                  ¥
+                -# = f.text_field :name, class: "sell-form__selling-price__input__right__yen", placeholder: "例）300"
+            .sell-form__selling-price__commission
+              .sell-form__selling-price__commission__left
+                %h6 販売手数料 (10%)
+              .sell-form__selling-price__commission__right
+                %h6 -
+            .sell-form__selling-price__profit
+              .sell-form__selling-price__profit__left
+                %h6 販売利益
+              .sell-form__selling-price__profit__right
+                %h6 -
+        .sell-form__submit
+          = link_to "禁止されている商品", "https://www.mercari.com/jp/help_center/getting_started/prohibited_items/"
+          、
+          = link_to "行為", "https://www.mercari.com/jp/help_center/getting_started/prohibited_conduct/"
+          を必ずご確認ください。
+          %br 
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            = link_to "偽ブランドの販売", "https://www.mercari.com/jp/help_center/getting_started/counterfeit_goods/"
+            は犯罪であ
+          り処罰される可能性があります。
+          %br 
+            また、出品を持ちまして
+            = link_to "加盟店規約", "https://www.mercari.com/jp/seller_terms/"
+            にも同意したことになります。
+          .sell-form__submit__btn
+            = link_to "出品する", "/", class: "sell-form__submit__red"
+            = link_to "もどる", "/", class: "sell-form__submit__gray"
+  = render "shared/second__footer"

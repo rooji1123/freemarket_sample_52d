@@ -1,0 +1,554 @@
+.header
+  .header__frame
+    .header__frame__top
+      .header__frame__top__image
+        = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?344707752", class: "mercari"
+      %form.header__frame__top__form{:action => "https://www.mercari.com/jp/search/"}
+        %input{name: "keyword", placeholder: "何かお探しですか？", type: "text", value: "", class: "searchform"}/
+        = fa_icon("search")
+    .header__frame__bottom
+      .header__frame__bottom__list-left
+        .header__frame__bottom__list-left__category
+          = link_to '#', class: "header__frame__bottom__list-left__category__link link" do
+            = fa_icon("list")
+            %span カテゴリーから探す
+            
+        .header__frame__bottom__list-left__brand
+          = link_to '#', class: "header__frame__bottom__list-left__brand__link link" do
+            = fa_icon("tag")
+            %span ブランドから探す
+      .header__frame__bottom__list-right
+        .header__frame__bottom__list-right__news
+          = link_to '#', class: "header__frame__bottom__list-right__news__link right-link" do
+            = fa_icon("bell")
+            %span お知らせ
+        .header__frame__bottom__list-right__todolist
+          = link_to '#', class: "header__frame__bottom__list-right__todolist__link right-link" do
+            = fa_icon("check")
+            %span やることリスト
+        .header__frame__bottom__list-right__mypage
+          = link_to '#', class: "header__frame__bottom__list-right__mypage__link right-link" do
+            .header__frame__bottom__list-right__mypage__image
+              = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", size: "32x32"
+            .header__frame__bottom__list-right__mypage__text マイページ
+
+.main 
+  .main__visual
+    -# =image_tag 'app-store.svg', class: "main__visual__image"
+  .main__pickup
+    .main__pickup__head
+      ピックアップカテゴリー
+    .main__pickup__text
+      = link_to "レディース 新着アイテム", 'root_path', class: "newitem"
+
+    .main__pickup__newitems
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            ３
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            時の
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            おやつは
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            プロテイン
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+    .main__pickup__view
+      = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
+
+
+    .main__pickup__text
+      = link_to "メンズ 新着アイテム", 'root_path', class: "newitem"
+
+    .main__pickup__newitems
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            ３
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            時の
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            おやつは
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            プロテイン
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+    .main__pickup__view
+      = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
+
+    .main__pickup__text
+      = link_to "ベビー・キッズ 新着アイテム", 'root_path', class: "newitem"
+
+    .main__pickup__newitems
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            ３
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            時の
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            おやつは
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            プロテイン
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+    .main__pickup__view
+      = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
+
+    .main__pickup__text
+      = link_to "コスメ・香水・美容 新着アイテム", 'root_path', class: "newitem"
+
+    .main__pickup__newitems
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            ３
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            時の
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            おやつは
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            プロテイン
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+    .main__pickup__view
+      = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
+
+    .main__pickup__head
+      ピックアップブランド
+    .main__pickup__text
+      = link_to "シャネル 新着アイテム", 'root_path', class: "newitem"
+
+    .main__pickup__newitems
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            ３
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            時の
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            おやつは
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            プロテイン
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+    .main__pickup__view
+      = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
+
+    .main__pickup__text
+      = link_to "ルイ・ヴィトン 新着アイテム", 'root_path', class: "newitem"
+
+    .main__pickup__newitems
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            ３
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            時の
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            おやつは
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            プロテイン
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+    .main__pickup__view
+      = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
+
+    .main__pickup__text
+      = link_to "シュプリーム 新着アイテム", 'root_path', class: "newitem"
+
+    .main__pickup__newitems
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            ３
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            時の
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            おやつは
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            プロテイン
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+    .main__pickup__view
+      = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
+    
+    .main__pickup__text
+      = link_to "ナイキ 新着アイテム", 'root_path', class: "newitem"
+
+    .main__pickup__newitems
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            ３
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            時の
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            おやつは
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+      .main__pickup__newitems__box
+        .main__pickup__newitems__box__photo
+          %a{href: "#"}
+            = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
+        .main__pickup__newitems__box__body
+          .main__pickup__newitems__box__body__name
+            プロテイン
+          .main__pickup__newitems__box__body__value
+            ￥1,250
+          .main__pickup__newitems__box__body__tax
+            (税込)
+            .main__pickup__newitems__box__body__tax__heart
+              = fa_icon("heart")
+              %span 1
+    .main__pickup__view
+      = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
+

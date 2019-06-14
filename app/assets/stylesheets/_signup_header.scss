@@ -1,0 +1,76 @@
+.signup{
+  background-color: #ffffff;
+  &__header{
+    $header-height: 15vh;
+    min-height: 15vh;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    &__logo{
+      height: $header-height;
+      position: relative;
+      &__link{
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        img{
+          height: 50px;
+        }
+      }
+    }
+    &__nav{
+      margin-bottom: 50px;
+      &__box{
+        padding-top: 40px;
+        display: flex;
+        &__li{
+          font-size: 12px;
+          margin: 0 20px;
+          &__bottom{
+            height: 2px;
+            width: 190%;
+            margin-top: 10px;
+            background-color: #cccccc;
+            &__start{
+              margin-left: 50%;
+            }
+            &__end{
+              width: 10px;
+            }
+          }
+          &__box{
+            position: relative;
+            &__radius{
+              height: 10px;
+              width: 10px;
+              background-color: #cccccc;
+              top: -5px;
+              border-radius: 5px;
+              position: absolute;
+            }
+            .signup__radius1{
+              margin-left: 20px;
+            }
+            .signup__radius2{
+              margin-left: 32px;
+            }
+            .signup__radius3{
+              margin-left: 45px;
+            }
+            .signup__radius4{
+              margin-left: 27px;
+            }
+            .signup__radius5{
+              margin-left: 8px;
+            }
+            .signup__header__nav__box__li__box__radius-red{
+              background-color: red;
+            }
+          }
+        }
+      }
+    }
+  }
+}

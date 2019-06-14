@@ -1,0 +1,47 @@
+.personal
+  .personal__top
+    %p.personal__top__title 本人情報の登録
+  .personal__main
+    .personal__main__attention
+      .personal__main__attention__top
+        %p.personal__main__attention__top__word
+          お客さまの本人情報をご登録ください。
+          %br 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+      .personal__main__attention__link
+        = link_to "本人確認書類のアップロードについて", '#'
+    .personal__main__information
+      .personal__main__information__name.personal__main__information__box
+        .personal__main__information__name__title.personal__main__information__title お名前
+        .personal__main__information__name__word 加藤　ジョル
+      .personal__main__information__name-kana.personal__main__information__box
+        .personal__main__information__name-kana__title.personal__main__information__title お名前カナ
+        .personal__main__information__name-kana__word カトウ　ジロウ
+      .personal__main__information__birthday.personal__main__information__box
+        .personal__main__information__birthday__title.personal__main__information__title 生年月日
+        .personal__main__information__birthday__word 1998/08/19
+    = form_for '#', class: "personal__main__form" do |f|
+      .personal__main__form__postal_code.personal__main__form__box
+        = f.label :postal_code, "郵便番号", class: "personal__main__form__box__label"
+        %span.personal__main__form__box__label__any 任意
+        = f.text_field :postal_code, placeholder: "例）1234567", class: "personal__main__form__box__label__input"
+      .personal__main__form__country.personal__main__form__box
+        = f.label :country, "都道府県", class: "personal__main__form__box__label"
+        %span.personal__main__form__box__label__any 任意
+        .personal__main__form__box__select
+          = f.select :country, [["北海道", "北海道"]],  prompt: "--"
+      .personal__main__form__city.personal__main__form__box
+        = f.label :city, "市町村区", class: "personal__main__form__box__label"
+        %span.personal__main__form__box__label__any 任意
+        = f.text_field :city, placeholder: "例）横浜市緑区", class: "personal__main__form__box__label__input"
+      .personal__main__form__addless.personal__main__form__box
+        = f.label :addless, "番地", class: "personal__main__form__box__label"
+        %span.personal__main__form__box__label__any 任意
+        = f.text_field :addless, placeholder: "例）青山1-1-1", class: "personal__main__form__box__label__input"
+      .personal__main__form__building.personal__main__form__box
+        = f.label :building, "建物名", class: "personal__main__form__box__label"
+        %span.personal__main__form__box__label__any 任意
+        = f.text_field :building, placeholder: "例）柳ビル103", class: "personal__main__form__box__label__input"
+      .personal__main__form__submit
+        = f.submit "登録する", class: "personal__main__form__submit__button"
+    .personal__main__bottom
+      = link_to "本人情報の登録について", '#'

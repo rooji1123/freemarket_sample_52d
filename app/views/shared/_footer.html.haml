@@ -1,0 +1,95 @@
+.app
+  .app__box
+    .app__box__left
+      .app__box__left__top
+        .app__box__left__top__sub スマホでかんたんフリマアプリ
+        .app__box__left__top__title 今すぐ無料ダウンロード！
+      .app__box__left__bottom
+        .app__box__left__bottom__left
+          = image_tag 'mercari_icon', class: "app__box__left__bottom__left-image"
+        .app__box__left__bottom__center
+          = link_to 'https://itunes.apple.com/jp/app/%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA-%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA-%E3%82%B9%E3%83%9E%E3%83%9B%E6%B1%BA%E6%B8%88%E3%83%A1%E3%83%AB%E3%83%9A%E3%82%A4/id667861049?mt=8', class: "app__box__left__bottom__right__link-image", :target=>["_blank"] do
+            = image_tag 'app-store.svg', class: "app__box__left__bottom__center__link-image app__box__left__bottom__app"
+        .app__box__left__bottom__right
+          = link_to 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', class: "app__box__left__bottom__right__link-image", :target=>["_blank"] do
+            = image_tag 'google-play.svg', class: "app__box__left__bottom__right__link-image app__box__left__bottom__app"
+    .app__box__right
+      = image_tag 'hand.png', class: "app__box__right__image"
+%footer.footer-jiro
+  .footer-jiro__top
+    .footer-jiro__top__overview.footer-jiro__top__box
+      %p.footer-jiro__top__overview__title.footer-jiro__list__title メルカリについて
+      %ul.footer-jiro__top__overview__menu.footer-jiro__menu
+        %li.footer-jiro__top__overview__list.footer-jiro__menu__list
+          = link_to "会社概要（運営会社）", '#', class: "footer-jiro__top__overview__list__link footer-jiro__menu__list__link"
+        %li.footer-jiro__top__overview__list.footer-jiro__menu__list
+          = link_to "採用情報", '#', class: "footer-jiro__top__overview__list__link footer-jiro__menu__list__link"
+        %li.footer-jiro__top__overview__list.footer-jiro__menu__list
+          = link_to "プレスリリース", '#', class: "footer-jiro__top__overview__list__link footer-jiro__menu__list__link"
+        %li.footer-jiro__top__overview__list.footer-jiro__menu__list
+          = link_to "公式ブログ", '#', class: "footer-jiro__top__overview__list__link footer-jiro__menu__list__link"
+        %li.footer-jiro__top__overview__list.footer-jiro__menu__list
+          = link_to "メルカリロゴ利用ガイドライン", '#', class: "footer-jiro__top__overview__list__link footer-jiro__menu__list__link"
+      .footer-jiro__top__overview__icon
+        = link_to 'https://twitter.com/mercari_jp', :target=>["_blank"] do
+          = fa_icon("twitter")
+        = link_to 'https://ja-jp.facebook.com/', :target=>["_blank"] do
+          = fa_icon("facebook-square")
+    .footer-jiro__top__guide.footer-jiro__top__box
+      %p.footer-jiro__top__guide__title.footer-jiro__list__title ヘルプ＆ガイド
+      %ul.footer-jiro__top__guide__menu.footer-jiro__menu
+        %li.footer-jiro__top__guide__menu__list.footer-jiro__menu__list
+          = link_to "メルカリガイド", '#', class: "footer-jiro__top__guide__menu__list__link footer-jiro__menu__list__link"
+        %li.footer-jiro__top__guide__menu__list.footer-jiro__menu__list
+          = link_to "らくらくメルカリ便", '#', class: "footer-jiro__top__guide__menu__list__link footer-jiro__menu__list__link"
+        %li.footer-jiro__top__guide__menu__list.footer-jiro__menu__list
+          = link_to "ゆうゆうメルカリ便", '#', class: "footer-jiro__top__guide__menu__list__link footer-jiro__menu__list__link"
+        %li.footer-jiro__top__guide__menu__list.footer-jiro__menu__list
+          = link_to "大型メルカリ便", '#', class: "footer-jiro__top__guide__menu__list__link footer-jiro__menu__list__link"
+        %li.footer-jiro__top__guide__menu__list.footer-jiro__menu__list
+          = link_to "車体取引ガイド", '#', class: "footer-jiro__top__guide__menu__list__link footer-jiro__menu__list__link"
+        %li.footer-jiro__top__guide__menu__list.footer-jiro__menu__list
+          = link_to "メルカリ安心・安全宣言！", '#', class: "footer-jiro__top__guide__menu__list__link footer-jiro__menu__list__link"
+        %li.footer-jiro__top__guide__menu__list.footer-jiro__menu__list
+          = link_to "偽ブランド品撲滅への取り組み", '#', class: "footer-jiro__top__guide__menu__list__link footer-jiro__menu__list__link"
+        %li.footer-jiro__top__guide__menu__list.footer-jiro__menu__list
+          = link_to "メルカリボックス", '#', class: "footer-jiro__top__guide__menu__list__link footer-jiro__menu__list__link"
+    .footer-jiro__top__terms.footer-jiro__top__box
+      %p.footer-jiro__top__terms__title.footer-jiro__list__title プライバシーと利用規約
+      .footer-jiro__top__terms__box
+        .footer-jiro__top__terms__box__left
+          %ul.footer-jiro__top__terms__box__left__menu.footer-jiro__menu
+            %li.footer-jiro__top__terms__box__left__menu__list.footer-jiro__menu__list
+              = link_to "プライバシーポリシー", '#', class: "footer-jiro__top__terms__box__left__menu__list__link footer-jiro__menu__list__link"
+            %li.footer-jiro__top__terms__box__left__menu__list.footer-jiro__menu__list
+              = link_to "メルカリ利用規約", '#', class: "footer-jiro__top__terms__leftbox____menu__list__link footer-jiro__menu__list__link"
+            %li.footer-jiro__top__terms__box__left__menu__list.footer-jiro__menu__list
+              = link_to "安心スマホサポート制度に関する利用特約", '#', class: "footebox__r__top__terms__left__menu__list__link footer-jiro__menu__list__link"
+            %li.footer-jiro__top__terms__box__left__menu__list.footer-jiro__menu__list
+              = link_to "コンプライアンスポリシー", '#', class: "footer-jiro__top__terbox__ms__left__menu__list__link footer-jiro__menu__list__link"
+        .footer-jiro__top__terms__box__right
+          %ul.footer-jiro__top__terms__box__right__menu.footer-jiro__menu
+            %li.footer-jiro__top__terms__box__right__menu__list.footer-jiro__menu__list
+              = link_to "個人データの安全管理に関わる基本方針", '#', class: "footer-jiro__top__terms__box__right__menu__list__link footer-jiro__menu__list__link"
+            %li.footer-jiro__top__terms__box__right__menu__list.footer-jiro__menu__list
+              = link_to "特定商法取引に関する表記", '#', class: "footer-jiro__top__terms__box__right__menu__list__link footer-jiro__menu__list__link"
+            %li.footer-jiro__top__terms__box__right__menu__list.footer-jiro__menu__list
+              = link_to "資金決済法に基づく表示", '#', class: "footer-jiro__top__terms__box__right__menu__list__link footer-jiro__menu__list__link"
+            %li.footer-jiro__top__terms__box__right__menu__list.footer-jiro__menu__list
+              = link_to "法令遵守登坂財力氏のために", '#', class: "footer-jiro__top__terms__box__right__menu__list__link footer-jiro__menu__list__link"
+            %li.footer-jiro__top__terms__box__right__menu__list.footer-jiro__menu__list
+              = link_to "返品・返金ポリシー", '#', class: "footer-jiro__top__terms__box__right__menu__list__link footer-jiro__menu__list__link"
+    .footer-jiro__top__country.footer-jiro__top__box
+      %p.footer-jiro__top__country__title.footer-jiro__list__title 国
+      %ul.footer-jiro__top__country__menu.footer-jiro__menu
+        %li.footer-jiro__top__country__menu__list.footer-jiro__menu__list
+          = link_to "日本", '#', class: "footer-jiro__top__country__menu__list__link footer-jiro__menu__list__link"
+        %li.footer-jiro__top__country__menu__list.footer-jiro__menu__list
+          = link_to "United States", '#', class: "footer-jiro__top__country__menu__list__link footer-jiro__menu__list__link"
+  .footer-jiro__bottom
+    .footer-jiro__bottom__left.footer-jiro__bottom__box
+      = link_to "#", class: "footer-jiro__bottom__left__link" do
+        = image_tag 'logo-white.sag.svg', class: "footer-jiro__bottom__left__link__img"
+    .footer-jiro__bottom__center.footer-jiro__bottom__box
+      .footer-jiro__bottom__center__text © 2019 Mercari
+    .footer-jiro__bottom__right.footer-jiro__bottom__box

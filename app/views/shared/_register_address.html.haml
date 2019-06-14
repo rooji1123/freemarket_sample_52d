@@ -1,0 +1,64 @@
+%section.single-contents
+  %h2.single-contents__header
+    住所入力
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), :html=>{class: "single-contents__form"}) do |f|
+    .single-contents__form__content
+      .single-contents__form__content__upper
+        = f.label :email, "お名前", class: "single-contents__form__content__upper__label"
+        .single-contents__form__content__upper__require-icon
+          必須
+      .single-contents__form__content__lower
+        = f.text_field :email, class: "single-contents__form__content__lower__field", placeholder: "例）山田"
+      .single-contents__form__content__lower
+        = f.text_field :email, class: "single-contents__form__content__lower__field", placeholder: "例）彩"
+    .single-contents__form__content
+      .single-contents__form__content__upper
+        = f.label :email, "お名前カナ", class: "single-contents__form__content__upper__label"
+        .single-contents__form__content__upper__require-icon
+          必須
+      .single-contents__form__content__lower
+        = f.text_field :email, class: "single-contents__form__content__lower__field", placeholder: "例）ヤマダ"
+      .single-contents__form__content__lower
+        = f.text_field :email, class: "single-contents__form__content__lower__field", placeholder: "例）アヤ"
+    .single-contents__form__content
+      .single-contents__form__content__upper
+        = f.label :email, "郵便番号", class: "single-contents__form__content__upper__label"
+        .single-contents__form__content__upper__require-icon
+          必須
+      .single-contents__form__content__lower
+        = f.text_field :email, class: "single-contents__form__content__lower__field", placeholder: "例）123-4567"
+    .single-contents__form__content
+      .single-contents__form__content__upper
+        = f.label :email, "都道府県", class: "single-contents__form__content__upper__label"
+        .single-contents__form__content__upper__require-icon
+          必須
+      .single-contents__form__content__lower
+        = f.text_field :email, class: "single-contents__form__content__lower__field", placeholder: "北海道"
+      .single-contents__form__content__upper
+        = f.label :email, "市区町村", class: "single-contents__form__content__upper__label"
+        .single-contents__form__content__upper__require-icon
+          必須
+      .single-contents__form__content__lower
+        = f.text_field :email, class: "single-contents__form__content__lower__field", placeholder: "例）横浜市緑区"
+    .single-contents__form__content
+      .single-contents__form__content__upper
+        = f.label :email, "番地", class: "single-contents__form__content__upper__label"
+        .single-contents__form__content__upper__require-icon
+          必須
+      .single-contents__form__content__lower
+        = f.text_field :email, class: "single-contents__form__content__lower__field", placeholder: "例）青山1-1-1"
+    .single-contents__form__content
+      .single-contents__form__content__upper
+        = f.label :email, "建物名", class: "single-contents__form__content__upper__label"
+        .single-contents__form__content__upper__require-icon
+          必須
+      .single-contents__form__content__lower
+        = f.text_field :email, class: "single-contents__form__content__lower__field", placeholder: "例）柳ビル103"
+    .single-contents__form__content
+      .single-contents__form__content__upper
+        = f.label :email, "電話", class: "single-contents__form__content__upper__label"
+        .single-contents__form__content__upper__require-icon
+          必須
+      .single-contents__form__content__lower
+        = f.text_field :email, class: "single-contents__form__content__lower__field", placeholder: "例）09012345678"
+    = f.submit "次へ進む", class: "single-contents__form__submit"

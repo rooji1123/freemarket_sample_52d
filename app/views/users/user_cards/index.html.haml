@@ -1,0 +1,16 @@
+.card
+  .card__top
+    .card__top__title 支払い方法
+  .card__main
+    .card__main__box
+      .card__main__box__left
+        .card__main__box__left__title クレジットカード一覧
+        .card__main__box__left__image
+          = image_tag 'visa.svg', class: "card__main__box__left__image__box"
+        .card__main__box__left__number **************7321
+        .card__main__box__left__day 02/42
+      .card__main__box__right
+        .card__main__box__right__delete
+          = link_to "削除する",'#', class: "card__main__box__right__delete__link"
+  .card__bottom
+    = link_to "支払い方法について", '#', class: "card__bottom__link"

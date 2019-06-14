@@ -1,0 +1,83 @@
+.contents{
+  .card{
+    width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    &__top{
+      height: 50px;
+      border-bottom: 1px $list-color solid;
+      &__title{
+        font-size: 24px;
+        text-align: center;
+        line-height: 50px;
+        font-weight: bold;
+        color: $black;
+      }
+    }
+    &__main{
+      &__box{
+        width: 80%;
+        border-bottom: 1px $list-color solid;
+        margin: 0 auto;
+        margin-top: 50px;
+        padding-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        $card-width: 200px;
+        $card-height: 100px;
+        &__left{
+          height: $card-height;
+          width: $card-width;
+          &__title{
+            font-size: 16px;
+            font-weight: bold;
+          }
+          &__image{
+            margin-top: 10px;
+            &__box{
+              height: 15px;
+            }
+          }
+          &__number{
+            margin-top: 5px;
+          }
+          &__day{
+            margin-top: 5px;
+          }
+        }
+        &__right{
+          height: $card-height;
+          width: $card-width;
+          &__delete{
+            text-align: center;
+            line-height: $card-height;
+            &__link{
+              height: 25px;
+              width: 70px;
+              text-decoration: none;
+              color: #ea352d;
+              border: 1px solid #ea352d;
+              border-radius: 3px;
+              padding: 4px 6px;
+            }
+          }
+        }
+      }
+    }
+    &__bottom{
+      width: 80%;
+      margin: 0 auto;
+      margin-top: 40px;
+      padding-bottom: 65px;
+      text-align: right;
+      &__link{
+        color: $blue-link;
+        text-decoration: none;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

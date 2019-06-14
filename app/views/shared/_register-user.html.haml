@@ -1,0 +1,100 @@
+%section.single-contents
+  %h2.single-contents__header
+    会員情報入力
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), :html=>{class: "single-contents__form", method: :put}) do |f|
+    .single-contents__form__content
+      .single-contents__form__content__upper
+        = f.label :email, "ニックネーム", class: "single-contents__form__content__upper__label"
+        .single-contents__form__content__upper__require-icon
+          必須
+      .single-contents__form__content__lower
+        = f.text_field :email, class: "single-contents__form__content__lower__field", placeholder: "例）メルカリ太郎"
+    .single-contents__form__content
+      .single-contents__form__content__upper
+        = f.label :email, "メールアドレス", class: "single-contents__form__content__upper__label"
+        .single-contents__form__content__upper__require-icon
+          必須
+      .single-contents__form__content__lower
+        = f.text_field :email, class: "single-contents__form__content__lower__field", placeholder: "PC・携帯どちらでも可"
+    .single-contents__form__content
+      .single-contents__form__content__upper
+        = f.label :email, "パスワード", class: "single-contents__form__content__upper__label"
+        .single-contents__form__content__upper__require-icon
+          必須
+      .single-contents__form__content__lower
+        = f.text_field :email, class: "single-contents__form__content__lower__field", placeholder: "6文字以上"
+    .single-contents__form__content
+      .single-contents__form__content__upper
+        = f.label :email, "パスワード(確認)", class: "single-contents__form__content__upper__label"
+        .single-contents__form__content__upper__require-icon
+          必須
+      .single-contents__form__content__lower
+        = f.text_field :email, class: "single-contents__form__content__lower__field", placeholder: "6文字以上"
+    .single-contents__form__attend
+      %h3.single-contents__form__attend__title
+        本人確認
+      %p.single-contents__form__attend__text
+        安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+    .single-contents__form__content
+      .single-contents__form__content__upper
+        = f.label :email, "姓(全角)", class: "single-contents__form__content__upper__label"
+        .single-contents__form__content__upper__require-icon
+          必須
+      .single-contents__form__content__lower
+        = f.text_field :email, class: "single-contents__form__content__lower__field", placeholder: "例)山田"
+    .single-contents__form__content
+      .single-contents__form__content__upper
+        = f.label :email, "名(全角)", class: "single-contents__form__content__upper__label"
+        .single-contents__form__content__upper__require-icon
+          必須
+      .single-contents__form__content__lower
+        = f.text_field :email, class: "single-contents__form__content__lower__field", placeholder: "例)彩"
+    .single-contents__form__content
+      .single-contents__form__content__upper
+        = f.label :email, "姓カナ(全角)", class: "single-contents__form__content__upper__label"
+        .single-contents__form__content__upper__require-icon
+          必須
+      .single-contents__form__content__lower
+        = f.text_field :email, class: "single-contents__form__content__lower__field", placeholder: "例)ヤマダ"
+    .single-contents__form__content
+      .single-contents__form__content__upper
+        = f.label :email, "名カナ(全角)", class: "single-contents__form__content__upper__label"
+        .single-contents__form__content__upper__require-icon
+          必須
+      .single-contents__form__content__lower
+        = f.text_field :email, class: "single-contents__form__content__lower__field", placeholder: "例)アヤ"
+    .single-contents__form__content
+      .single-contents__form__content__upper
+        = f.label :email, "生年月日", class: "single-contents__form__content__upper__label"
+        .single-contents__form__content__upper__require-icon
+          必須
+      .single-contents__form__content__lower-date
+        = f.text_field :email, class: "single-contents__form__content__lower-date__field"
+        %span.single-contents__form__content__lower-date__arrow-year
+          = fa_icon 'chevron-down'
+        %span.single-contents__form__content__lower-date__unit
+          年
+        = f.text_field :email, class: "single-contents__form__content__lower-date__field"
+        %span.single-contents__form__content__lower-date__arrow-month
+          = fa_icon 'chevron-down'
+        %span.single-contents__form__content__lower-date__unit
+          月
+        = f.text_field :email, class: "single-contents__form__content__lower-date__field"
+        %span.single-contents__form__content__lower-date__arrow-day
+          = fa_icon 'chevron-down'
+        %span.single-contents__form__content__lower-date__unit
+          日
+    .single-contents__form__attend
+      %p.single-contents__form__attend__info-text
+        ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+    .single-contents__form__recaptcha
+    .single-contents__form__attend
+      %p.single-contents__form__attend__next-text
+        「次へ進む」のボタンを押すことにより、<a href="" class="single-contents__form__attend__next-text__link">利用規約</a>に同意したものとみなします
+    = f.submit "次へ進む", class: "single-contents__form__submit"
+    .single-contents__form__guid
+      = link_to root_path, class: "single-contents__form__guid__link" do
+        本人情報の登録について
+        %i
+          = fa_icon 'chevron-right'
+

@@ -1,0 +1,32 @@
+.signup
+  .signup__header
+    .signup__header__logo
+      = link_to '#', class: "signup__header__logo__link" do
+        = image_tag 'mercari_logo.svg'
+    .signup__header__nav
+      %ul.signup__header__nav__box
+        %li.signup__header__nav__box__li
+          会員情報
+          .signup__header__nav__box__li__bottom.signup__header__nav__box__li__bottom__start
+          .signup__header__nav__box__li__box
+            .signup__header__nav__box__li__box__radius.signup__radius1.signup__header__nav__box__li__box__radius-red
+        %li.signup__header__nav__box__li
+          電話番号認証
+          .signup__header__nav__box__li__bottom
+          .signup__header__nav__box__li__box
+            .signup__header__nav__box__li__box__radius.signup__radius2
+        %li.signup__header__nav__box__li
+          お届け先住所入力
+          .signup__header__nav__box__li__bottom
+          .signup__header__nav__box__li__box
+            .signup__header__nav__box__li__box__radius.signup__radius3
+        %li.signup__header__nav__box__li
+          支払い方法
+          .signup__header__nav__box__li__bottom
+          .signup__header__nav__box__li__box
+            .signup__header__nav__box__li__box__radius.signup__radius4
+        %li.signup__header__nav__box__li
+          完了
+          .signup__header__nav__box__li__bottom.signup__header__nav__box__li__bottom__end
+          .signup__header__nav__box__li__box
+            .signup__header__nav__box__li__box__radius.signup__radius5

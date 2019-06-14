@@ -1,0 +1,32 @@
+.second__footer {
+  width: 456px;
+  height :170px;
+  margin: 0 auto;
+  padding: 40px 0;
+  text-align: center;
+  li {
+    margin: 0 0 0 16px;
+    font-size: 13px;
+    display: inline-block;
+  }
+  .second__footer__logo{
+    a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    }
+    img {
+      vertical-align: middle;
+      width: 80px;
+      height: 65px;
+      margin: 40px auto 0;
+    }
+    p {
+      margin: 8px 0 0;
+      display: block;
+    }
+    small {
+      font-size: 12px;
+    }
+  }
+}

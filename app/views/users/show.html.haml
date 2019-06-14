@@ -1,0 +1,8 @@
+.container
+  = render "shared/mypage_side_bar"
+  = render "shared/mypage_contents"
+  = link_to root_path, class: "display-icon" do
+    .display-icon__text
+      ="出品"
+    .display-icon__icon
+      = fa_icon 'camera'
