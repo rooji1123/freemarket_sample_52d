@@ -34,7 +34,7 @@
 
 .main 
   .main__visual
-    -# =image_tag 'app-store.svg', class: "main__visual__image"
+    = image_tag 'https://www.mercari.com/jp/assets/img/common/jp/top/banner-6th-thanks.jpg', class: "main__visual__image"
   .main__pickup
     .main__pickup__head
       ピックアップカテゴリー
@@ -551,4 +551,4 @@
               %span 1
     .main__pickup__view
       = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
-
+= render 'shared/footer'
