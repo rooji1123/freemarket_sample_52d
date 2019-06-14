@@ -25,6 +25,7 @@ has_many :items
 |first_name_kana|string|null:false|
 |last_name_kana|string|null:false|
 |birthday|string|null:false|
+|check_phonenumber|string|null:false|
 |user_id|references|foreign_key: true, null:false|
 
 ### Assosiation
