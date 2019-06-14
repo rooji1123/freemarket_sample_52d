@@ -115,7 +115,7 @@ belongs_to :item
 |comment|text|null: false|
 |user_id|references|foreign_key: true, null: false|
 |item_id|references|foreign_key: true, null: false|
-|item_state|references|foreign_key: true,null: false|
+|item_state|string|null: false|
 
 ### Assosiation
 belongs_to :user
