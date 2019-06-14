@@ -1,0 +1,11 @@
+.contents
+  %h2.set-profile-header
+    プロフィール
+  = form_for user_path do |f|
+    .set-profile-upper
+      %figure.set-profile-upper__avator
+        = image_tag "", size: "60x60", alt: "figure"
+      = f.text_field :name, placeholder: "例）AYA☆セール中", class: "set-profile-upper__form"
+    .set-profile-lower
+      = f.text_area :name, placeholder: "例）こんにちは☆ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪", class: "set-profile-lower__form"
+      = f.submit "変更する", class:"set-profile-lower__submit-button"
