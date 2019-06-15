@@ -75,12 +75,12 @@ belongs_to :user
 |introduction|text|null: false|
 |price|integer|null: false|
 |size|string|null: false|
-|state|string|null: false|
+|item_state|string|null: false|
 |seller_id|references|foreign_key: true, null: false|
 |buyer_id|references|foreign_key: true,null: true|
 |brand|references|foreign_key: true|
 |category|references|foreign_key: true|
-|deal|string|nill: true|
+|deal_state|string|nill: true|
 
 ### Assosiation
 has_many :comments, dependent: :destroy
@@ -130,7 +130,7 @@ belongs_to :item
 ## categoriesテーブル
 |Column|Type|Options|
 |------|-----|------|
-|name|string|null:false, index: true|
+|category|string|null:false, index: true|
 |size|string|null: true|
 |ancestry|string|null:false|
 
@@ -153,7 +153,7 @@ has_many :items
 ## brand_categorisテーブル
 |Column|Type|Options|
 |------|-----|------|
-|brand_name|string|null:false|
+|brand_category|string|null:false, index: true|
 
 ### Assosiation
 has_many :brand_categorys
@@ -169,3 +169,5 @@ has_many :brands, through: :brand_categorys
 ### Assosiation
 belongs_to :brand
 belongs_to :brand_categry
+
+linl: https://cacoo.com/diagrams/mHntFmajXR79zGJy/F92DA
