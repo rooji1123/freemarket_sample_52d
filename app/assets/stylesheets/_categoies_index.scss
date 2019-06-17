@@ -133,21 +133,17 @@
           font-weight: bold;
        }
         &__list {
+          display: flex;
           padding-left: 20px;
           padding-right: 20px;
           padding-bottom: 10px;
           background-repeat: no-repeat;
-          display: block;
           cursor: auto;
           content: '';
           clear: both;
         }
         .category-inner-list {
-          float: left;
-          width: 50%;
-          padding: 0 20px 0 0;
           background-repeat: no-repeat;
-          margin: 0;
           display: block;
           box-sizing: border-box;
           text-decoration: none;
