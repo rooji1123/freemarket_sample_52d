@@ -162,7 +162,6 @@
       display: block;
       color: blue;
       .move__items-next{
-        display: inline-block;
         width: 45%;
         float: left;
         &-arrow{
@@ -173,7 +172,6 @@
         }
       }
       .move__items-back{
-        display: inline-block;
         float: right;
         max-width: 45%;
         &-name{
