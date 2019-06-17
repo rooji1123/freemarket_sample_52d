@@ -1,0 +1,176 @@
+.bread-crubs {
+  width: 100vw;
+  height: 48px;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 48px;
+  position: relative;
+  z-index: 1;
+}
+.category-index {
+  background: #f5f5f5;
+  width: 100vw;
+  min-height: 30000px;
+  padding-top:0;
+  &__body {
+    width: 700px;
+    min-height: 90%;
+    margin: 0 auto 40px;
+    background: transparent;
+    padding: 18px 0 0 0;
+    border-style: solid;
+    border-width: 0;
+    display: block;
+    box-sizing: border-box;
+    color: rgb(51, 51, 51);
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    cursor: auto;
+    &__title {
+      padding: 8px 0;
+      font-size: 22px;
+      line-height: 1.4;
+      background-repeat: no-repeat;
+      margin: 0;
+      display: block;
+      margin-block-start: 0.83em;
+      margin-block-end: 0.83em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+      cursor: auto;
+    }
+    &__list {
+      
+      text-align: center;
+      background-repeat: no-repeat;
+      margin: 0;
+      border-style: solid;
+      padding: 0;
+      border-width: 0;
+      font-size: 16px;
+      display: block;
+      cursor: auto;
+      content: '';
+      clear: both;
+      height: 250px;
+      
+      .category-index__list__name {
+        float: left;
+        display: block;
+        border-radius: 4px;
+        min-width: 80px;
+        height: 40px;
+        box-shadow: 1px 1px 1px 1px rgba(14,14,14,0.0580392);
+        padding: 0 30px;
+        margin: 5px;
+        color: #333;
+        font-size: 16px;
+        line-height: 40px;
+        background-color: #fff;
+        touch-action: manipulation;
+        border-style: solid;
+        border-width: 0;
+        text-decoration: none;
+        &:hover{
+          background: #ea352d;
+          color: white;
+        }
+      }
+    }
+    &__box {
+      clear: both;
+      margin: 30px auto;
+      padding-bottom: 30px;
+      display: block;
+      box-sizing: border-box;
+      background-color: #fff;
+      &__part {
+        clear: both;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        padding: 7px 30px 0 30px;
+        height: 40px;
+        color: #fff;
+        background-color: #ea352d;
+        background-repeat: no-repeat;
+        margin: 0;
+        border-style: solid;
+        border-width: 0;
+        font-size: 22px;
+        box-sizing: border-box;
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+        line-height: 100%;
+      }
+    &__inner {
+      padding: 24px 30px 10px 30px;
+      margin: 0;
+      border-style: solid;
+      border-width: 0;
+      font-size: 16px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+      &__sub {
+        
+        p {
+          padding-top: 15px;
+          padding-bottom: 5px;
+          background-repeat: no-repeat;
+          font-size: 14px;
+          display: block;
+          margin-block-start: 1.33em;
+          margin-block-end: 1.33em;
+          margin-inline-start: 0px;
+          margin-inline-end: 0px;
+          font-weight: bold;
+       }
+        &__list {
+          padding-left: 20px;
+          padding-right: 20px;
+          padding-bottom: 10px;
+          background-repeat: no-repeat;
+          display: block;
+          cursor: auto;
+          content: '';
+          clear: both;
+        }
+        .category-inner-list {
+          float: left;
+          width: 50%;
+          padding: 0 20px 0 0;
+          background-repeat: no-repeat;
+          margin: 0;
+          display: block;
+          box-sizing: border-box;
+          text-decoration: none;
+          cursor: pointer;
+          color: #0099e8;
+        }
+      }
+      .category-inner-name {
+        font-size: 16px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        display: block;
+        color: #0099e8;
+        text-decoration: none;
+        touch-action: manipulation;
+        line-height: 100%;
+        box-sizing: border-box;
+        cursor: pointer;
+
+      }
+    }
+    }
+  }
+
+}
+  
