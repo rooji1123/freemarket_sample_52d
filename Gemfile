@@ -77,6 +77,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'active_hash'
 gem 'ancestry'
+gem 'gretel'
 
 group :production do
   gem 'unicorn', '5.4.1'
