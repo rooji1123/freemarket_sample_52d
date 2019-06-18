@@ -1,180 +1,133 @@
-.detailpage
-  .detailpage-center
-    .details
-      .detail__item
-        .detail__item-name
-          さめ  ぬいぐるみ
-        .detail__item__info
-          .detail__item__info__image
-            = image_tag "http://livedoor.blogimg.jp/jin115/imgs/c/0/c066a449-s.jpg", class: "detail__item__info__image-big"
-            .detail__item__info__image-dots
-              .detail__item__info__image-dot
-                = image_tag "ihttp://livedoor.blogimg.jp/jin115/imgs/c/0/c066a449-s.jpg", class: "detail__item__info__image-dot"
-              .detail__item__info__image-dot
-                = image_tag "http://livedoor.blogimg.jp/jin115/imgs/c/0/c066a449-s.jpg", class: "detail__item__info__image-dot"
-              .detail__item__info__image-dot
-                = image_tag "ihttp://livedoor.blogimg.jp/jin115/imgs/c/0/c066a449-s.jpg", class: "detail__item__info__image-dot"
-              .detail__item__info__image-dot
-                = image_tag "http://livedoor.blogimg.jp/jin115/imgs/c/0/c066a449-s.jpg", class: "detail__item__info__image-dot"
-              .detail__item__info__image-dot
-                = image_tag "http://livedoor.blogimg.jp/jin115/imgs/c/0/c066a449-s.jpg", class: "detail__item__info__image-dot"
-          .detail__item__info__table
-            %table.table-out{:border => "1"}
-              %tr
-                %th 出品者
-                %td
-                  %a マッサン
-                  %div hello
-              %tr
-                %th カテゴリー
-                %td
-                  %a おもちゃ・ホビー・グッズ
-                  %a ＞おもちゃ
-                  %a ＞ぬいぐるみ
-              %tr
-                %th ブランド
-                %td
-              %tr
-                %th 商品の状態
-                %td 新品・未使用
-              %tr
-                %th 配送料の負担
-                %td 送料込み
-              %tr
-                %th 見出し
-                %td データ
-              %tr
-                %th 見出し
-                %td データ
-              %tr
-                %th 見出し
-                %td データ
-      .detail__price
-        .detail__price-price
-          ¥3,720
-        .detail__price-tax
-          （税込）
-        .detail__price-cost
-          送料込み
-      .detail__buy-btm
-        購入画面に進む
-      %p.detail__usercomment
-        見てくれてありがとう
-      .detail__action
-        .detail__action__likes
-          .detail__action__likes-image
-            = fa_icon("heart")
-          .detail__action__likes-text
-            いいね！
-          .detail__action__likes-count
-            2
-        .detail__action-report
-          = fa_icon("flag",text:"不適切な商品の報告")
-        .detail__action-policy
-          = fa_icon("lock",text:"あんしん、あんぜんへの取り組み")
-    .detail__form
-      .detail__form-info
-        相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      %textarea.detail__textarea
-      .detail__send-btm
-        コメントする
-    .move__items
-      .move__items-next
-        .move__items-next-arrow
-          ＜
-        .move__items-next-name
-          プリティリトルシング　小さいサイズ　XS　ワンピース
-      .move__items-back
-        .move__items-back-name
-          無印良品 シャンプー三本セット
-        .move__items-back-arrow
-          ＞
-    .links
-      .link-facebook
-        = fa_icon("facebook-square")
-      .link-twitter
-        = fa_icon("twitter-square")
-      .link-line
-        = fa_icon("line")
-      .link-pinterest
-        = fa_icon("pinterest-square")
-    .other__items
-      .other__items-name
-        ーーさんのその他の出品
-      .other__items__list
-        .other__items__list__box
-          .other__items__list__box-photo
-            %a{href: "group#index"}
-              = image_tag "http://livedoor.blogimg.jp/jin115/imgs/c/0/c066a449-s.jpg", size: "220x220"
-          .other__items__list__box__body
-            .other__items__list__box__body__name
-              プロテイン
-            .other__items__list__box__body__value
-              ￥1,250
-            .other__items__list__box__body__tax
-              (税込)
+= render 'shared/header'
+  .detailpage
+    .detailpage-center
+      .details
+        .detail__item
+          .detail__item-name
+            = @item.name
+          .detail__item__info
+            .detail__item__info__image
+              = image_tag "http://livedoor.blogimg.jp/jin115/imgs/c/0/c066a449-s.jpg", class: "detail__item__info__image-big"
+              .detail__item__info__image-dots
+                - @images.each do |image|
+                  .detail__item__info__image-dot
+                    = image_tag ""
+                  -# .detail__item__info__image-dot
+                  -#   = image_tag "http://livedoor.blogimg.jp/jin115/imgs/c/0/c066a449-s.jpg", class: "detail__item__info__image-dot"
+            .detail__item__info__table
+              %table.table-out{:border => "1"}
+                %tr
+                  %th 出品者
+                  %td
+                    %a マッサン
+                    %div 
+                %tr
+                  %th カテゴリー
+                  %td
+                    %a おもちゃ・ホビー・グッズ
+                    %a ＞おもちゃ
+                    %a ＞ぬいぐるみ
+                %tr
+                  %th ブランド
+                  %td
+                %tr
+                  %th 商品の状態
+                  %td 新品・未使用
+                %tr
+                  %th 配送料の負担
+                  %td 送料込み
+                %tr
+                  %th 発送の方法
+                  %td データ
+                %tr
+                  %th 発送元地域
+                  %td データ
+                %tr
+                  %th 発想の目安
+                  %td データ
+        .detail__price
+          .detail__price-price
+            ¥
+            = @item.price
+          .detail__price-tax
+            （税込）
+          .detail__price-cost
+            送料込み
+        .detail__buy-btm
+          購入画面に進む
+        %p.detail__usercomment
+          -# = @item.introduction
+        .detail__action
+          .detail__action__likes
+            .detail__action__likes-image
               = fa_icon("heart")
-        .other__items__list__box
-          .other__items__list__box-photo
-            %a{href: "group#index"}
-              = image_tag "http://livedoor.blogimg.jp/jin115/imgs/c/0/c066a449-s.jpg", size: "220x220"
-          .other__items__list__box__body
-            .other__items__list__box__body__name
-              プロテイン
-            .other__items__list__box__body__value
-              ￥1,250
-            .other__items__list__box__body__tax
-              (税込)
-              = fa_icon("heart")
-        .other__items__list__box
-          .other__items__list__box-photo
-            %a{href: "group#index"}
-              = image_tag "http://livedoor.blogimg.jp/jin115/imgs/c/0/c066a449-s.jpg", size: "220x220"
-          .other__items__list__box__body
-            .other__items__list__box__body__name
-              プロテイン
-            .other__items__list__box__body__value
-              ￥1,250
-            .other__items__list__box__body__tax
-              (税込)
-              = fa_icon("heart")
-        .other__items__list__box
-          .other__items__list__box-photo
-            %a{href: "group#index"}
-              = image_tag "http://livedoor.blogimg.jp/jin115/imgs/c/0/c066a449-s.jpg", size: "220x220"
-          .other__items__list__box__body
-            .other__items__list__box__body__name
-              プロテイン
-            .other__items__list__box__body__value
-              ￥1,250
-            .other__items__list__box__body__tax
-              (税込)
-              = fa_icon("heart")
-        .other__items__list__box
-          .other__items__list__box-photo
-            %a{href: "group#index"}
-              = image_tag "http://livedoor.blogimg.jp/jin115/imgs/c/0/c066a449-s.jpg", size: "220x220"
-          .other__items__list__box__body
-            .other__items__list__box__body__name
-              プロテイン
-            .other__items__list__box__body__value
-              ￥1,250
-            .other__items__list__box__body__tax
-              (税込)
-              = fa_icon("heart")
-        .other__items
-      .other__items-name
-        その他のカテゴリーの商品
-      .other__items__list
-        .other__items__list__box
-          .other__items__list__box-photo
-            %a{href: "group#index"}
-              = image_tag "http://livedoor.blogimg.jp/jin115/imgs/c/0/c066a449-s.jpg", size: "220x220"
-          .other__items__list__box__body
-            .other__items__list__box__body__name
-              プロテイン
-            .other__items__list__box__body__value
-              ￥1,250
-            .other__items__list__box__body__tax
-              (税込)
-              = fa_icon("heart")
+            .detail__action__likes-text
+              いいね！
+            .detail__action__likes-count
+              2
+          .detail__action-report
+            = fa_icon("flag",text:"不適切な商品の報告")
+          .detail__action-policy
+            = fa_icon("lock",text:"あんしん、あんぜんへの取り組み")
+      .detail__form
+        .detail__form-info
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea.detail__textarea
+        .detail__send-btm
+          コメントする
+      .move__items
+        .move__items-next
+          .move__items-next-arrow
+            ＜
+          .move__items-next-name
+            プリティリトルシング　小さいサイズ　XS　ワンピース
+        .move__items-back
+          .move__items-back-name
+            無印良品 シャンプー三本セット
+          .move__items-back-arrow
+            ＞
+      .links
+        .link-facebook
+          = link_to "http://www.facebook.com/share.php?u=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm13733387425%2F", :target=>["_blank"] do
+            = fa_icon("facebook-square")
+        .link-twitter
+          = link_to 'https://twitter.com/mercari_jp', :target=>["_blank"] do
+            = fa_icon("twitter-square", class:"link-twitter")
+        .link-pinterest
+          = link_to 'http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm13733387425%2F&media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm13733387425_1.jpg%3F1560742222&description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20%E3%80%90analog%20%20lighting%2F%E3%82%A2%E3%83%8A%E3%83%AD%E3%82%B0%E3%83%A9%E3%82%A4%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%80%91%E3%83%AF%E3%83%B3%E3%83%94%E3%83%BC%E3%82%B9%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA', :target=>["_blank"] do
+            = fa_icon("pinterest-square", class: "link-pinterest")
+      .other__items
+        .other__items-name
+          ーーさんのその他の出品
+        .other__items__list
+          - @selleritems.shuffle.first(6).each do |item|
+            .other__items__list__box
+              .other__items__list__box-photo
+                %a{href: "group#index"}
+                  = image_tag "http://livedoor.blogimg.jp/jin115/imgs/c/0/c066a449-s.jpg", size: "220x220"
+              .other__items__list__box__body
+                .other__items__list__box__body__name
+                  = item.name
+                .other__items__list__box__body__value
+                  ￥
+                  =item.price
+                .other__items__list__box__body__tax
+                  (税込)
+                  = fa_icon("heart")
+        .other__items-name
+          その他のカテゴリーの商品
+        .other__items__list
+          - @categoryitems.shuffle.first(6).each do |item|
+            .other__items__list__box
+              .other__items__list__box-photo
+                %a{href: "group#index"}
+                  = image_tag "http://livedoor.blogimg.jp/jin115/imgs/c/0/c066a449-s.jpg", size: "220x220"
+              .other__items__list__box__body
+                .other__items__list__box__body__name
+                  = item.name
+                .other__items__list__box__body__value
+                  ￥
+                  = item.price
+                .other__items__list__box__body__tax
+                  (税込)
+                  = fa_icon("heart")

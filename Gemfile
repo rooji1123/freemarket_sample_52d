@@ -78,6 +78,7 @@ gem 'mini_magick'
 gem 'active_hash'
 gem 'ancestry'
 gem 'gretel'
+gem 'jquery-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'

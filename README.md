@@ -5,7 +5,7 @@
 |Column|Type|Options|
 |------|-----|------|
 |nickname|string|null:false|
-|introduction|text|null: true|
+|description|text|null: true|
 |avatar_image|string|null: true|
 
 ### Assosiation
@@ -72,7 +72,7 @@ belongs_to :user
 |Column|Type|Options|
 |------|-----|------|
 |name|string|null_false, index:true|
-|introduction|text|null: false|
+|description|text|null: false|
 |price|integer|null: false|
 |size|string|null: false|
 |item_state|string|null: false|

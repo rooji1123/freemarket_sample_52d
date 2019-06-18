@@ -13,8 +13,14 @@
               %span.new-item 必須
               %p 最大10枚までアップロードできます
             .sell-form__image__box
-              -# = f.label :images do
-              -#   = f.file_field :images, multiple: true
+              = f.fields_for :item_images do |image|
+                .image-container
+                  .image-area
+                    = image.label :image, class: "image-box", for: "upload-image" do
+                      .input_area
+                        = image.file_field :image, multiple: true, name: 'item_images[image][]'
+                      %p ドラッグアンドドロップ
+                      %p またはクリックしてファイルをアップロード
           .sell-form__content
             .sell-form__content__name
               %h5
@@ -25,7 +31,7 @@
               %h5
                 商品の説明
               %span.new-item 必須
-              -# = f.text_area :name, class: "sell-form__content__description__wrap", rows: "5", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+            = f.text_area :description, class: "sell-form__content__description__wrap", rows: "5", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
           .sell-form__detail
             %h6 
               商品の詳細
@@ -39,7 +45,8 @@
                 %h5
                   商品の状態
                 %span.new-item 必須
-              %select
+              .sell-form__detail__form-box__status__select
+                = f.select :item_state_id, ItemState.all.map{|t| [t.state, t.id]}, prompt: "---"
           .sell-form__delivery
             %h3 
               配送について
@@ -49,17 +56,21 @@
                 %h5
                   配送料の負担
                 %span.new-item 必須
-              %select
+              .sell-form__delivery__form-box__fee__select
+                = f.select :delivery_fee_id, DeliveryFee.all.map{|t| [t.fee, t.id]}, prompt: "---"
+                .sell-form__delivery__form-box__fee__select
               .sell-form__delivery__form-box__disrict
                 %h5
                   発送元の地域
                 %span.new-item 必須
-              %select
+              .sell-form__delivery__form-box__disrict__select
+                = f.select :prefecture_id, Prefecture.all.map{|t| [t.name, t.id]}, prompt: "---"
               .sell-form__delivery__form-box__date
                 %h5
                   発送までの日数
                 %span.new-item 必須
-              %select
+              .sell-form__delivery__form-box__date__select
+                = f.select :delivery_date_id, DeliveryDate.all.map{|t| [t.date, t.id]}, prompt: "---"
           .sell-form__selling-price
             %h3
               販売価格(300〜9,999,999)
@@ -73,7 +84,7 @@
                 .sell-form__selling-price__input__right
                   %p 
                     ¥
-                  -# = f.text_field :name, class: "sell-form__selling-price__input__right__yen", placeholder: "例）300"
+                  = f.text_field :price, class: "sell-form__selling-price__input__right__yen", placeholder: "例）300"
               .sell-form__selling-price__commission
                 .sell-form__selling-price__commission__left
                   %h6 販売手数料 (10%)
