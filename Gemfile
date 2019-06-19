@@ -78,6 +78,7 @@ gem 'mini_magick'
 gem 'active_hash'
 gem 'ancestry'
 gem 'jquery-rails'
+gem 'dropzonejs-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'
