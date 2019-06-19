@@ -4,9 +4,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @selleritems = Item.where(seller_id_id: @item.seller_id_id).where.not(id: @item.id)
+    @selleritems = Item.where(seller_id: @item.seller_id).where.not(id: @item.id)
     @categoryitems = Item.where(category_id: @item.category_id).where.not(id: @item.id)
-    @images = @item.images.where(params[:item_id])
+    @images = @item.item_images.where(params[:item_id])
   end
 
   def new
