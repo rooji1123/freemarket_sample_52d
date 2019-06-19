@@ -10,44 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_17_073731) do
+ActiveRecord::Schema.define(version: 2019_06_18_043327) do
 
-  create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image"
-    t.string "item_id"
-    t.string "image"
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "deliveries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "burden"
+    t.integer "method"
+    t.integer "region"
+    t.integer "day"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_deliveries_on_item_id"
+  end
+
+  create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "item_image"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_images_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
+    t.text "description"
     t.integer "price"
-    t.string "size"
-    t.string "item_state"
-    t.bigint "seller_id_id"
-    t.bigint "buyer_id_id"
+    t.integer "size"
+    t.integer "item_state"
+    t.bigint "seller_id"
+    t.bigint "buyer_id"
+    t.integer "likes"
     t.bigint "brand_id"
     t.bigint "category_id"
-    t.string "deal_state"
+    t.integer "deal_state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_items_on_brand_id"
-    t.index ["buyer_id_id"], name: "index_items_on_buyer_id_id"
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["seller_id_id"], name: "index_items_on_seller_id_id"
+    t.index ["name"], name: "index_items_on_name"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
+  add_foreign_key "deliveries", "items"
+  add_foreign_key "item_images", "items"
 end
