@@ -25,6 +25,12 @@ $(function () {
     var parentValue = document.getElementById("parent-form").value;
     $(".child-box").remove();
     $(".grandchild-box").remove();
+    $('.sell-form__detail__form-box__size__select').css({
+      'display': 'none'
+    });
+    $('.sell-form__detail__form-box__size').css({
+      'display': 'none'
+    });
     $('.hidden').css({
       'display': 'none'
     });
@@ -48,6 +54,12 @@ $(function () {
   $(document).on("change", "#children-form", function () {
     var childrenValue = document.getElementById("children-form").value;
     $(".grandchild-box").remove();
+    $('.sell-form__detail__form-box__size__select').css({
+      'display': 'none'
+    });
+    $('.sell-form__detail__form-box__size').css({
+      'display': 'none'
+    });
     $('.hidden').css({
       'display': 'none'
     });
