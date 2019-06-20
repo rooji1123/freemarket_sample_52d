@@ -4,7 +4,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string      :name, index: true
       t.text        :description, nill: false
       t.integer     :price, nill: false
-      t.integer     :size , default: 0, null: false
+      t.integer     :size_id , default: 0, null: false
       t.integer     :item_state
       t.references  :seller, null: true
       t.references  :buyer, null: true

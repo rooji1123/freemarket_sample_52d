@@ -15,5 +15,6 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivery_fee
   belongs_to_active_hash :delivery_date
   belongs_to_active_hash :delivery_choice
+  belongs_to_active_hash :size
   belongs_to_active_hash :item_state
 end
