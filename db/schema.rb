@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2019_06_20_034137) do
     t.string "name"
     t.text "description"
     t.integer "price"
-    t.integer "size"
+    t.integer "size_id", default: 0, null: false
     t.integer "item_state"
     t.bigint "seller_id"
     t.bigint "buyer_id"
