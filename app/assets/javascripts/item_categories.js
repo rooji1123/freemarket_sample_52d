@@ -69,7 +69,12 @@ $(function () {
       })
   });
   $(document).on("change", "#grand-children-form", function () {
-    $('.hidden').css({
+    $('.sell-form__detail__form-box__size__select').css({
+      'display': 'block'
+    });
+  });
+  $(document).on("change", "#grand-children-form", function () {
+    $('.sell-form__detail__form-box__size').css({
       'display': 'block'
     });
   });
