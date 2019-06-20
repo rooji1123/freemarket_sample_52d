@@ -46,6 +46,12 @@
                     = f.collection_select :category_ids, @parents, :id, :name,{prompt: "---"}, class: "select-default", id: "parent-form", name: 'item[category_ids][]'
                 #children-form-area
                 #grandchild-form-area
+              .sell-form__detail__form-box__size
+                %h5
+                  サイズ
+                %span.new-item 必須
+              .sell-form__detail__form-box__size__select
+                = f.select :size_id, Size.all.map{|t| [t.size, t.id]}, prompt: "---", id: "size"
               .sell-form__detail__form-box__status
                 %h5
                   商品の状態
