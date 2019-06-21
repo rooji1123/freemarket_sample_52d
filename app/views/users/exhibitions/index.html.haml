@@ -1,0 +1,37 @@
+= render 'shared/header'
+.container
+  = render 'shared/mypage_side_bar'
+  .exhibition
+    .exhibition__top
+      .exhibition__top__title
+        出品した商品
+    .exhibition__main
+      .exhibition__main__left.exhibition__main__box
+        出品中
+      .exhibition__main__center.exhibition__main__box
+        取引中
+      .exhibition__main__right.exhibition__main__box
+        売却済
+    .exhibition__bottom
+      .exhibition__bottom__exhibitions
+        .exhibition__bottom__exhibitions__exhibition
+          .exhibition__bottom__exhibitions__exhibition__image
+            = image_tag "https://static.mercdn.net/thumb/photos/m22044196498_1.jpg?1541915575", class: "exhibition__bottom__exhibitions__exhibition__image__box"
+          .exhibition__bottom__exhibitions__exhibition__details
+            .exhibition__bottom__exhibitions__exhibition__details__detail
+              .exhibition__bottom__exhibitions__exhibition__details__detail__title
+                タペストリー
+              .exhibition__bottom__exhibitions__exhibition__details__detail__bottom
+                .exhibition__bottom__exhibitions__exhibition__details__detail__bottom__favorit.exhibition__bottom__exhibitions__exhibition__details__detail__bottom__box
+                  = fa_icon("heart")
+                  %span 0
+                .exhibition__bottom__exhibitions__exhibition__details__detail__bottom__comments.exhibition__bottom__exhibitions__exhibition__details__detail__bottom__box
+                  = fa_icon("comment")
+                  %span 0
+                .exhibition__bottom__exhibitions__exhibition__details__detail__bottom__state.exhibition__bottom__exhibitions__exhibition__details__detail__bottom__box
+                  出品中
+          .exhibition__bottom__exhibitions__exhibition__link
+            = link_to "", '#', class: "exhibition__bottom__exhibitions__exhibition__link__hidden"
+
+= render "shared/display_icon"
+= render "shared/footer"
