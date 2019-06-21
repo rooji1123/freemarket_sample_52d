@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
   resources :users, only:[:show, :edit]
+  resources :items do
+    collection do
+      get 'search'
   resources :items, only: [:index, :new, :create, :show, :destroy, :edit, :update] do
     collection do
       get :category_search
