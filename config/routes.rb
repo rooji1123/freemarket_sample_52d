@@ -2,7 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
   resources :users, only:[:show, :edit]
-  resources :items
+  resources :items do
+    resources :purchases, only:[:new, :create, :update, :index] do
+      collection do
+        get 'purchase'
+      end
+    end
+  end
   resources :categories, only:[:index, :show]
   resources :brands, only:[:index, :show]
   scope module: 'users' do
