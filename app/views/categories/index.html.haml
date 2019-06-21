@@ -1,8 +1,9 @@
 = render 'shared/header'
 
-= render 'shared/breadcrumbs'
-  
- 
+-# = render 'shared/breadcrumbs'
+.breadcrumbs
+  - breadcrumb :categories
+  = breadcrumbs separator: " #{fa_icon("chevron-right")} "
 
 .category-index
   .category-index__body

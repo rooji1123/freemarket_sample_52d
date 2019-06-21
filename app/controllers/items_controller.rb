@@ -38,6 +38,11 @@ class ItemsController < ApplicationController
   def destroy
   end
 
+  def search
+    @items = Item.where('title LIKE(?)', "%#{params[:keyword]}%").limit(20)
+    
+  end
+
  private
 
    def item_params
