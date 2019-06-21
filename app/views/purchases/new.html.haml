@@ -16,10 +16,10 @@
             .item__main__burden__price
               = "¥ #{@item.price}"
               = f.hidden_field :price, value: @item.price
-              -# %input{maxlength: "16", type: "text", class: "number", id: "payment_card_no", name: "number", value: "4242424242424242"}
-              -# %input{type: "text", class: "cvc", id: "payment_card_security_code", name: "cvc", maxlength: "3", value: "123"}
-              -# %input{type: "text", class: "exp_month", id: "payment_card_expire_mm",  name: "exp_month", maxlength: "2", value: "12"}
-              -# %input{type: "text", class: "exp_year", id: "payment_card_expire_yy", name: "exp_year", maxlength: "4",  value: "2020"}
+              %input{maxlength: "16", type: "text", class: "number", id: "payment_card_no", name: "number", value: "4242424242424242"}
+              %input{type: "text", class: "cvc", id: "payment_card_security_code", name: "cvc", maxlength: "3", value: "123"}
+              %input{type: "text", class: "exp_month", id: "payment_card_expire_mm",  name: "exp_month", maxlength: "2", value: "12"}
+              %input{type: "text", class: "exp_year", id: "payment_card_expire_yy", name: "exp_year", maxlength: "4",  value: "2020"}
             .item__main__burden__text
               送料込み
           .item__main__point
