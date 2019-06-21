@@ -87,6 +87,19 @@
           font-size: 16px;
         }
       }
+      a{
+        text-decoration: none;
+        .detail__buy-btm{
+          background-color: red;
+          text-align: center;
+          margin: 18px 0 0;
+          font-weight: 600;
+          color: #fff;
+          height: 56px; 
+          font-size: 24px;
+          line-height: 56px;
+        }
+      }
       .detail__buy-btm{
         background-color: red;
         text-align: center;
@@ -201,22 +214,27 @@
       .link-facebook{
         display: inline;
         font-size: 44px;
-        color: rgb(68, 0, 255);
+        a{
+          text-decoration: none;
+          color: rgb(68, 0, 255);
+        }
       }
       .link-twitter{
         display: inline;
         font-size: 44px;
-        color: rgb(0, 195, 255);
-      }
-      .link-line{
-        display: inline;
-        font-size: 44px;
-        color: rgb(29, 209, 29);
+        a{
+          text-decoration: none;
+          color: rgb(0, 195, 255);
+
+        }
       }
       .link-pinterest{
         display: inline;
         font-size: 44px;
-        color: rgb(158, 35, 35)
+        a{
+          text-decoration: none;
+          color: rgb(158, 35, 35)
+        }
       }
     }
     .other__items{
@@ -227,7 +245,6 @@
       }
       .other__items__list{
         width: 100%;
-        height: 700px;
         display: block;
         &__box {
           display: inline-block;

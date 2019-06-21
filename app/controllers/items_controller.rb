@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(set_item)
     @selleritems = Item.where(seller_id: @item.seller_id).where.not(id: @item.id)
-    @categoryitems = Item.where(category_id: @item.category_id).where.not(id: @item.id)
+    # @categoryitems = Item.where(category_id: categories.category_id).where.not(id: @item.id)
     @images = @item.item_images.where(params[:item_id])
   end
 
@@ -59,7 +59,7 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    @item = Item.find(params[:id])
+    params.require(:id)
   end
 
    def new_image_params
