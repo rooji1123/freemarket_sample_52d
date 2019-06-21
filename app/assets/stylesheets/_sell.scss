@@ -333,3 +333,22 @@ select{
 body{
   font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
 }
+.sell-form__delivery__form-box__choice{
+  float: left;
+  margin: 40px 0 0;
+  display: none;
+}
+
+#item_delivery_choice_id {
+  display: none;
+}
+
+.sell-form__detail__form-box__size{
+  float: left;
+  margin: 40px 0 0;
+  display: none;
+}
+.sell-form__detail__form-box__size__select{
+  display: none;
+  
+}
