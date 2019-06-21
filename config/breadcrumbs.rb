@@ -21,6 +21,11 @@ end
 #   parent :categories, category, category.children
 # end
 
+
+crumb :items do
+  link "#{params[:keyword]}", search_items_path
+end
+
 # If you want to split your breadcrumbs configuration over multiple files, you
 # can create a folder named `config/breadcrumbs` and put your configuration
 # files there. All *.rb files (e.g. `frontend.rb` or `products.rb`) in that
