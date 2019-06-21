@@ -330,9 +330,6 @@ select{
   border: solid 1px lightgray;
 }
 
-body{
-  font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
-}
 .sell-form__delivery__form-box__choice{
   float: left;
   margin: 40px 0 0;
@@ -351,4 +348,24 @@ body{
 .sell-form__detail__form-box__size__select{
   display: none;
   
+}
+.sell-form__selling-price__commission__right{
+  font-size: 14px;
+  color: #333333;
+}
+
+.sell-form__selling-price__profit__right{
+  color: #333333;
+  font-weight: 600;
+}
+
+body{
+  font-family: "Source Sans Pro",
+  Helvetica,
+  Arial,
+  游ゴシック体,
+  YuGothic,
+  メイリオ,
+  Meiryo,
+  sans-serif;
 }

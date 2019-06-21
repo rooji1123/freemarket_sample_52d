@@ -100,7 +100,7 @@
                 .sell-form__selling-price__input__right
                   %p 
                     ¥
-                  = f.text_field :price, class: "sell-form__selling-price__input__right__yen", placeholder: "例）300"
+                  = f.text_field :price, class: "sell-form__selling-price__input__right__yen", placeholder: "例）300", autocomplete: 'off'
               .sell-form__selling-price__commission
                 .sell-form__selling-price__commission__left
                   %h6 販売手数料 (10%)
