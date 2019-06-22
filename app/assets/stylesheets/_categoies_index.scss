@@ -14,7 +14,7 @@
 .category-index {
   background: #f5f5f5;
   width: 100vw;
-  min-height: 30000px;
+  min-height: 300vh;
   padding-top:0;
   &__body {
     width: 700px;
@@ -57,7 +57,6 @@
       content: '';
       clear: both;
       height: 250px;
-      
       .category-index__list__name {
         float: left;
         display: block;
@@ -119,7 +118,6 @@
       margin-top: 8px;
       margin-bottom: 8px;
       &__sub {
-        
         p {
           padding-top: 15px;
           padding-bottom: 5px;
@@ -133,21 +131,22 @@
           font-weight: bold;
        }
         &__list {
+          display: flex;
+          flex-wrap: wrap;
           padding-left: 20px;
           padding-right: 20px;
           padding-bottom: 10px;
           background-repeat: no-repeat;
-          display: block;
           cursor: auto;
           content: '';
           clear: both;
+          &__box{
+            height: 30px;
+            width: 50%;
+          }
         }
         .category-inner-list {
-          float: left;
-          width: 50%;
-          padding: 0 20px 0 0;
           background-repeat: no-repeat;
-          margin: 0;
           display: block;
           box-sizing: border-box;
           text-decoration: none;
