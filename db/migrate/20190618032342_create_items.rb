@@ -6,6 +6,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer     :price, nill: false
       t.integer     :size_id , default: 0, null: false
       t.integer     :item_state
+      t.integer     :brand_id, null:true
       t.references  :seller, null: true
       t.references  :buyer, null: true
       t.integer     :likes, nill: true

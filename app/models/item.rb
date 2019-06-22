@@ -8,6 +8,7 @@ class Item < ApplicationRecord
   has_one    :delivery, dependent: :destroy
   has_many :items_categories, dependent: :destroy
   has_many :categories, through: :items_categories
+  belongs_to :brand, optional: true
   accepts_nested_attributes_for :item_images
 
   extend ActiveHash::Associations::ActiveRecordExtensions

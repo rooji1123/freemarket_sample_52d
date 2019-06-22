@@ -80,6 +80,8 @@ gem 'ancestry'
 gem 'gretel'
 gem 'jquery-rails'
 gem 'payjp'
+gem 'activerecord-import'
+gem 'ransack'
 
 group :production do
   gem 'unicorn', '5.4.1'
