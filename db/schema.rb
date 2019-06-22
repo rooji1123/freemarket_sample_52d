@@ -55,12 +55,14 @@ ActiveRecord::Schema.define(version: 2019_06_21_181429) do
     t.string "name"
     t.text "description"
     t.integer "price"
-    t.integer "size_id", default: 0, null: false
+    t.integer "size", default: 0, null: false
     t.integer "item_state"
     t.bigint "brand_id"
     t.bigint "seller_id"
     t.bigint "buyer_id"
     t.integer "likes"
+
+    t.bigint "brand_id"
     t.integer "deal_state"
     t.string "item_state_id", null: false
     t.string "delivery_fee_id", null: false

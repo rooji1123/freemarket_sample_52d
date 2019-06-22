@@ -79,6 +79,7 @@ gem 'active_hash'
 gem 'ancestry'
 gem 'gretel'
 gem 'jquery-rails'
+gem 'payjp'
 gem 'activerecord-import'
 gem 'ransack'
 
