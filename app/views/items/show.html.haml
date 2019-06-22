@@ -10,11 +10,11 @@
             .detail__item__info__image-top
               - @images.each do |image|
                 .detail__item__info__image-big
-                  %img{src: "#{image}"}
+                  = image_tag image.image.to_s, size: "300x300"
             .detail__item__info__image-dots
               - @images.each do |image|
                 .detail__item__info__image-dot
-                  %img{src: "#{image}"}
+                  = image_tag image.image.to_s, size: "60x60"
           .detail__item__info__table
             %table.table-out
               %tr
@@ -25,13 +25,15 @@
               %tr
                 %th カテゴリー
                 %td
-                  %div #{@item.categories.name}
+                  %div ＞#{@item.items_categories.first.category.name}
+                  %div ＞#{@item.items_categories.second.category.name}
+                  %div #{@item.items_categories.last.category.name}
               %tr
                 %th ブランド
                 %td
               %tr
                 %th 商品の状態
-                %td 新品・未使用
+                %td #{@item.item_state.state}
               %tr
                 %th 配送料の負担
                 %td 送料込み
@@ -40,10 +42,10 @@
                 %td データ
               %tr
                 %th 発送元地域
-                %td データ
+                %td #{@item.prefecture.name}
               %tr
                 %th 発想の目安
-                %td データ
+                %td #{@item.delivery_date.date}
       .detail__price
         .detail__price-price
           ¥
@@ -104,7 +106,7 @@
           .other__items__list__box
             .other__items__list__box-photo
               %a{href: "/items/#{item.id}"}
-                = image_tag "http://livedoor.blogimg.jp/jin115/imgs/c/0/c066a449-s.jpg", size: "220x220"
+                = image_tag item.item_images.first.image.to_s, size: "220x220"
             .other__items__list__box__body
               .other__items__list__box__body__name
                 = item.name
@@ -117,19 +119,19 @@
       .other__items-name
         その他のカテゴリーの商品
       .other__items__list
-        -# - @categoryitems.shuffle.first(6).each do |item|
-        -#   .other__items__list__box
-        -#     .other__items__list__box-photo
-        -#       %a{href: "group#index"}
-        -#         = image_tag "http://livedoor.blogimg.jp/jin115/imgs/c/0/c066a449-s.jpg", size: "220x220"
-        -#     .other__items__list__box__body
-        -#       .other__items__list__box__body__name
-        -#         = item.name
-        -#       .other__items__list__box__body__value
-        -#         ￥
-        -#         = item.price
-        -#       .other__items__list__box__body__tax
-        -#         (税込)
-        -#         = fa_icon("heart")
+        - @categoryitems.shuffle.first(6).each do |category|
+          .other__items__list__box
+            .other__items__list__box-photo
+              %a{href: "/items/#{category.item.id}"}
+                = image_tag category.item.item_images.first.image.to_s, size: "220x220"
+            .other__items__list__box__body
+              .other__items__list__box__body__name
+                = category.item.name
+              .other__items__list__box__body__value
+                ￥
+                = category.item.price
+              .other__items__list__box__body__tax
+                (税込)
+                = fa_icon("heart")
 = render 'shared/footer'
 
