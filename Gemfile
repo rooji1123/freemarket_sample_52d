@@ -79,6 +79,7 @@ gem 'active_hash'
 gem 'ancestry'
 gem 'gretel'
 gem 'jquery-rails'
+gem 'activerecord-import'
 
 group :production do
   gem 'unicorn', '5.4.1'

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :new, :create, :show, :destroy, :edit, :update] do
     collection do
       get :category_search
+      get :brand_search
     end
   end
   resources :categories, only:[:index, :show]

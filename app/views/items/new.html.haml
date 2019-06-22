@@ -52,6 +52,12 @@
                 %span.new-item 必須
               .sell-form__detail__form-box__size__select
                 = f.select :size_id, Size.all.map{|t| [t.value, t.id]}, {include_blank: "---", selected: "---"}
+              .sell-form__detail__form-box__brand
+                %h5
+                  ブランド
+                %span.gray 任意
+              .sell-form__detail__form-box__brand__select
+                = f.text_field :brand_id, class: 'brand__select', id:'brand', placeholder: "例） シャネル"
               .sell-form__detail__form-box__status
                 %h5
                   商品の状態
