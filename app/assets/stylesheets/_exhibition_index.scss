@@ -16,6 +16,7 @@
   &__main{
     height: 80px;
     display: flex;
+    background-color: #dddddd;
     &__box{
       width: 33%;
       text-align: center;
@@ -36,6 +37,7 @@
         margin-left: 30px;
         padding-top: 20px;
         display: flex;
+        position: relative;
         &__image{
           &__box{
             height: 50px;
@@ -71,8 +73,12 @@
         }
         &__link{
           &__hidden{
-            height: 80px;
-            width: 500px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-indent: -999px;
             display: inline-block;
           }
         }
