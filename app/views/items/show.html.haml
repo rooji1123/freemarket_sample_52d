@@ -10,11 +10,11 @@
             .detail__item__info__image-top
               - @images.each do |image|
                 .detail__item__info__image-big
-                  = image.image
+                  %img{src: "#{image}"}
             .detail__item__info__image-dots
               - @images.each do |image|
                 .detail__item__info__image-dot
-                  = image.image
+                  %img{src: "#{image}"}
           .detail__item__info__table
             %table.table-out
               %tr
