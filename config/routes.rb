@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     collection do
       get :category_search
       get :brand_search
-      get 'search'
+      get :search
     end
     resources :purchases, only:[:new, :create, :update, :index] do
       collection do

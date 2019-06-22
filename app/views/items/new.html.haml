@@ -81,7 +81,6 @@
                 %span.new-item 必須
               .sell-form__delivery__form-box__choice__select
                 = f.select :delivery_choice_id, DeliveryChoice.all.map{|t| [t.choice, t.id]}, prompt: "---", id: "delivery_choice"
-                = f.select :delivery_choice_sub_id, DeliveryChoiceSub.all.map{|t| [t.choice, t.id]}, prompt: "---", id: "delivery_choice_sub"
               .sell-form__delivery__form-box__disrict
                 %h5
                   発送元の地域

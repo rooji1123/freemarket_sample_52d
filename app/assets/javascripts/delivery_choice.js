@@ -15,11 +15,8 @@ $(function () {
       $('.sell-form__delivery__form-box__choice').css({
         'display': 'block'
       });
-      $('#item_delivery_choice_sub_id').css({
-        'display': 'block'
-      });
       $('#item_delivery_choice_id').css({
-        'display': 'none'
+        'display': 'block'
       });
     } else {
       $('.sell-form__delivery__form-box__choice').css({
@@ -28,10 +25,6 @@ $(function () {
       $('#item_delivery_choice_id').css({
         'display': 'none'
       });
-      $('#item_delivery_choice_sub_id').css({
-        'display': 'none'
-      });
-      $("#item_delivery_choice_sub_id").attr("selected", false);
     }
   });
 })
