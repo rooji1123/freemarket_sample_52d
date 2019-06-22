@@ -55,20 +55,19 @@ ActiveRecord::Schema.define(version: 2019_06_21_181429) do
     t.string "name"
     t.text "description"
     t.integer "price"
-    t.integer "size", default: 0, null: false
+    t.integer "size_id", default: 0, null: false
     t.integer "item_state"
     t.bigint "brand_id"
     t.bigint "seller_id"
     t.bigint "buyer_id"
     t.integer "likes"
-
-    t.bigint "brand_id"
     t.integer "deal_state"
     t.string "item_state_id", null: false
     t.string "delivery_fee_id", null: false
     t.string "prefecture_id", null: false
     t.string "delivery_date_id", null: false
     t.string "delivery_choice_id", null: false
+    t.string "delivery_choice_sub_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_items_on_brand_id"

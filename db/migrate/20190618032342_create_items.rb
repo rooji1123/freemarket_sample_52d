@@ -17,6 +17,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string      :prefecture_id, null: false
       t.string      :delivery_date_id, null: false
       t.string      :delivery_choice_id, null:false
+      t.string      :delivery_choice_sub_id, null:false
       t.timestamps
     end
   end
