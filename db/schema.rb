@@ -148,3 +148,4 @@ ActiveRecord::Schema.define(version: 2019_06_21_181429) do
   add_foreign_key "deliveries", "items"
   add_foreign_key "item_images", "items"
 end
+end

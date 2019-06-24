@@ -31,9 +31,13 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(set_item)
+    @item.item_images.build
+    @parents = Category.where(ancestry: nil).order("id ASC")
   end
 
   def update
+    @item.update(item_params)
   end
 
   def destroy
@@ -68,7 +72,7 @@ class ItemsController < ApplicationController
  private
 
   def item_params
-    params.require(:item).permit(:name, :description, :prefecture_id, :price, :delivery_date_id, :brand_id, :delivery_fee_id, :delivery_choice_id, :item_state_id, :size_id, item_images_attributes: [:image], category_ids: [], images: [])
+    params.require(:item).permit(:name, :description, :prefecture_id, :price, :delivery_date_id, :brand_id, :delivery_fee_id, :delivery_choice_id, :item_state_id, :size_id, category_ids: [], images: [])
   end
 
   def set_item
