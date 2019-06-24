@@ -1,26 +1,39 @@
-= form_with model: @item do |f|
+= form_with model: @item, html: {id:'new_item'} do |f|
   .container
     = render "shared/second__header"
     .new-item__main
-      .form
-        .new-item__main__container
-          .new-item__main__container__head
-            %h2 商品の情報を入力
-          .sell-form__image
-            .sell-form__image__head
-              %h3
-                出品画像
-              %span.new-item 必須
-              %p 最大10枚までアップロードできます
-            .sell-form__image__box
-              = f.fields_for :item_images do |image|
-                .image-container
-                  .image-area
-                    = image.label :image, class: "image-box", for: "upload-image" do
-                      .input_area
-                        = image.file_field :image, multiple: true, name: 'item_images[image][]'
-                      %p ドラッグアンドドロップ
-                      %p またはクリックしてファイルをアップロード
+      .new-item__main__container
+        .new-item__main__container__head
+          %h2 商品の情報を入力
+        .new-item__main__container__sell-form__image
+          .new-item__main__container__sell-form__image__head
+            %h3
+              出品画像
+            %span.new-item 必須
+            %p 最大10枚までアップロードできます
+            = f.fields_for :item_images, @item.item_images.first do |image|
+              .item__img__dropzone.clearfix
+                #preview
+                .item__img__dropzone__input
+                  = image.label :image, for: "upload-image" do
+                    .input-area
+                      = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+                    .item__img__dropzone__input__description
+                      .item__img__dropzone__input__description__text
+                        ドラッグアンドドロップ
+                        %br
+                        またはクリックしてファイルをアップロード
+              .item__img__dropzone2.clearfix
+                #preview2
+                .item__img__dropzone2__input2
+                  = image.label :image, for: "upload-image" do
+                    .input-area
+                      = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+                    .item__img__dropzone2__input2__description
+                      .item__img__dropzone2__input2__description__text
+                        ドラッグアンドドロップ
+                        %br
+                        またはクリックしてファイルをアップロード
           .sell-form__content
             .sell-form__content__name
               %h5
