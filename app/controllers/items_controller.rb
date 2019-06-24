@@ -56,6 +56,15 @@ class ItemsController < ApplicationController
     end
   end
 
+  def brand_search
+    unless params[:keyword].nil? || params[:keyword].empty?
+      @brands = Brand.where('name LIKE :name', name:"%#{params[:keyword].tr('ぁ-ん','ァ-ン')}%")
+      respond_to do |format|
+        format.json
+      end
+    end
+  end
+
  private
 
   def item_params
