@@ -45,7 +45,9 @@ ActiveRecord::Schema.define(version: 2019_06_17_064011) do
     t.string "first_name", null: false
     t.string "last_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.string "birthday", null: false
+    t.string "birth_year", null: false
+    t.string "birth_month", null: false
+    t.string "birth_day", null: false
     t.string "check_phone_number", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false

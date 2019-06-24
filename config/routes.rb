@@ -4,14 +4,7 @@ Rails.application.routes.draw do
    :sessions => 'users/sessions',
    :passwords => 'users/passwords'
   }
-  
-  devise_scope :user do
-    get 'registration' => 'users/registrations#info'
-    post 'registration/phone_number' =>'users/registrations#phone_number'
-    post 'registration/address' => 'users/registrations#address'
-    post 'registration/payment' => 'users/registrations#user_card'
-    post 'registration.user' => 'users/registrations#create'
-  end
+
   root 'items#index'
   resources :users, only:[:show, :edit]
   resources :items
