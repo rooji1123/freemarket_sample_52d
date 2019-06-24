@@ -34,10 +34,13 @@
       min-height: 100px;
       &__exhibition{
         height: 80px;
-        margin-left: 30px;
+        padding-left: 30px;
         padding-top: 20px;
         display: flex;
         position: relative;
+        &:hover{
+          background-color: #f1f1f1;
+        }
         &__image{
           &__box{
             height: 50px;
