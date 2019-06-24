@@ -89,5 +89,11 @@ $(function () {
     $('.sell-form__detail__form-box__size').css({
       'display': 'block'
     });
+    $('.sell-form__detail__form-box__brand').css({
+      'display': 'block'
+    });
+    $('.sell-form__detail__form-box__brand__select').css({
+      'display': 'block'
+    });
   });
 });
