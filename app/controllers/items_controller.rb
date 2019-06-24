@@ -17,7 +17,6 @@ class ItemsController < ApplicationController
 
   def create
      @item = Item.new(item_params)
-    binding.pry
     respond_to do |format|
       if @item.save
         params[:item_images][:image].each do |image|
