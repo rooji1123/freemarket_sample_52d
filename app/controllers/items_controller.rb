@@ -17,16 +17,16 @@ class ItemsController < ApplicationController
 
   def create
      @item = Item.new(item_params)
-    if @item.save && new_image_params[:images][0] != " "
-      new_image_params[:images].each do |image|
-        @item.item_images.create(image_url: image, item_id: @item.id)
+    respond_to do |format|
+      if @item.save
+          params[:item_images][:image].each do |image|
+            @item.item_images.create(image: image, item_id: @item.id)
+          end
+        format.html{redirect_to root_path}
+      else
+        @item.item_images.build
+        format.html{render action: 'new'}
       end
-      flash[:notice] = '出品が完了しました'
-      redirect_to root_path
-    else
-      @item.item_images.build
-      flash[:alert] = '未入力項目があります'
-      redirect_back(fallback_location: root_path)
     end
   end
 
@@ -80,3 +80,4 @@ class ItemsController < ApplicationController
   end
   
 end
+
