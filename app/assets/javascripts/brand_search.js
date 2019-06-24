@@ -28,6 +28,6 @@ $(function() {
   $(document).on('click',".brand_search_results__list", function() {
     $(".brand_search_results").remove();
     var name = $(this).text();
-    $(".brand__select").val(name.replace(/\s+/g, ""));
+    $(".brand__select").val(name.replace(/^\s+/g, "").replace(/\s+$/, ""));
   })
 })
