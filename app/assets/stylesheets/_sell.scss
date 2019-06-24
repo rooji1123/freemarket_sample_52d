@@ -359,6 +359,30 @@ select{
 .sell-form__detail__form-box__brand{
   float: left;
   margin: 40px 0 0;
+  &__select{
+    &__results{
+      clear: both;
+      position: relative;
+      .brand_search_results{
+        min-height: 50px;
+        max-height:  200px;
+        position: absolute;
+        width: 100%;
+        background-color: #ffffff;
+        text-align: left;
+        overflow: scroll;
+        z-index: 100;
+        border: #aaa 1px solid;
+        &__list{
+          padding: 15px 10px;
+          text-indent: 10px;
+          &:hover{
+            background-color: #0099e8;
+          }
+        }
+      }
+    }
+  }
 }
 
 .brand__select{
