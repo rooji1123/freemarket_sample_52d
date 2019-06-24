@@ -10,28 +10,28 @@
             .single-contents__form__content__upper__require-icon
               必須
           .single-contents__form__content__lower.notnull
-            = f.text_field :nickname, class: "single-contents__form__content__lower__field", placeholder: "例）メルカリ太郎", required: true
+            = f.text_field :nickname, class: "single-contents__form__content__lower__field", placeholder: "例）メルカリ太郎", required: true, value: "rooji"
         .single-contents__form__content
           .single-contents__form__content__upper
             = f.label :email, "メールアドレス", class: "single-contents__form__content__upper__label"
             .single-contents__form__content__upper__require-icon
               必須
           .single-contents__form__content__lower.notnull
-            = f.email_field :email, class: "single-contents__form__content__lower__field", placeholder: "PC・携帯どちらでも可"
+            = f.email_field :email, class: "single-contents__form__content__lower__field", placeholder: "PC・携帯どちらでも可", value: "hiropipp@gmiailma.afer"
         .single-contents__form__content
           .single-contents__form__content__upper
             = f.label :password, "パスワード", class: "single-contents__form__content__upper__label"
             .single-contents__form__content__upper__require-icon
               必須
           .single-contents__form__content__lower.notnull
-            = f.password_field :password, class: "single-contents__form__content__lower__field", placeholder: "6文字以上"
+            = f.password_field :password, class: "single-contents__form__content__lower__field", placeholder: "6文字以上", value: "1234567"
         .single-contents__form__content
           .single-contents__form__content__upper
             = f.label :password_confirmation, "パスワード(確認)", class: "single-contents__form__content__upper__label"
             .single-contents__form__content__upper__require-icon
               必須
           .single-contents__form__content__lower.notnull
-            = f.password_field :password_confirmation, class: "single-contents__form__content__lower__field", placeholder: "6文字以上"
+            = f.password_field :password_confirmation, class: "single-contents__form__content__lower__field", placeholder: "6文字以上", value: "1234567"
         .single-contents__form__attend
           %h3.single-contents__form__attend__title
             本人確認
@@ -44,45 +44,45 @@
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower.notnull
-              = f.text_field :last_name, class: "single-contents__form__content__lower__field", placeholder: "例)山田"
+              = f.text_field :last_name, class: "single-contents__form__content__lower__field", placeholder: "例)山田", value: "じょる"
           .single-contents__form__content
             .single-contents__form__content__upper
               = f.label :first_name, "名(全角)", class: "single-contents__form__content__upper__label"
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower.notnull
-              = f.text_field :first_name, class: "single-contents__form__content__lower__field", placeholder: "例)彩"
+              = f.text_field :first_name, class: "single-contents__form__content__lower__field", placeholder: "例)彩", value: "かとう"
           .single-contents__form__content
             .single-contents__form__content__upper
               = f.label :last_name_kana, "姓カナ(全角)", class: "single-contents__form__content__upper__label"
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower.notnull
-              = f.text_field :last_name_kana, class: "single-contents__form__content__lower__field", placeholder: "例)ヤマダ"
+              = f.text_field :last_name_kana, class: "single-contents__form__content__lower__field", placeholder: "例)ヤマダ", value: "じおる"
           .single-contents__form__content
             .single-contents__form__content__upper
               = f.label :first_name_kana, "名カナ(全角)", class: "single-contents__form__content__upper__label"
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower.notnull
-              = f.text_field :first_name_kana, class: "single-contents__form__content__lower__field", placeholder: "例)アヤ"
+              = f.text_field :first_name_kana, class: "single-contents__form__content__lower__field", placeholder: "例)アヤ", value: "かとう"
           .single-contents__form__content
             .single-contents__form__content__upper
               = f.label :birthday, "生年月日", class: "single-contents__form__content__upper__label"
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower-date
-              = f.text_field :birth_year, class: "single-contents__form__content__lower-date__field"
+              = f.text_field :birth_year, class: "single-contents__form__content__lower-date__field", value: "3121"
               %span.single-contents__form__content__lower-date__arrow-year
                 = fa_icon 'chevron-down'
               %span.single-contents__form__content__lower-date__unit
                 年
-              = f.text_field :birth_month, class: "single-contents__form__content__lower-date__field"
+              = f.text_field :birth_month, class: "single-contents__form__content__lower-date__field", value: "12"
               %span.single-contents__form__content__lower-date__arrow-month
                 = fa_icon 'chevron-down'
               %span.single-contents__form__content__lower-date__unit
                 月
-              = f.text_field :birth_day, class: "single-contents__form__content__lower-date__field"
+              = f.text_field :birth_day, class: "single-contents__form__content__lower-date__field", value: "23"
               %span.single-contents__form__content__lower-date__arrow-day
                 = fa_icon 'chevron-down'
               %span.single-contents__form__content__lower-date__unit
@@ -108,7 +108,7 @@
             .single-contents__form__content__upper
               = f.label :check_phone_number, "携帯電話の番号", class: "single-contents__form__content__upper__label"
             .single-contents__form__content__lower
-              = f.text_field :check_phone_number, class: "single-contents__form__content__lower__field", placeholder: "携帯電話の番号を入力"
+              = f.text_field :check_phone_number, class: "single-contents__form__content__lower__field", placeholder: "携帯電話の番号を入力", value: "09848829448"
           .single-contents__form__attend
             %p.single-contents__form__attend__info-text
               本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
@@ -131,60 +131,60 @@
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower
-              = f.text_field :last_name_address, class: "single-contents__form__content__lower__field", placeholder: "例）山田"
+              = f.text_field :last_name_address, class: "single-contents__form__content__lower__field", placeholder: "例）山田", value: "かとう"
             .single-contents__form__content__lower
-              = f.text_field :first_name_address, class: "single-contents__form__content__lower__field", placeholder: "例）彩"
+              = f.text_field :first_name_address, class: "single-contents__form__content__lower__field", placeholder: "例）彩", value: "じおる"
           .single-contents__form__content
             .single-contents__form__content__upper
               = f.label :name_kana_address, "お名前カナ", class: "single-contents__form__content__upper__label"
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower
-              = f.text_field :last_name_kana_address, class: "single-contents__form__content__lower__field", placeholder: "例）ヤマダ"
+              = f.text_field :last_name_kana_address, class: "single-contents__form__content__lower__field", placeholder: "例）ヤマダ", value: "かとう"
             .single-contents__form__content__lower
-              = f.text_field :first_name_kana_address, class: "single-contents__form__content__lower__field", placeholder: "例）アヤ"
+              = f.text_field :first_name_kana_address, class: "single-contents__form__content__lower__field", placeholder: "例）アヤ", value: "じおる"
           .single-contents__form__content
             .single-contents__form__content__upper
               = f.label :postal_code, "郵便番号", class: "single-contents__form__content__upper__label"
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower
-              = f.text_field :postal_code, class: "single-contents__form__content__lower__field", placeholder: "例）123-4567"
+              = f.text_field :postal_code, class: "single-contents__form__content__lower__field", placeholder: "例）123-4567", value: "350-1101"
           .single-contents__form__content
             .single-contents__form__content__upper
               = f.label :country_id, "都道府県", class: "single-contents__form__content__upper__label"
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower
-              = f.text_field :country_id, class: "single-contents__form__content__lower__field", placeholder: "北海道"
+              = f.text_field :country_id, class: "single-contents__form__content__lower__field", placeholder: "北海道", value: ""
           .single-contents__form__content
             .single-contents__form__content__upper
               = f.label :city, "市区町村", class: "single-contents__form__content__upper__label"
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower
-              = f.text_field :city, class: "single-contents__form__content__lower__field", placeholder: "例）横浜市緑区"
+              = f.text_field :city, class: "single-contents__form__content__lower__field", placeholder: "例）横浜市緑区", value: ""
           .single-contents__form__content
             .single-contents__form__content__upper
               = f.label :address, "番地", class: "single-contents__form__content__upper__label"
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower
-              = f.text_field :address, class: "single-contents__form__content__lower__field", placeholder: "例）青山1-1-1"
+              = f.text_field :address, class: "single-contents__form__content__lower__field", placeholder: "例）青山1-1-1", value: ""
           .single-contents__form__content
             .single-contents__form__content__upper
               = f.label :building_name, "建物名", class: "single-contents__form__content__upper__label"
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower
-              = f.text_field :building_name, class: "single-contents__form__content__lower__field", placeholder: "例）柳ビル103"
+              = f.text_field :building_name, class: "single-contents__form__content__lower__field", placeholder: "例）柳ビル103", value: "1111"
           .single-contents__form__content
             .single-contents__form__content__upper
               = f.label :phone_number, "電話", class: "single-contents__form__content__upper__label"
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower
-              = f.text_field :phone_number, class: "single-contents__form__content__lower__field", placeholder: "例）09012345678"
+              = f.text_field :phone_number, class: "single-contents__form__content__lower__field", placeholder: "例）09012345678", value: "09010110010"
           = f.submit "次へ進む", class: "single-contents__form__submit", id: "submit-form-third"
       #form-forth
         %h2.single-contents__header
@@ -196,20 +196,20 @@
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower
-              = f.text_field :card_number, class: "single-contents__form__content__lower__field", placeholder: "半角数字のみ"
+              = f.text_field :card_number, class: "single-contents__form__content__lower__field", placeholder: "半角数字のみ", value: "4242424242424242"
           .single-contents__form__content
             .single-contents__form__content__upper
               = f.label :expiration_date, "有効期限", class: "single-contents__form__content__upper__label"
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower-effect
-              = f.text_field :expiration_month, class: "single-contents__form__content__lower-effect__field", placeholder: "01"
+              = f.text_field :expiration_month, class: "single-contents__form__content__lower-effect__field", placeholder: "01", value: "11"
               %span.single-contents__form__content__lower-effect__arrow
                 = fa_icon 'chevron-down'
               %span.single-contents__form__content__lower-effect__unit
                 月
             .single-contents__form__content__lower-effect
-              = f.text_field :expiration_year, class: "single-contents__form__content__lower-effect__field", placeholder: "19"
+              = f.text_field :expiration_year, class: "single-contents__form__content__lower-effect__field", placeholder: "19", value: "2020"
               %span.single-contents__form__content__lower-effect__arrow
                 = fa_icon 'chevron-down'
               %span.single-contents__form__content__lower-effect__unit
@@ -220,7 +220,7 @@
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower
-              = f.text_field :security_code, class: "single-contents__form__content__lower__field", placeholder: "カード背面4桁もしくは3桁の番号", required: true
+              = f.text_field :security_code, class: "single-contents__form__content__lower__field", placeholder: "カード背面4桁もしくは3桁の番号", required: true, value: "123"
           .single-contents__form__guid
             = link_to root_path, class: "single-contents__form__guid__link" do
               %i

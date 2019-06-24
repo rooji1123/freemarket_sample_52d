@@ -17,11 +17,12 @@ class ItemsController < ApplicationController
 
   def create
      @item = Item.new(item_params)
+    binding.pry
     respond_to do |format|
       if @item.save
-          params[:item_images][:image].each do |image|
-            @item.item_images.create(image: image, item_id: @item.id)
-          end
+        params[:item_images][:image].each do |image|
+          @item.item_images.create(image: image, item_id: @item.id)
+        end
         format.html{redirect_to root_path}
       else
         @item.item_images.build
@@ -68,7 +69,8 @@ class ItemsController < ApplicationController
  private
 
   def item_params
-    params.require(:item).permit(:name, :description, :prefecture_id, :price, :delivery_date_id, :brand_id, :delivery_fee_id, :delivery_choice_id, :item_state_id, :size_id, item_images_attributes: [:image], category_ids: [], images: [])
+    brand_id = params[:brand_id].to_i
+    params.require(:item).permit(:name, :description, :prefecture_id, :price, :delivery_date_id, :delivery_fee_id, :delivery_choice_id, :item_state_id, :size_id, item_images_attributes: [:image], category_ids: [], images: []).merge(brand_id: brand_id)
   end
 
   def set_item
