@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {
+   :registrations => 'users/registrations',
+   :sessions => 'users/sessions',
+   :passwords => 'users/passwords'
+  }
+
   root 'items#index'
   resources :users, only:[:show, :edit]
   resources :items, only: [:index, :new, :create, :show, :destroy, :edit, :update] do
@@ -18,6 +23,7 @@ Rails.application.routes.draw do
   resources :brands, only:[:index, :show]
   scope module: 'users' do
     resources :user_cards, only:[:edit, :update]
-    resources :user_identifications, only:[:edit, :update]
+    resources :user_addresses, only:[:edit, :update]
+    resources :user_informations, only:[:edit, :update]
   end
 end
