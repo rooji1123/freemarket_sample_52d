@@ -1,0 +1,41 @@
+.breadcrumbs {
+  width: 100vw;
+  height: 48px;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 48px;
+  position: relative;
+  z-index: 1;
+  a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #333;
+    padding-left: 25%;
+    cursor: pointer;
+    &:hover{
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+  }
+  .fa-chevron-right {
+    margin: 0 8px;
+    font-size: 12px;
+    color: #888;
+    
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    display: inline-block;
+  
+    }
+  span:last-child {
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+}

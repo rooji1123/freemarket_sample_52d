@@ -5,7 +5,7 @@
 |Column|Type|Options|
 |------|-----|------|
 |nickname|string|null:false|
-|introduction|text|null: true|
+|description|text|null: true|
 |avatar_image|string|null: true|
 
 ### Assosiation
@@ -71,13 +71,14 @@ belongs_to :user
 ## itemsテーブル
 |Column|Type|Options|
 |------|-----|------|
-|name|string|null_false, index:true|
-|introduction|text|null: false|
+|name|string|null: false, index:true|
+|description|text|null: false|
 |price|integer|null: false|
 |size|string|null: false|
 |item_state|string|null: false|
 |seller_id|references|foreign_key: true, null: false|
 |buyer_id|references|foreign_key: true,null: true|
+|likes|integer|null: true|
 |brand|references|foreign_key: true|
 |category|references|foreign_key: true|
 |deal_state|string|nill: true|

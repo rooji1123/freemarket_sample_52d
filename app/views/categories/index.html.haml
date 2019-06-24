@@ -1,0 +1,47 @@
+= render 'shared/header'
+
+-# = render 'shared/breadcrumbs'
+.breadcrumbs
+  - breadcrumb :categories
+  = breadcrumbs separator: " #{fa_icon("chevron-right")} "
+
+.category-index
+  .category-index__body
+    .category-index__body__title
+      カテゴリー一覧
+    .category-index__body__list
+      = link_to "レディース", "#category_child1", class: "category-index__list__name", data: {"turbolinks": false}
+      = link_to "メンズ", "#category_child2", class: "category-index__list__name", data: {"turbolinks": false}
+      = link_to "ベビー・キッズ", "#category_child3", class: "category-index__list__name", data: {"turbolinks": false}
+      = link_to "インテイア・住まい・小物", "#category_child4", class: "category-index__list__name", data: {"turbolinks": false}
+      = link_to "本・音楽・ゲーム", "#category_child5", class: "category-index__list__name", data: {"turbolinks": false}
+      = link_to "おもちゃ・ホビー・グッズ", "#category_child6", class: "category-index__list__name", data: {"turbolinks": false}
+      = link_to "コスメ・香水・美容", "#category_child7", class: "category-index__list__name", data: {"turbolinks": false}
+      = link_to "家電・スマホ・カメラ", "#category_child8", class: "category-index__list__name", data: {"turbolinks": false}
+      = link_to "スポーツ・レジャー", "#category_child9", class: "category-index__list__name", data: {"turbolinks": false}
+      = link_to "ハンドメイド", "#category_child10", class: "category-index__list__name", data: {"turbolinks": false}
+      = link_to "チケット", "#category_child11", class: "category-index__list__name", data: {"turbolinks": false}
+      = link_to "バイク・オートバイ", "#category_child12", class: "category-index__list__name", data: {"turbolinks": false}
+      = link_to "その他", "#category_child13", class: "category-index__list__name", data: {"turbolinks": false}
+    %ul.category-index__body__ul
+      - @parents.each do |parent|
+        - children = parent.children
+        %li.category-index__body__box
+          .category-index__body__box__part
+            = parent.name
+          .category-index__body__box__inner
+            =link_to "すべて", "#", class: "category-index__body__box__part__inner category-inner-name"
+            - children.each do |child|
+              - grand_children = child.children
+              .category-index__body__box__inner__sub
+                %p
+                  = child.name
+                .category-index__body__box__inner__sub__list
+                  .category-index__body__box__inner__sub__list__box
+                    = link_to "すべて", "#", class: "category-index__body__box__part__inner category-inner-list"
+                  - grand_children.each do |grand_child|
+                    .category-index__body__box__inner__sub__list__box
+                      = link_to "#{grand_child.name}", "#", class: "category-index__body__box__part__inner category-inner-list"
+
+= render "shared/display_icon"
+= render 'shared/footer'

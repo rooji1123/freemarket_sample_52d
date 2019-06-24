@@ -119,6 +119,7 @@
               font-size: 16px;
               line-height: 1.5;
               margin: 8px 0 0;
+              
             }
             .sell-form__delivery__form-box__disrict{
               margin: 40px 0 0;
@@ -172,6 +173,7 @@
               line-height: 48px;
               text-decoration: none;
               font-size: 14px;
+              min-width: 100%;
             }
             .sell-form__submit__gray{
               width: 45%;
@@ -196,6 +198,16 @@ span.new-item{
   padding: 2px 4px;
   border-radius: 2px;
   background: #ea352d;
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+span.gray{
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  background: #cccccc;
   color: #fff;
   font-weight: bold;
   font-size: 12px;
@@ -328,6 +340,63 @@ select{
   border: solid 1px lightgray;
 }
 
+.sell-form__delivery__form-box__choice{
+  float: left;
+  margin: 40px 0 0;
+  display: none;
+}
+
+#item_delivery_choice_id {
+  display: none;
+}
+
+.sell-form__detail__form-box__size{
+  float: left;
+  margin: 40px 0 0;
+  display: none;
+}
+
+.sell-form__detail__form-box__brand{
+  float: left;
+  margin: 40px 0 0;
+}
+
+.brand__select{
+  width: 365px;
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 8px 0 0;
+  float: left;
+}
+
+.sell-form__detail__form-box__size__select{
+  display: none;
+  
+}
+.sell-form__selling-price__commission__right{
+  font-size: 14px;
+  color: #333333;
+}
+
+.sell-form__selling-price__profit__right{
+  color: #333333;
+  font-weight: 600;
+}
+
 body{
-  font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  font-family: "Source Sans Pro",
+  Helvetica,
+  Arial,
+  游ゴシック体,
+  YuGothic,
+  メイリオ,
+  Meiryo,
+  sans-serif;
 }
