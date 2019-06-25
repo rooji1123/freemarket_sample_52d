@@ -8,5 +8,5 @@ class UserInformation < ApplicationRecord
   validates :birth_year, presence: true
   validates :birth_month, presence: true
   validates :birth_day, presence: true
-  validates :check_phone_number, presence: true
+  validates :check_phone_number, presence: true, format: { with: /\A(070|080|090)\d{8}\Z/}
 end

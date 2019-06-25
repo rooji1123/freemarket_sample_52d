@@ -4,6 +4,16 @@
 #form-second, #form-third, #form-forth{
   display: none;
 }
+
+.attend-null,
+.attend-type-error,
+.attend-pass,
+.attend-pass-confirm{
+  margin-top: 8px;
+  font-size: 14px;
+  color: #ea352d;
+}
+
 .single-contents{
   width: 700px;
   margin: 0 auto;
@@ -32,6 +42,14 @@
           border-radius: 2px;
           margin-left: 8px;
           background-color: #ea352d;
+          color: #fff;
+          font-size: 12px;
+        }
+        &__norequire-icon{
+          padding: 2px 4px;
+          border-radius: 2px;
+          margin-left: 8px;
+          background-color: #888;
           color: #fff;
           font-size: 12px;
         }
