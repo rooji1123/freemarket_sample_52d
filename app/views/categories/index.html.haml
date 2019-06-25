@@ -30,7 +30,7 @@
           .category-index__body__box__part
             = parent.name
           .category-index__body__box__inner
-            =link_to "すべて", "#", class: "category-index__body__box__part__inner category-inner-name"
+            =link_to "すべて",category_path(parent.id), class: "category-index__body__box__part__inner category-inner-name"
             - children.each do |child|
               - grand_children = child.children
               .category-index__body__box__inner__sub
@@ -38,10 +38,10 @@
                   = child.name
                 .category-index__body__box__inner__sub__list
                   .category-index__body__box__inner__sub__list__box
-                    = link_to "すべて", "#", class: "category-index__body__box__part__inner category-inner-list"
+                    = link_to "すべて", category_path(child.id), class: "category-index__body__box__part__inner category-inner-list"
                   - grand_children.each do |grand_child|
                     .category-index__body__box__inner__sub__list__box
-                      = link_to "#{grand_child.name}", "#", class: "category-index__body__box__part__inner category-inner-list"
+                      = link_to "#{grand_child.name}", category_path(grand_child.id), class: "category-index__body__box__part__inner category-inner-list"
 
 = render "shared/display_icon"
 = render 'shared/footer'
