@@ -23,7 +23,7 @@
           }
         }
 
-        .sell-form__image {
+        .new-item__main__container__sell-form__image {
           padding: 40px;
           border-bottom: 1px solid #f5f5f5;
           h3 {
@@ -359,6 +359,30 @@ select{
 .sell-form__detail__form-box__brand{
   float: left;
   margin: 40px 0 0;
+  &__select{
+    &__results{
+      clear: both;
+      position: relative;
+      .brand_search_results{
+        min-height: 50px;
+        max-height:  200px;
+        position: absolute;
+        width: 100%;
+        background-color: #ffffff;
+        text-align: left;
+        overflow: scroll;
+        z-index: 100;
+        border: #aaa 1px solid;
+        &__list{
+          padding: 15px 10px;
+          text-indent: 10px;
+          &:hover{
+            background-color: #0099e8;
+          }
+        }
+      }
+    }
+  }
 }
 
 .brand__select{
@@ -399,4 +423,132 @@ body{
   メイリオ,
   Meiryo,
   sans-serif;
+}
+
+.item {
+    width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    &__img {
+      box-sizing: border-box;
+      border-bottom: 0.09px solid gray;
+      padding: 40px;
+
+      p {
+        font-size: 0.8rem;
+      }
+
+      &__dropzone2 {
+        display: none;
+      }
+
+      &__dropzone,
+      &__dropzone2 {
+        height: 162px;
+        position: relative;
+        cursor: pointer;
+        margin-top: 16px;
+
+        #preview,
+        #preview2 {
+          float: left;
+          height: 100%;
+          .add_img {
+            float: left;
+            height: 100%;
+            margin: 0 5px;
+            background: rgb(245, 245, 245);
+            position: relative;
+            border: solid 1px gray;
+          }
+
+          .img_area {
+            width: 111px;
+            height: 116px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .image {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+          }
+
+          .btn_wrapper {
+            position: absolute;
+            bottom: 0;
+
+            .btn_edit,
+            .btn_delete {
+              display: inline-block;
+              width: 55px;
+              background: #f5f5f5;
+              line-height: 44px;
+              text-align: center;
+              color: #0099e8;
+              text-decoration: none;
+            }
+
+            .btn_edit {
+              border-right: solid 1px gray;
+            }
+          }
+        }
+
+        &__input,
+        &__input2 {
+          border: dashed 0.2px rgb(207, 206, 206);
+          background-color: #f5f5f5;
+          float: right;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          position: relative;
+
+          .input-area {
+            height: 100%;
+            width: 100%;
+            position: relative;
+
+            #upload-image {
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 100%;
+              width: 100%;
+              z-index: 1;
+              opacity: 0;
+            }
+          }
+
+          &__description {
+            height: 100%;
+            width: 100%;
+
+            font: {
+              weight: 600;
+              size: 0.8rem;
+            }
+
+            &__text {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+.sell-form__detail__form-box__brand{
+  display: none;
+  &__select{
+  display: none;
+  }
 }

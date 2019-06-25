@@ -32,7 +32,7 @@
           %i.side-bar__mypage-nav__list__item__icon-arrow-right
             = fa_icon 'chevron-right'
       %li.side-bar__mypage-nav__list__item
-        = link_to root_path, class: "side-bar__mypage-nav__list__item__link" do
+        = link_to user_exhibitions_path(1), class: "side-bar__mypage-nav__list__item__link" do
           出品した商品 - 出品中
           %span.side-bar__mypage-nav__list__item__number 0
           %i.side-bar__mypage-nav__list__item__icon-arrow-right
@@ -104,11 +104,11 @@
       設定
     %ul.side-bar__mypage-nav__list
       %li.side-bar__mypage-nav__list__item
-        = link_to edit_user_path, class: "side-bar__mypage-nav__list__item__link" do
-          プロフィール
-          %span.side-bar__mypage-nav__list__item__number 0
-          %i.side-bar__mypage-nav__list__item__icon-arrow-right
-            = fa_icon 'chevron-right'
+        -# = link_to edit_user_path, class: "side-bar__mypage-nav__list__item__link" do
+        -#   プロフィール
+        -#   %span.side-bar__mypage-nav__list__item__number 0
+        -#   %i.side-bar__mypage-nav__list__item__icon-arrow-right
+        -#     = fa_icon 'chevron-right'
       %li.side-bar__mypage-nav__list__item
         = link_to root_path, class: "side-bar__mypage-nav__list__item__link" do
           発送元・お届け先住所変更
@@ -128,7 +128,7 @@
           %i.side-bar__mypage-nav__list__item__icon-arrow-right
             = fa_icon 'chevron-right'
       %li.side-bar__mypage-nav__list__item
-        = link_to edit_user_identification_path(1), class: "side-bar__mypage-nav__list__item__link" do
+        = link_to edit_user_user_identification_path(1, 1), class: "side-bar__mypage-nav__list__item__link" do
           本人情報
           %span.side-bar__mypage-nav__list__item__number 0
           %i.side-bar__mypage-nav__list__item__icon-arrow-right

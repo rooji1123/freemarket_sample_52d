@@ -11,7 +11,7 @@
             .single-contents__form__content__upper__require-icon
               必須
           .single-contents__form__content__lower.notnull
-            = f.text_field :nickname, class: "single-contents__form__content__lower__field", placeholder: "例）メルカリ太郎", required: true
+            = f.text_field :nickname, class: "single-contents__form__content__lower__field", placeholder: "例）メルカリ太郎", required: true, value: "rooji"
         .single-contents__form__content
           .single-contents__form__content__upper
             = f.label :email, "メールアドレス", class: "single-contents__form__content__upper__label"
@@ -178,14 +178,14 @@
               .single-contents__form__content__upper__norequire-icon
                 任意
             .single-contents__form__content__lower
-              = f.text_field :building_name, class: "single-contents__form__content__lower__field", placeholder: "例）柳ビル103"
+              = f.text_field :building_name, class: "single-contents__form__content__lower__field", placeholder: "例）柳ビル103", value: "1111"
           .single-contents__form__content
             .single-contents__form__content__upper
               = f.label :phone_number, "電話", class: "single-contents__form__content__upper__label"
               .single-contents__form__content__upper__norequire-icon
                 任意
             .single-contents__form__content__lower
-              = f.text_field :phone_number, class: "single-contents__form__content__lower__field", placeholder: "例）09012345678"
+              = f.text_field :phone_number, class: "single-contents__form__content__lower__field", placeholder: "例）09012345678", value: "09010110010"
           = f.submit "次へ進む", class: "single-contents__form__submit", id: "submit-form-third"
       #form-forth
         %h2.single-contents__header
@@ -221,7 +221,7 @@
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower
-              = f.text_field :security_code, class: "single-contents__form__content__lower__field", placeholder: "カード背面4桁もしくは3桁の番号", required: true
+              = f.text_field :security_code, class: "single-contents__form__content__lower__field", placeholder: "カード背面4桁もしくは3桁の番号", required: true, value: "123"
           .single-contents__form__guid
             = link_to root_path, class: "single-contents__form__guid__link" do
               %i
