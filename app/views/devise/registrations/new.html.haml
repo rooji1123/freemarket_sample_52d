@@ -1,6 +1,231 @@
 .container
-  = render "shared/register-user"
-  = render "shared/register_phone_number"
-  = render "shared/register_address"
-  = render "shared/register_payment"
-  = render "shared/register_complete"
+  = render 'shared/signup_header'
+  %section.single-contents
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), :html=>{class: "single-contents__form"}) do |f|
+      #form-first
+        %h2.single-contents__header
+          会員情報入力
+        .single-contents__form__content
+          .single-contents__form__content__upper
+            = f.label :nickname, "ニックネーム", class: "single-contents__form__content__upper__label"
+            .single-contents__form__content__upper__require-icon
+              必須
+          .single-contents__form__content__lower.notnull
+            = f.text_field :nickname, class: "single-contents__form__content__lower__field", placeholder: "例）メルカリ太郎", required: true, value: "rooji"
+        .single-contents__form__content
+          .single-contents__form__content__upper
+            = f.label :email, "メールアドレス", class: "single-contents__form__content__upper__label"
+            .single-contents__form__content__upper__require-icon
+              必須
+          .single-contents__form__content__lower.notnull
+            = f.email_field :email, class: "single-contents__form__content__lower__field", placeholder: "PC・携帯どちらでも可", required: true
+        .single-contents__form__content
+          .single-contents__form__content__upper
+            = f.label :password, "パスワード", class: "single-contents__form__content__upper__label"
+            .single-contents__form__content__upper__require-icon
+              必須
+          .single-contents__form__content__lower.notnull
+            = f.password_field :password, class: "single-contents__form__content__lower__field", placeholder: "6文字以上", required: true
+        .single-contents__form__content
+          .single-contents__form__content__upper
+            = f.label :password_confirmation, "パスワード(確認)", class: "single-contents__form__content__upper__label"
+            .single-contents__form__content__upper__require-icon
+              必須
+          .single-contents__form__content__lower.notnull
+            = f.password_field :password_confirmation, class: "single-contents__form__content__lower__field", placeholder: "6文字以上", required: true
+        .single-contents__form__attend
+          %h3.single-contents__form__attend__title
+            本人確認
+          %p.single-contents__form__attend__text
+            安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        = f.fields_for :user_information do |f|
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :last_name, "姓(全角)", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__require-icon
+                必須
+            .single-contents__form__content__lower.notnull
+              = f.text_field :last_name, class: "single-contents__form__content__lower__field", placeholder: "例)山田", required: true
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :first_name, "名(全角)", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__require-icon
+                必須
+            .single-contents__form__content__lower.notnull
+              = f.text_field :first_name, class: "single-contents__form__content__lower__field", placeholder: "例)彩", required: true
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :last_name_kana, "姓カナ(全角)", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__require-icon
+                必須
+            .single-contents__form__content__lower.notnull
+              = f.text_field :last_name_kana, class: "single-contents__form__content__lower__field", placeholder: "例)ヤマダ", required: true
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :first_name_kana, "名カナ(全角)", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__require-icon
+                必須
+            .single-contents__form__content__lower.notnull
+              = f.text_field :first_name_kana, class: "single-contents__form__content__lower__field", placeholder: "例)アヤ", required: true
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :birthday, "生年月日", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__require-icon
+                必須
+            .single-contents__form__content__lower-date
+              = f.text_field :birth_year, class: "single-contents__form__content__lower-date__field", required: true
+              %span.single-contents__form__content__lower-date__arrow-year
+                = fa_icon 'chevron-down'
+              %span.single-contents__form__content__lower-date__unit
+                年
+              = f.text_field :birth_month, class: "single-contents__form__content__lower-date__field", required: true
+              %span.single-contents__form__content__lower-date__arrow-month
+                = fa_icon 'chevron-down'
+              %span.single-contents__form__content__lower-date__unit
+                月
+              = f.text_field :birth_day, class: "single-contents__form__content__lower-date__field", required: true
+              %span.single-contents__form__content__lower-date__arrow-day
+                = fa_icon 'chevron-down'
+              %span.single-contents__form__content__lower-date__unit
+                日
+        .single-contents__form__attend
+          %p.single-contents__form__attend__info-text
+            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        .single-contents__form__recaptcha
+        .single-contents__form__attend
+          %p.single-contents__form__attend__next-text
+            「次へ進む」のボタンを押すことにより、<a href="" class="single-contents__form__attend__next-text__link">利用規約</a>に同意したものとみなします
+        = f.submit "次へ進む", class: "single-contents__form__submit", id: "submit-form-first"
+        .single-contents__form__guid
+          = link_to root_path, class: "single-contents__form__guid__link" do
+            本人情報の登録について
+            %i
+              = fa_icon 'chevron-right'
+      #form-second
+        %h2.single-contents__header
+          電話番号の確認
+        = f.fields_for :user_information do |f|
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :check_phone_number, "携帯電話の番号", class: "single-contents__form__content__upper__label"
+            .single-contents__form__content__lower
+              = f.text_field :check_phone_number, class: "single-contents__form__content__lower__field", placeholder: "携帯電話の番号を入力", required: true
+          .single-contents__form__attend
+            %p.single-contents__form__attend__info-text
+              本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+          = f.submit "SMSを送信する", class: "single-contents__form__submit", id: "submit-form-second"
+        .single-contents__form__attend
+          %p.single-contents__form__attend__info-text
+            ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+        .single-contents__form__guid
+          = link_to root_path, class: "single-contents__form__guid__link" do
+            電話番号の確認が必要な理由
+            %i
+              = fa_icon 'chevron-right'
+      #form-third
+        %h2.single-contents__header
+          住所入力
+        = f.fields_for :user_address do |f|
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :name_address, "お名前", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__require-icon
+                必須
+            .single-contents__form__content__lower
+              = f.text_field :last_name_address, class: "single-contents__form__content__lower__field", placeholder: "例）山田", required: true
+            .single-contents__form__content__lower
+              = f.text_field :first_name_address, class: "single-contents__form__content__lower__field", placeholder: "例）彩", required: true
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :name_kana_address, "お名前カナ", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__require-icon
+                必須
+            .single-contents__form__content__lower
+              = f.text_field :last_name_kana_address, class: "single-contents__form__content__lower__field", placeholder: "例）ヤマダ", required: true
+            .single-contents__form__content__lower
+              = f.text_field :first_name_kana_address, class: "single-contents__form__content__lower__field", placeholder: "例）アヤ", required: true
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :postal_code, "郵便番号", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__require-icon
+                必須
+            .single-contents__form__content__lower
+              = f.text_field :postal_code, class: "single-contents__form__content__lower__field", placeholder: "例）123-4567", required: true
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :country_id, "都道府県", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__require-icon
+                必須
+            .single-contents__form__content__lower
+              = f.text_field :country_id, class: "single-contents__form__content__lower__field", placeholder: "北海道", required: true
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :city, "市区町村", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__require-icon
+                必須
+            .single-contents__form__content__lower
+              = f.text_field :city, class: "single-contents__form__content__lower__field", placeholder: "例）横浜市緑区", required: true
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :address, "番地", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__require-icon
+                必須
+            .single-contents__form__content__lower
+              = f.text_field :address, class: "single-contents__form__content__lower__field", placeholder: "例）青山1-1-1", required: true
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :building_name, "建物名", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__norequire-icon
+                任意
+            .single-contents__form__content__lower
+              = f.text_field :building_name, class: "single-contents__form__content__lower__field", placeholder: "例）柳ビル103", value: "1111"
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :phone_number, "電話", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__norequire-icon
+                任意
+            .single-contents__form__content__lower
+              = f.text_field :phone_number, class: "single-contents__form__content__lower__field", placeholder: "例）09012345678", value: "09010110010"
+          = f.submit "次へ進む", class: "single-contents__form__submit", id: "submit-form-third"
+      #form-forth
+        %h2.single-contents__header
+          支払い方法
+        = f.fields_for :user_card do |f|
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :card_number, "カード番号", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__require-icon
+                必須
+            .single-contents__form__content__lower
+              = f.text_field :card_number, class: "single-contents__form__content__lower__field", placeholder: "半角数字のみ", required: true
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :expiration_date, "有効期限", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__require-icon
+                必須
+            .single-contents__form__content__lower-effect
+              = f.text_field :expiration_month, class: "single-contents__form__content__lower-effect__field", placeholder: "01", required: true
+              %span.single-contents__form__content__lower-effect__arrow
+                = fa_icon 'chevron-down'
+              %span.single-contents__form__content__lower-effect__unit
+                月
+            .single-contents__form__content__lower-effect
+              = f.text_field :expiration_year, class: "single-contents__form__content__lower-effect__field", placeholder: "19", required: true
+              %span.single-contents__form__content__lower-effect__arrow
+                = fa_icon 'chevron-down'
+              %span.single-contents__form__content__lower-effect__unit
+                年
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :security_code, "セキュリティコード", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__require-icon
+                必須
+            .single-contents__form__content__lower
+              = f.text_field :security_code, class: "single-contents__form__content__lower__field", placeholder: "カード背面4桁もしくは3桁の番号", required: true, value: "123"
+          .single-contents__form__guid
+            = link_to root_path, class: "single-contents__form__guid__link" do
+              %i
+                = fa_icon 'question-circle'
+              カード裏面の番号とは？
+        = f.submit "次へ進む", class: "single-contents__form__submit", id: "submit-form-forth"
+  = render 'shared/second__footer'
