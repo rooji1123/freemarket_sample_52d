@@ -49,7 +49,7 @@
       .detail__price
         .detail__price-price
           ¥
-          = @item.price
+          = @item.price.to_s(:delimited)
         .detail__price-tax
           （税込）
         .detail__price-cost
@@ -112,7 +112,7 @@
                 = item.name
               .other__items__list__box__body__value
                 ￥
-                = item.price
+                = item.price.to_s(:delimited)
               .other__items__list__box__body__tax
                 (税込)
                 = fa_icon("heart")
@@ -129,7 +129,7 @@
                 = category.item.name
               .other__items__list__box__body__value
                 ￥
-                = category.item.price
+                = category.item.price.to_s(:delimited)
               .other__items__list__box__body__tax
                 (税込)
                 = fa_icon("heart")

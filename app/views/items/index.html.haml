@@ -18,7 +18,7 @@
               = category.item.name
             .main__pickup__newitems__box__body__value
               ￥
-              = category.item.price
+              = category.item.price.to_s(:delimited)
             .main__pickup__newitems__box__body__tax
               (税込)
               .main__pickup__newitems__box__body__tax__heart
@@ -42,7 +42,7 @@
               = category.item.name
             .main__pickup__newitems__box__body__value
               ￥
-              = category.item.price
+              = category.item.price.to_s(:delimited)
             .main__pickup__newitems__box__body__tax
               (税込)
               .main__pickup__newitems__box__body__tax__heart
@@ -64,7 +64,7 @@
               = category.item.name
             .main__pickup__newitems__box__body__value
               ￥
-              = category.item.price
+              = category.item.price.to_s(:delimited)
             .main__pickup__newitems__box__body__tax
               (税込)
               .main__pickup__newitems__box__body__tax__heart
@@ -88,7 +88,7 @@
                 = category.item.name
               .main__pickup__newitems__box__body__value
                 ￥
-                = category.item.price
+                = category.item.price.to_s(:delimited)
               .main__pickup__newitems__box__body__tax
                 (税込)
                 .main__pickup__newitems__box__body__tax__heart
