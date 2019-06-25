@@ -37,7 +37,10 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @item = Item.find(set_item)
     @item.update(item_params)
+    @item.item_images.build
+    @parents = Category.where(ancestry: nil).order("id ASC")
   end
 
   def destroy
@@ -72,7 +75,8 @@ class ItemsController < ApplicationController
  private
 
   def item_params
-    params.require(:item).permit(:name, :description, :prefecture_id, :price, :delivery_date_id, :brand_id, :delivery_fee_id, :delivery_choice_id, :item_state_id, :size_id, category_ids: [], images: [])
+    brand_id = params[:brand_id].to_i
+    params.require(:item).permit(:name, :description, :prefecture_id, :price, :delivery_date_id, :delivery_fee_id, :delivery_choice_id, :brand_id, :item_state_id, :size_id, category_ids: [], images: []).merge(brand_id: brand_id)
   end
 
   def set_item
