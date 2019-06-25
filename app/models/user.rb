@@ -13,7 +13,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :user_card
 
   validates :nickname, presence: true
-  validates :email, presence: true
-  validates :password, presence: true
-  validates :password_confirmation, presence: true
+  validates :email, presence: true, format: { with: /\A[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}\Z/}
+  validates :password, presence: true, confirmation: true, format: { with: /\A(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}\Z/}
+  validates :password_confirmation, presence: true, format: { with: /\A(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}\Z/}
 end
