@@ -1,11 +1,15 @@
 class ItemsController < ApplicationController
   def index
+    @ladies = ItemsCategory.where(category_id:"1")
+    @mens = ItemsCategory.where(category_id:"2")
+    @babys = ItemsCategory.where(category_id:"3")
+    @cosme = ItemsCategory.where(category_id:"7")
   end
 
   def show
     @item = Item.find(set_item)
     @selleritems = Item.where(seller_id: @item.seller_id).where.not(id: @item.id)
-    # @categoryitems = Item.where(category_id: categories.category_id).where.not(id: @item.id)
+    @categoryitems = ItemsCategory.where(category_id: @item.items_categories.last.category_id)
     @images = @item.item_images.where(params[:item_id])
   end
 
