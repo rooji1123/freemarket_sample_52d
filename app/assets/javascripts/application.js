@@ -14,3 +14,11 @@
 //= require activestorage
 //= require rails-ujs
 //= require_tree .
+
+//validate recaptcha
+var noBot = false
+var recaptchaCallbackFunction = function(){
+  $('.g-recaptcha').children('.attend-select').remove()
+  $('.single-contents__form__recaptcha').css('border', 'none')
+  noBot = true;
+}
