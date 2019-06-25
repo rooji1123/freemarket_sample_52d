@@ -21,16 +21,16 @@ class ItemsController < ApplicationController
 
   def create
      @item = Item.new(item_params)
-    respond_to do |format|
-      if @item.save
-        params[:item_images][:image].each do |image|
-          @item.item_images.create(image: image, item_id: @item.id)
-        end
-        format.html{redirect_to root_path}
-      else
-        @item.item_images.build
-        format.html{render action: 'new'}
+    if @item.save && new_image_params[:images][0] != " "
+      new_image_params[:images].each do |image|
+        @item.item_images.create(image_url: image, item_id: @item.id)
       end
+      flash[:notice] = '出品が完了しました'
+      redirect_to root_path
+    else
+      @item.item_images.build
+      flash[:alert] = '未入力項目があります'
+      redirect_back(fallback_location: root_path)
     end
   end
 
@@ -80,11 +80,15 @@ class ItemsController < ApplicationController
 
   def item_params
     brand_id = params[:brand_id].to_i
-    params.require(:item).permit(:name, :description, :prefecture_id, :price, :delivery_date_id, :delivery_fee_id, :delivery_choice_id, :brand_id, :item_state_id, :size_id, category_ids: [], images: []).merge(brand_id: brand_id)
+    params.require(:item).permit(:name, :description, :prefecture_id, :price, :delivery_date_id, :delivery_fee_id, :delivery_choice_id, :brand_id, :item_state_id, :size_id, category_ids: []).merge(brand_id: brand_id)
   end
 
   def set_item
     params.require(:id)
+  end
+
+  def new_image_params
+    params.require(:new_images).permit({images: []})
   end
 
 end

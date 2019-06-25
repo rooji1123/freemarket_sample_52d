@@ -17,7 +17,7 @@
                 .item__img__dropzone__input
                   = image.label :image, for: "upload-image" do
                     .input-area
-                      = image.file_field :image, id: "upload-image", class: "upload-image", 'data-image': 0
+                      = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
                       .item__img__dropzone__input__description
                         .item__img__dropzone__input__description__text
                           ドラッグアンドドロップ
@@ -28,7 +28,7 @@
                 .item__img__dropzone2__input2
                   = image.label :image, for: "upload-image" do
                     .input-area
-                      = image.file_field :image, id: "upload-image", class: "upload-image", 'data-image': 0
+                      = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
                       .item__img__dropzone2__input2__description
                         .item__img__dropzone2__input2__description__text
                           ドラッグアンドドロップ
