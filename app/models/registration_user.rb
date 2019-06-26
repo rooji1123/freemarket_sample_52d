@@ -1,6 +1,6 @@
 class RegistrationUser
   include ActiveModel::Model
-  belongs_to :users
+  belongs_to :user
   
   attr_accessor :nickname, :email
 
