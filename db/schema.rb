@@ -153,3 +153,4 @@ ActiveRecord::Schema.define(version: 2019_06_26_031932) do
   add_foreign_key "user_cards", "users"
   add_foreign_key "user_informations", "users"
 end
+end

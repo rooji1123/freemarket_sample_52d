@@ -8,10 +8,15 @@
 .attend-null,
 .attend-type-error,
 .attend-pass,
-.attend-pass-confirm{
+.attend-pass-confirm,
+.attend-select{
   margin-top: 8px;
   font-size: 14px;
   color: #ea352d;
+}
+
+.g-recaptcha{
+  height: 30px;
 }
 
 .single-contents{
@@ -166,10 +171,9 @@
       }
     }
     &__recaptcha{
-      height: 72px;
-      width: 320px;
+      height: 76px;
+      width: 302px;
       margin: 40px auto 0;
-      background-color: grey;
     }
     &__submit{
       display: block;

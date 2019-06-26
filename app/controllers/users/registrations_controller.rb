@@ -8,8 +8,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    set_customer
-    super
+    if verify_recaptcha
+      set_customer
+      super
+    else
+      render 'registration/new'
+    end
   end
 
   private

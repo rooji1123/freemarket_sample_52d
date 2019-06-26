@@ -1,0 +1,35 @@
+= render 'shared/header'
+.breadcrumb
+  .breadcrumb__list
+    - breadcrumb :category, @category
+    -# - breadcrumb :ladys_clothes, @category
+    = breadcrumbs separator: " #{fa_icon("chevron-right")} "
+
+.category-show
+  .category-show__title
+    = "#{@category.name}の商品一覧"
+  .category-show__items
+    - unless @items.empty?
+      - @items.each do |item|
+        .category-show__items__item
+          .category-show__items__item__image
+            = image_tag "https://static.mercdn.net/thumb/photos/m11461446204_1.jpg?1553989197", class: "category-show__items__item__image__box"
+          .category-show__items__item__name
+            = item.name
+          .category-show__items__item__bottom
+            .category-show__items__item__bottom__left
+              .category-show__items__item__bottom__left__price
+                = "¥ #{item.price}"
+              .category-show__items__item__bottom__left__tax
+                (税込)
+            .category-show__items__item__bottom__right
+              = fa_icon("heart")
+              %span.category-show__items__item__bottom__right__span
+                1
+          .category-show__items__item__link
+            = link_to "", item_path(item.id), class: "category-show__items__item__link__box"
+    - else
+      .category-show__not
+        = "#{@category.name}に関する商品の出品はまだありません"
+= render "shared/display_icon"
+= render 'shared/footer'

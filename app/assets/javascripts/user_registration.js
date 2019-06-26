@@ -46,7 +46,16 @@ $(function(){
       $("#user_password_confirmation").parent().children('.attend-pass-confirm').remove()
       $("#user_password_confirmation").parent().append(html)
     }
-    if(nul == true || type == false || pass == false || confirm == false){
+    if(!noBot){
+      function buildHtmlAttendSelect(){
+        var htmlAttendSelect = `<p class='attend-select'>選択してください</p>`
+        return htmlAttendSelect
+      }
+      $('.g-recaptcha').children('.attend-select').remove()
+      $('.g-recaptcha').append(buildHtmlAttendSelect)
+      $('.single-contents__form__recaptcha').css('border', '1px solid #ea352d')
+    }
+    if(nul == true || type == false || pass == false || confirm == false || noBot == false){
       $("html,body").animate({scrollTop:0});
     }else{
       $('#form-first').hide();
