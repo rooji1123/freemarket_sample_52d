@@ -6,16 +6,20 @@ crumb :categories do
   link "カテゴリー一覧", categories_path
 end
 
-# crumb :category do |category|
-#   link "#{category.name}", category_path("")
+# crumb :ladys_clothes do |child|
+#   link child.name, category_path(category)
 #   parent :categories
 # end
 
-# crumb :category.children do |child|
-#   link "#{child.name}", category.children_path("")
-#   parent :categories, category
-# end
+crumb :category do |category|
+  link category.name, category_path(category)
+  parent :categories
+end
 
+# crumb :ladys_clothes do |child|
+#   link child.name, category_path(category)
+#   parent :categories
+# end
 # crumb :category.grand_children do |grand_child|
 #   link grand_child.name, grand_child_path("")
 #   parent :categories, category, category.children
