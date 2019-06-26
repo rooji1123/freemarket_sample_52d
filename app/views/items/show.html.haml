@@ -52,7 +52,7 @@
           （税込）
         .detail__price-cost
           送料込み
-        %a{href: "/"}
+        = link_to new_item_purchase_path(@item.id) do
           .detail__buy-btm
             購入画面に進む
         %p.detail__usercomment
