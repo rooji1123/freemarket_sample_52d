@@ -1,4 +1,10 @@
 = render 'shared/header'
+.breadcrumb
+  .breadcrumb__list
+    - breadcrumb :category, @category
+    -# - breadcrumb :ladys_clothes, @category
+    = breadcrumbs separator: " #{fa_icon("chevron-right")} "
+
 .category-show
   .category-show__title
     = "#{@category.name}の商品一覧"

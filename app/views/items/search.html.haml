@@ -1,9 +1,10 @@
 = render 'shared/header'
 
 -# = render 'shared/breadcrumbs'
-.breadcrumbs
-  - breadcrumb :items
-  = breadcrumbs separator: " #{fa_icon("chevron-right")} "
+.breadcrumb
+  .breadcrumb__list
+    - breadcrumb :items
+    = breadcrumbs separator: " #{fa_icon("chevron-right")} "
 .search-results
   .search-results__content
     .search-results__content__head
