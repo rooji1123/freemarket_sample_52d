@@ -8,11 +8,11 @@
     .main__pickup__text
       = link_to "レディース 新着アイテム", item_path(10), class: "newitem"
     .main__pickup__newitems
-      - unless @ladies.empty?
-        - @ladies.first(4).each do |category|
-          .main__pickup__newitems__box
-            .main__pickup__newitems__box__photo
-              %a{href: "/items/#{category.item.id}"}
+      - @ladies.first(4).each do |category|
+        .main__pickup__newitems__box
+          .main__pickup__newitems__box__photo
+            %a{href: "/items/#{category.item.id}"}
+              - unless category.item.item_images.first.image.nil?
                 = image_tag category.item.item_images.first.image.to_s, size: "213x213"
             .main__pickup__newitems__box__body
               .main__pickup__newitems__box__body__name
