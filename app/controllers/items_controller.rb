@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new]
+  # before_action :authenticate_user!, only: [:new]
   def index
     @ladies = ItemsCategory.where(category_id:"1")
     @mens = ItemsCategory.where(category_id:"2")
