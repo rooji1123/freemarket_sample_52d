@@ -9,7 +9,7 @@
 .category-index
   .category-index__body
     .category-index__body__title
-      カテゴリー一覧
+      = "#{ENV['RECAPTCHA_SITE_KEY']}"
     .category-index__body__list
       = link_to "レディース", "#category_child1", class: "category-index__list__name", data: {"turbolinks": false}
       = link_to "メンズ", "#category_child2", class: "category-index__list__name", data: {"turbolinks": false}
@@ -29,7 +29,7 @@
         - children = parent.children
         %li.category-index__body__box
           .category-index__body__box__part
-            = "#{ENV['RECAPTCHA_SITE_KEY']}"
+            = parent.name
           .category-index__body__box__inner
             =link_to "すべて",category_path(parent.id), class: "category-index__body__box__part__inner category-inner-name"
             - children.each do |child|
