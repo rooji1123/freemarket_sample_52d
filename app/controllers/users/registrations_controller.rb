@@ -9,6 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     if verify_recaptcha
+      set_customer
       super
     else
       render 'registration/new'
@@ -20,7 +21,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname,
                                         user_information_attributes: [:last_name, :first_name, :last_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day, :check_phone_number],
                                         user_address_attributes: [:last_name_address, :first_name_address, :last_name_kana_address, :first_name_kana_address, :postal_code, :country_id, :city, :address, :building_name, :phone_number],
-                                        user_card_attributes: [:card_number, :expiration_month, :expiration_year, :security_code]])
+                                        user_card_attributes: [:customer_id]])
+  end
+
+  def set_customer
+    Payjp.api_key = "sk_test_833ebfb77824020c76ea83f0"
+    response = Payjp::Customer.create(
+      card: "#{params[:user][:user_card_attributes][:customer_id]}"
+    )
+    card_hash = params[:user][:user_card_attributes]
+    card_hash[:customer_id] = "#{response[:id]}"
   end
 
 end

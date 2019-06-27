@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  # before_action :authenticate_user!, only: [:new]
   def index
     @ladies = ItemsCategory.where(category_id:"1")
     @mens = ItemsCategory.where(category_id:"2")
@@ -80,7 +81,7 @@ class ItemsController < ApplicationController
 
   def item_params
     brand_id = params[:brand_id].to_i
-    params.require(:item).permit(:name, :description, :prefecture_id, :price, :delivery_date_id, :delivery_fee_id, :delivery_choice_id, :brand_id, :item_state_id, :size_id, category_ids: [], images: []).merge(brand_id: brand_id)
+    params.require(:item).permit(:name, :description, :prefecture_id, :price, :delivery_date_id, :delivery_fee_id, :delivery_choice_id, :brand_id, :item_state_id, :size_id, category_ids: [], images: []).merge(brand_id: brand_id, seller_id: current_user.id)
   end
 
   def set_item

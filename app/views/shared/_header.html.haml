@@ -20,16 +20,23 @@
             = fa_icon("tag")
             %span ブランドから探す
       .header__frame__bottom__list-right
-        .header__frame__bottom__list-right__news
-          = link_to '#', class: "header__frame__bottom__list-right__news__link right-link" do
-            = fa_icon("bell")
-            %span お知らせ
-        .header__frame__bottom__list-right__todolist
-          = link_to '#', class: "header__frame__bottom__list-right__todolist__link right-link" do
-            = fa_icon("check")
-            %span やることリスト
-        .header__frame__bottom__list-right__mypage
-          = link_to '#', class: "header__frame__bottom__list-right__mypage__link right-link" do
-            .header__frame__bottom__list-right__mypage__image
-              = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", size: "32x32"
-            .header__frame__bottom__list-right__mypage__text マイページ
+        - if user_signed_in?
+          .header__frame__bottom__list-right__news
+            = link_to '#', class: "header__frame__bottom__list-right__news__link right-link" do
+              = fa_icon("bell")
+              %span お知らせ
+          .header__frame__bottom__list-right__todolist
+            = link_to '#', class: "header__frame__bottom__list-right__todolist__link right-link" do
+              = fa_icon("check")
+              %span やることリスト
+          .header__frame__bottom__list-right__mypage
+            = link_to user_path(current_user.id), class: "header__frame__bottom__list-right__mypage__link right-link" do
+              .header__frame__bottom__list-right__mypage__image
+                = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", size: "32x32"
+              .header__frame__bottom__list-right__mypage__text マイページ
+        - else
+          .header__frame__bottom__list-right__mypage
+            .header__frame__bottom__list-right__mypage__sign-up.header__frame__bottom__list-right__mypage__user
+              = link_to "新規登録",new_user_registration_path, class: "header__frame__bottom__list-right__mypage__user__link header__frame__bottom__list-right__mypage__user__link-red"
+            .header__frame__bottom__list-right__mypage__sign-in.header__frame__bottom__list-right__mypage__user
+              = link_to "ログイン",new_user_registration_path, class: "header__frame__bottom__list-right__mypage__user__link header__frame__bottom__list-right__mypage__user__link-blue"

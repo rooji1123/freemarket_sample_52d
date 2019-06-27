@@ -83,7 +83,7 @@ gem 'payjp'
 gem 'activerecord-import'
 gem 'ransack'
 gem 'gon'
-gem 'recaptcha', require: "recaptcha/rails"
+gem "recaptcha", require: "recaptcha/rails"
 gem 'dotenv-rails'
 
 group :production do

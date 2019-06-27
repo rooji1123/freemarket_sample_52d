@@ -141,6 +141,8 @@
         box-sizing: border-box;
         &__mypage{
           height: 100%;
+          display: flex;
+          flex-wrap: wrap;
           &__image{
             // line-height: 57px;
             height: 32px;
@@ -156,6 +158,30 @@
             vertical-align: middle;
             line-height: 57px;
             margin-left: 10px;
+          }
+          &__user{
+            &__link{
+              height: 32px;
+              line-height: 32px;
+              text-align: center;
+              display: inline-block;
+              margin-top: 12px;
+              text-decoration: none;
+              border: none;
+              border-radius: 5px;
+              &-red{
+                width: 80px;
+                background-color: $mercari-red;
+                color: #FFF;
+              }
+              &-blue{
+                height: 28px;
+                width: 70px;
+                border: #0099E8 solid 2px;
+                color: #0099E8;
+                margin-left: 20px;
+              }
+            }
           }
         }
         &__news {

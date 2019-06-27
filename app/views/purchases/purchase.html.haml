@@ -1,8 +1,14 @@
-.container
+.container-purchase
+  .container-purchase__clearfix
   = render "shared/second__header"
   .clearfix
-    .item
-      .item__top
-        %p.item__top__title 購入が完了しました
+    .purchase-complete
+      .purchase-complete__top
+        %p.purchase-complete__top__title この商品は購入することができません
+      .purchase-complete__main
+        %p.purchase-complete__main_text
+          = flash[:error]
+      .purchase-complete__button
+        = link_to "商品のページへ戻る", item_path(@item.id), class: "purchase-complete__button__link"
 
   = render "shared/second__footer"

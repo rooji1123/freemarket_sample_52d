@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_21_181429) do
+ActiveRecord::Schema.define(version: 2019_06_26_031932) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -82,6 +82,15 @@ ActiveRecord::Schema.define(version: 2019_06_21_181429) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "points", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "point", null: false
+    t.string "expiration_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_points_on_user_id"
+  end
+
   create_table "user_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "last_name_address", null: false
     t.string "first_name_address", null: false
@@ -100,13 +109,10 @@ ActiveRecord::Schema.define(version: 2019_06_21_181429) do
   end
 
   create_table "user_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "card_number", null: false
-    t.integer "expiration_month", null: false
-    t.integer "expiration_year", null: false
-    t.integer "security_code", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "customer_id"
     t.index ["user_id"], name: "index_user_cards_on_user_id"
   end
 
@@ -142,6 +148,7 @@ ActiveRecord::Schema.define(version: 2019_06_21_181429) do
 
   add_foreign_key "deliveries", "items"
   add_foreign_key "item_images", "items"
+  add_foreign_key "points", "users"
   add_foreign_key "user_addresses", "users"
   add_foreign_key "user_cards", "users"
   add_foreign_key "user_informations", "users"

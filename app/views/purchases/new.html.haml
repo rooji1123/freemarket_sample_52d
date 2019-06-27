@@ -4,11 +4,11 @@
     .item
       .item__top
         %p.item__top__title 購入内容の確認
-      = form_with(url: "/items/1/purchases", local: true, id: "charge-form" ) do |f|
+      = form_with(url: "/items/#{@item.id}/purchases", local: true, id: "charge-form" ) do |f|
         .item__main
           .item__main__detail
             .item__main__detail__left
-              = image_tag 'https://static.mercdn.net/thumb/photos/m28609789533_1.jpg?1560323063', class:"item__main__detail__left__image"
+              = image_tag "#{@image.image}", class:"item__main__detail__left__image"
             .item__main__detail__right
               .item__main__detail__right__name
                 = @item.name
@@ -16,14 +16,16 @@
             .item__main__burden__price
               = "¥ #{@item.price}"
               = f.hidden_field :price, value: @item.price
-              %input{maxlength: "16", type: "text", class: "number", id: "payment_card_no", name: "number", value: "4242424242424242"}
-              %input{type: "text", class: "cvc", id: "payment_card_security_code", name: "cvc", maxlength: "3", value: "123"}
-              %input{type: "text", class: "exp_month", id: "payment_card_expire_mm",  name: "exp_month", maxlength: "2", value: "12"}
-              %input{type: "text", class: "exp_year", id: "payment_card_expire_yy", name: "exp_year", maxlength: "4",  value: "2020"}
             .item__main__burden__text
               送料込み
           .item__main__point
-            ポイントはありません
+            - if @point_all == 0
+              = "ポイントはありません"
+            - else
+              %p.item__main__point-red
+                %span= @point_all
+                ポイント使用できます
+
           .item__main__price
             .item__main__price__left
               支払い金額
@@ -36,11 +38,11 @@
             .item__addless__box__title
               配送先
             .item__addless__box__code
-              〒330-2344
+              = "〒#{@address.postal_code}"
             .item__addless__box__country
-              神奈川県 溝の口 3-32-3
+              = "#{Prefecture.find(@address.country_id)[:name]} #{@address.city} #{@address.address}"
             .item__addless__box__name
-              加藤 蒔朗
+              = "#{@information.first_name} #{@information.last_name}"
             .item__addless__box__link
               = link_to "変更する", '#', class: "item__addless__box__link__word"
         .item__card
@@ -50,8 +52,10 @@
                 .item__card__main__box__left__title 支払い方法
                 .item__card__main__box__left__image
                   = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?1612736639', class: "item__card__main__box__left__image__box"
-                .item__card__main__box__left__number **************7321
-                .item__card__main__box__left__day 02/42
+                .item__card__main__box__left__number
+                = "**************#{@card[:last4]}"
+                .item__card__main__box__left__day
+                = "#{@card[:exp_month]}/#{@card[:exp_year].to_s.gsub(/^../,"")}"
                 .item__card__main__box__left__link
                   = link_to "変更する",'#', class: "item__card__main__box__left__link__word"
 
