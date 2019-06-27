@@ -29,7 +29,7 @@
         - children = parent.children
         %li.category-index__body__box
           .category-index__body__box__part
-            = parent.name
+            = "#{ENV['RECAPTCHA_SITE_KEY']}"
           .category-index__body__box__inner
             =link_to "すべて",category_path(parent.id), class: "category-index__body__box__part__inner category-inner-name"
             - children.each do |child|
