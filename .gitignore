@@ -26,6 +26,7 @@
 /public/uploads
 
 /.env
+/.env.development
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
