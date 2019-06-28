@@ -39,7 +39,7 @@
                 %td 送料込み
               %tr
                 %th 発送の方法
-                %td データ
+                %td #{@item.delivery_choice.choice}
               %tr
                 %th 発送元地域
                 %td #{@item.prefecture.name}
@@ -82,10 +82,10 @@
         .move__items-next-arrow
           ＜
         .move__items-next-name
-          プリティリトルシング　小さいサイズ　XS　ワンピース
+          = @categoryitems.shuffle.first.item.name
       .move__items-back
         .move__items-back-name
-          無印良品 シャンプー三本セット
+          = @categoryitems.shuffle.first.item.name
         .move__items-back-arrow
           ＞
     .links
