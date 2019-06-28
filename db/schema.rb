@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_06_21_181429) do
   end
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image"
+    t.string "images"
     t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -145,5 +145,4 @@ ActiveRecord::Schema.define(version: 2019_06_21_181429) do
   add_foreign_key "user_addresses", "users"
   add_foreign_key "user_cards", "users"
   add_foreign_key "user_informations", "users"
-end
 end

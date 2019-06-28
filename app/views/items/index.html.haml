@@ -12,18 +12,19 @@
         .main__pickup__newitems__box
           .main__pickup__newitems__box__photo
             %a{href: "/items/#{category.item.id}"}
-              = image_tag category.item.item_images.first.image.to_s, size: "213x213"
-          .main__pickup__newitems__box__body
-            .main__pickup__newitems__box__body__name
-              = category.item.name
-            .main__pickup__newitems__box__body__value
-              ￥
-              = category.item.price.to_s(:delimited)
-            .main__pickup__newitems__box__body__tax
-              (税込)
-              .main__pickup__newitems__box__body__tax__heart
-                = fa_icon("heart")
-                %span 1
+              - unless category.item.item_images.first.image.nil?
+                = image_tag category.item.item_images.first.image.to_s, size: "213x213"
+            .main__pickup__newitems__box__body
+              .main__pickup__newitems__box__body__name
+                = category.item.name
+              .main__pickup__newitems__box__body__value
+                ￥
+                = category.item.price.to_s(:delimited)
+              .main__pickup__newitems__box__body__tax
+                (税込)
+                .main__pickup__newitems__box__body__tax__heart
+                  = fa_icon("heart")
+                  %span 1
     .main__pickup__view
       = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
 
@@ -32,53 +33,8 @@
       = link_to "メンズ 新着アイテム", 'root_path', class: "newitem"
 
     .main__pickup__newitems
-      - @mens.first(4).each do |category|
-        .main__pickup__newitems__box
-          .main__pickup__newitems__box__photo
-            %a{href: "/items/#{category.item.id}"}
-              = image_tag category.item.item_images.first.image.to_s, size: "213x213"
-          .main__pickup__newitems__box__body
-            .main__pickup__newitems__box__body__name
-              = category.item.name
-            .main__pickup__newitems__box__body__value
-              ￥
-              = category.item.price.to_s(:delimited)
-            .main__pickup__newitems__box__body__tax
-              (税込)
-              .main__pickup__newitems__box__body__tax__heart
-                = fa_icon("heart")
-                %span 1
-    .main__pickup__view
-      = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
-
-    .main__pickup__text
-      = link_to "ベビー・キッズ 新着アイテム", 'root_path', class: "newitem"
-    .main__pickup__newitems
-      - @babys.first(4).each do |category|
-        .main__pickup__newitems__box
-          .main__pickup__newitems__box__photo
-            %a{href: "/items/#{category.item.id}"}
-              = image_tag category.item.item_images.first.image.to_s, size: "213x213"
-          .main__pickup__newitems__box__body
-            .main__pickup__newitems__box__body__name
-              = category.item.name
-            .main__pickup__newitems__box__body__value
-              ￥
-              = category.item.price.to_s(:delimited)
-            .main__pickup__newitems__box__body__tax
-              (税込)
-              .main__pickup__newitems__box__body__tax__heart
-                = fa_icon("heart")
-                %span 1
-    .main__pickup__view
-      = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
-
-    .main__pickup__text
-      = link_to "コスメ・香水・美容 新着アイテム", 'root_path', class: "newitem"
-
-    .main__pickup__newitems
-      .main__pickup__newitems__box
-        - @cosme.first(4).each do |category|
+      - unless @ladies.empty?
+        - @mens.first(4).each do |category|
           .main__pickup__newitems__box
             .main__pickup__newitems__box__photo
               %a{href: "/items/#{category.item.id}"}
@@ -94,6 +50,54 @@
                 .main__pickup__newitems__box__body__tax__heart
                   = fa_icon("heart")
                   %span 1
+    .main__pickup__view
+      = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
+
+    .main__pickup__text
+      = link_to "ベビー・キッズ 新着アイテム", 'root_path', class: "newitem"
+    .main__pickup__newitems
+      - unless @ladies.empty?
+        - @babys.first(4).each do |category|
+          .main__pickup__newitems__box
+            .main__pickup__newitems__box__photo
+              %a{href: "/items/#{category.item.id}"}
+                = image_tag category.item.item_images.first.image.to_s, size: "213x213"
+            .main__pickup__newitems__box__body
+              .main__pickup__newitems__box__body__name
+                = category.item.name
+              .main__pickup__newitems__box__body__value
+                ￥
+                = category.item.price.to_s(:delimited)
+              .main__pickup__newitems__box__body__tax
+                (税込)
+                .main__pickup__newitems__box__body__tax__heart
+                  = fa_icon("heart")
+                  %span 1
+    .main__pickup__view
+      = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
+
+    .main__pickup__text
+      = link_to "コスメ・香水・美容 新着アイテム", 'root_path', class: "newitem"
+
+    .main__pickup__newitems
+      .main__pickup__newitems__box
+        - unless @ladies.empty?
+          - @cosme.first(4).each do |category|
+            .main__pickup__newitems__box
+              .main__pickup__newitems__box__photo
+                %a{href: "/items/#{category.item.id}"}
+                  = image_tag category.item.item_images.first.image.to_s, size: "213x213"
+              .main__pickup__newitems__box__body
+                .main__pickup__newitems__box__body__name
+                  = category.item.name
+                .main__pickup__newitems__box__body__value
+                  ￥
+                  = category.item.price.to_s(:delimited)
+                .main__pickup__newitems__box__body__tax
+                  (税込)
+                  .main__pickup__newitems__box__body__tax__heart
+                    = fa_icon("heart")
+                    %span 1
     .main__pickup__view
       = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
 
