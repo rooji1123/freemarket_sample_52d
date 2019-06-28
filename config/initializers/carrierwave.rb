@@ -3,13 +3,15 @@ require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
 
 CarrierWave.configure do |config|
+  access = Rails.application.credentials.aws_access_key_id
+  secret = Rails.application.credentials.secret_key_base
   if Rails.env.production?
     config.storage = :fog
     config.fog_provider = 'fog/aws'
     config.fog_credentials = {
       provider: 'AWS',
-      aws_access_key_id: Rails.application.credentials.aws_access_key_id,
-      aws_secret_acccess_key: Rails.application.credentials.secret_key_base,
+      aws_access_key_id: access,
+      aws_secret_acccess_key: secret,
       region: 'ap-northeast-1'
     }
   else
