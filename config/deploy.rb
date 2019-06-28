@@ -1,5 +1,6 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
+puts ENV["AWS_ACCESS_KEY_ID"]
 
 set :application, "freemarket_sample_52d_2"
 set :repo_url, "git@github.com:rooji1123/freemarket_sample_52d_2.git"
