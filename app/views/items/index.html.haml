@@ -30,7 +30,6 @@
 
     .main__pickup__text
       = link_to "メンズ 新着アイテム", 'root_path', class: "newitem"
-
     .main__pickup__newitems
       - @mens.first(4).each do |category|
         .main__pickup__newitems__box
