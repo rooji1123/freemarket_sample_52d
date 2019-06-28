@@ -1,0 +1,25 @@
+.logout{
+  height: 20vh;
+  width: 700px;
+  margin: 0 auto;
+  background-color: white;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  float: right;
+  &__box{
+    height: 50px;
+    width: 320px;
+    text-align: center;
+    padding-top: 50px;
+    margin: auto;
+    &__link{
+      height: 50px;
+      width: 320px;
+      display: block;
+      background-color: #ea352d;
+      font-size: 19px;
+      line-height: 50px;
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
