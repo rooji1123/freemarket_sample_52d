@@ -103,35 +103,37 @@
         ーーさんのその他の出品
       .other__items__list
         - @selleritems.shuffle.first(6).each do |item|
-          .other__items__list__box
-            .other__items__list__box-photo
-              %a{href: "/items/#{item.id}"}
-                = image_tag item.item_images.first.image.to_s, size: "220x220"
-            .other__items__list__box__body
-              .other__items__list__box__body__name
-                = item.name
-              .other__items__list__box__body__value
-                ￥
-                = item.price.to_s(:delimited)
-              .other__items__list__box__body__tax
-                (税込)
-                = fa_icon("heart")
+          - unless item.item_images.empty?
+            .other__items__list__box
+              .other__items__list__box-photo
+                %a{href: "/items/#{item.id}"}
+                  = image_tag item.item_images.first.image.to_s, size: "220x220"
+              .other__items__list__box__body
+                .other__items__list__box__body__name
+                  = item.name
+                .other__items__list__box__body__value
+                  ￥
+                  = item.price.to_s(:delimited)
+                .other__items__list__box__body__tax
+                  (税込)
+                  = fa_icon("heart")
       .other__items-name
         その他のカテゴリーの商品
       .other__items__list
         - @categoryitems.shuffle.first(6).each do |category|
-          .other__items__list__box
-            .other__items__list__box-photo
-              %a{href: "/items/#{category.item.id}"}
-                = image_tag category.item.item_images.first.image.to_s, size: "220x220"
-            .other__items__list__box__body
-              .other__items__list__box__body__name
-                = category.item.name
-              .other__items__list__box__body__value
-                ￥
-                = category.item.price.to_s(:delimited)
-              .other__items__list__box__body__tax
-                (税込)
-                = fa_icon("heart")
+          - unless category.item.item_images.empty?
+            .other__items__list__box
+              .other__items__list__box-photo
+                %a{href: "/items/#{category.item.id}"}
+                  = image_tag category.item.item_images.first.image.to_s, size: "220x220"
+              .other__items__list__box__body
+                .other__items__list__box__body__name
+                  = category.item.name
+                .other__items__list__box__body__value
+                  ￥
+                  = category.item.price.to_s(:delimited)
+                .other__items__list__box__body__tax
+                  (税込)
+                  = fa_icon("heart")
 = render 'shared/footer'
 
