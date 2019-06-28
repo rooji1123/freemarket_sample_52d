@@ -30,6 +30,11 @@ ActiveRecord::Schema.define(version: 2019_06_26_031932) do
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "deal_state"
+    t.bigint "user_id"
+    t.bigint "item_id"
+    t.index ["item_id"], name: "index_comments_on_item_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "deliveries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -143,6 +148,8 @@ ActiveRecord::Schema.define(version: 2019_06_26_031932) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "items"
+  add_foreign_key "comments", "users"
   add_foreign_key "deliveries", "items"
   add_foreign_key "item_images", "items"
   add_foreign_key "points", "users"
