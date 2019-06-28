@@ -12,6 +12,16 @@
         並び替え
       .search-results__content__head__right
         詳細検索
+        = search_form_for(@q, url:search_items_path) do |f|
+          = f.label :name_or_description_cont, 'キーワードを追加する'
+          = f.search_field :name_or_description_cont
+          = f.label :items_categories_category_id_eq, 'カテゴリーで絞り込み'
+          = f.collection_select :items_categories_category_id_eq, @categories, :id, :name, include_blank: '指定なし'
+          = f.label :brand_name_cont,'ブランド名から探す'
+          = f.search_field :brand_name_cont
+          = f.label '価格'
+          
+          = f.submit
     .search-results__content__items
       .search-results__content__items__text
         検索結果
@@ -19,63 +29,22 @@
         0~20件表示
 
     .main__pickup__newitems
-      .main__pickup__newitems__box
-        .main__pickup__newitems__box__photo
-          %a{href: "#"}
-            = image_tag "http://pr.kokugakuin.ac.jp/cgw/wp-content/uploads/2014/11/MG_7437.jpg", size: "213x213"
-        .main__pickup__newitems__box__body
-          .main__pickup__newitems__box__body__name
-            柔道
-          .main__pickup__newitems__box__body__value
-            ￥1,250
-          .main__pickup__newitems__box__body__tax
-            (税込)
-            .main__pickup__newitems__box__body__tax__heart
-              = fa_icon("heart")
-              %span 1
-
-      -# .main__pickup__newitems__box
-      -#   .main__pickup__newitems__box__photo
-      -#     %a{href: "#"}
-      -#       = image_tag "http://pr.kokugakuin.ac.jp/cgw/wp-content/uploads/2014/11/MG_7437.jpg", size: "213x213"
-      -#   .main__pickup__newitems__box__body
-      -#     .main__pickup__newitems__box__body__name
-      -#       柔道
-      -#     .main__pickup__newitems__box__body__value
-      -#       ￥1,250
-      -#     .main__pickup__newitems__box__body__tax
-      -#       (税込)
-      -#       .main__pickup__newitems__box__body__tax__heart
-      -#         = fa_icon("heart")
-      -#         %span 1
-      -# .main__pickup__newitems__box
-      -#   .main__pickup__newitems__box__photo
-      -#     %a{href: "#"}
-      -#       = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
-      -#   .main__pickup__newitems__box__body
-      -#     .main__pickup__newitems__box__body__name
-      -#       プロテイン
-      -#     .main__pickup__newitems__box__body__value
-      -#       ￥1,250
-      -#     .main__pickup__newitems__box__body__tax
-      -#       (税込)
-      -#       .main__pickup__newitems__box__body__tax__heart
-      -#         = fa_icon("heart")
-      -#         %span 1
-      -# .main__pickup__newitems__box
-      -#   .main__pickup__newitems__box__photo
-      -#     %a{href: "#"}
-      -#       = image_tag "https://static.mercdn.net/thumb/photos/m28094576764_1.jpg?1556509594", size: "213x213"
-      -#   .main__pickup__newitems__box__body
-      -#     .main__pickup__newitems__box__body__name
-      -#       プロテイン
-      -#     .main__pickup__newitems__box__body__value
-      -#       ￥1,250
-      -#     .main__pickup__newitems__box__body__tax
-      -#       (税込)
-      -#       .main__pickup__newitems__box__body__tax__heart
-      -#         = fa_icon("heart")
-      -#         %span 1
+      - @result.each do |item|
+        .main__pickup__newitems__box
+          .main__pickup__newitems__box__photo
+            %a{href: "/items/#{item.id}"}
+              = image_tag item.item_images.first.image.to_s, size: "213x213"
+          .main__pickup__newitems__box__body
+            .main__pickup__newitems__box__body__name
+              = item.name
+            .main__pickup__newitems__box__body__value
+              ￥
+              = item.price.to_s(:delimited)
+            .main__pickup__newitems__box__body__tax
+              (税込)
+              .main__pickup__newitems__box__body__tax__heart
+                = fa_icon("heart")
+                %span 1
 
 = render "shared/display_icon"
 = render 'shared/footer'

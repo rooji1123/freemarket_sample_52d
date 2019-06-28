@@ -1,10 +1,11 @@
 class ItemsController < ApplicationController
   # before_action :authenticate_user!, only: [:new]
+
   def index
-    @ladies = ItemsCategory.where(category_id:"1")
-    @mens = ItemsCategory.where(category_id:"2")
-    @babys = ItemsCategory.where(category_id:"3")
-    @cosme = ItemsCategory.where(category_id:"7")
+    @ladies = ItemsCategory.where(category_id:"1").includes(:item)
+    @mens = ItemsCategory.where(category_id:"2").includes(:item)
+    @babys = ItemsCategory.where(category_id:"3").includes(:item)
+    @cosme = ItemsCategory.where(category_id:"7").includes(:item)
   end
 
   def show
@@ -52,7 +53,9 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @items = Item.where('title LIKE(?)', "%#{params[:keyword]}%").limit(20)
+    @q = Item.ransack(params[:q])
+    @categories = Category.where(ancestry: nil)
+    @result = @q.result(distinct: true)
   end
   
   def category_search
