@@ -1,4 +1,8 @@
 = render 'shared/header'
+.breadcrumb
+  .breadcrumb__list
+    - breadcrumb :users, @users
+    = breadcrumbs separator: " #{fa_icon("chevron-right")} "
 .container
   = render "shared/mypage_side_bar"
   = render "shared/mypage_contents"

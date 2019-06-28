@@ -46,7 +46,7 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
-
+  gem 'bullet'
 end
 
 group :development do
