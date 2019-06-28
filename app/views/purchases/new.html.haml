@@ -14,7 +14,7 @@
                 = @item.name
           .item__main__burden
             .item__main__burden__price
-              = "¥ #{@item.price}"
+              = "¥ #{@item.price.to_s(:delimited)}"
               = f.hidden_field :price, value: @item.price
             .item__main__burden__text
               送料込み
@@ -30,7 +30,7 @@
             .item__main__price__left
               支払い金額
             .item__main__price__right
-              = "¥ #{@item.price}"
+              = "¥ #{@item.price.to_s(:delimited)}"
           .item__main__buy
             = f.submit "購入する", class: "item__main__buy__link"
         .item__addless
