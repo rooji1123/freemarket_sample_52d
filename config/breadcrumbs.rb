@@ -24,7 +24,9 @@ end
 #   link grand_child.name, grand_child_path("")
 #   parent :categories, category, category.children
 # end
-
+crumb :users do
+  link "マイページ", users_path
+end
 
 crumb :items do
   link "#{params[:keyword]}", search_items_path
