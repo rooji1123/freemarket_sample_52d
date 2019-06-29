@@ -33,6 +33,9 @@ namespace :deploy do
   after :finishing, 'deploy:cleanup'
 end
 
+set :linked_files, %w{ config/credentials.yml.enc }	
+append :linked_files, 'config/master.key'
+
 
 
 
