@@ -1,4 +1,4 @@
-= form_with model: @item, html: {id:'new_item'} do |f|
+= form_for @item, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
   .container
     = render "shared/second__header"
     .new-item__main
@@ -11,29 +11,18 @@
               出品画像
             %span.new-item 必須
             %p 最大10枚までアップロードできます
-            = f.fields_for :item_images, @item.item_images.first do |image|
-              .item__img__dropzone.clearfix
+            = f.fields_for :item_images do |image|
+              .dropzone-container.clearfix
                 #preview
-                .item__img__dropzone__input
-                  = image.label :image, for: "upload-image" do
-                    .input-area
-                      = image.file_field :image, id: "upload-image", class: "upload-image", 'data-image': 0
-                      .item__img__dropzone__input__description
-                        .item__img__dropzone__input__description__text
-                          ドラッグアンドドロップ
-                          %br
-                          またはクリックしてファイルをアップロード
-              .item__img__dropzone2.clearfix
+                .dropzone-area
+                  = image.label :image, class: "dropzone-box", for: "upload-image" do
+                    .input_area
+                      = image.file_field :image, multiple: true, name: 'item_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                    %p ここをクリックしてください
                 #preview2
-                .item__img__dropzone2__input2
-                  = image.label :image, for: "upload-image" do
-                    .input-area
-                      = image.file_field :image, id: "upload-image", class: "upload-image", 'data-image': 0
-                      .item__img__dropzone2__input2__description
-                        .item__img__dropzone2__input2__description__text
-                          ドラッグアンドドロップ
-                          %br
-                          またはクリックしてファイルをアップロード
+                .dropzone-area2
+                  = image.label :image, class: "dropzone-box", for: "upload-image" do
+                    %p ここをクリックしてください
         .sell-form__content
           .sell-form__content__name
             %h5

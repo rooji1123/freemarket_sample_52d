@@ -87,7 +87,7 @@ class ItemsController < ApplicationController
 
   def item_params
     brand_id = params[:brand_id].to_i
-    params.require(:item).permit(:name, :description, :prefecture_id, :price, :delivery_date_id, :delivery_fee_id, :delivery_choice_id, :brand_id, :item_state_id, :size_id, category_ids: [], images: []).merge(brand_id: brand_id)
+    params.require(:item).permit(:name, :description, :prefecture_id, :price, :delivery_date_id, :delivery_fee_id, :delivery_choice_id, :brand_id, :item_state_id, :size_id, category_ids: [], item_images_attributes: [:image]).merge(brand_id: brand_id)
   end
 
   def set_item
