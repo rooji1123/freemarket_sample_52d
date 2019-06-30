@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   # validates :description, length: { maximum: 1000 }
   has_many   :comments, dependent: :destroy
   has_many   :item_images, dependent: :destroy
+   accepts_nested_attributes_for :item_images
   has_one    :delivery, dependent: :destroy
   has_many :items_categories, dependent: :destroy
   has_many :categories, through: :items_categories

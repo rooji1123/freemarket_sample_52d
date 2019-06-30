@@ -20,7 +20,7 @@ $(function () {
           <option value="6">ゆうパック</option>\
           <option value="7">クリックポスト</option>\
           <option value="8">ゆうパケット</option>'
-       );
+      );
     } else if (fee_id == 2) {
       $('.sell-form__delivery__form-box__choice').css({
         'display': 'block'
@@ -40,6 +40,17 @@ $(function () {
         'display': 'none'
       });
       $('#item_delivery_choice_id').css({
+        'display': 'none'
+      });
+    }
+  });
+  $(window).ready(function () {
+    var path = location.pathname
+    if (path == "/items/new") {
+      $('#new_item .sell-form__delivery__form-box__choice').css({
+        'display': 'none'
+      });
+      $('#new_item #item_delivery_choice_id').css({
         'display': 'none'
       });
     }
