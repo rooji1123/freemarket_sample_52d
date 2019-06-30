@@ -38,15 +38,44 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(set_item)
-    @item.item_images.build
     @parents = Category.where(ancestry: nil).order("id ASC")
+    gon.item = @item
+    gon.item_images = @item.item_images
+    require 'base64'
+    gon.item_images_binary_datas = []
+    @item.item_images.each do |image|
+      binary_data = File.read(image.image.file.file)
+      gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
+    end
   end
 
   def update
     @item = Item.find(set_item)
-    @item.update(item_params)
-    @item.item_images.build
     @parents = Category.where(ancestry: nil).order("id ASC")
+    @item = Item.find(params[:id])
+    ids = @item.item_images.map{|image| image.id }
+    exist_ids = registered_image_params[:ids].map(&:to_i)
+    exist_ids.clear if exist_ids[0] == 0
+
+    if (exist_ids.length != 0 || new_image_params[:images][0] != " ") && @item.update(item_params)
+      unless ids.length == exist_ids.length
+        delete_ids = ids - exist_ids
+        delete_ids.each do |id|
+          @item.item_images.find(id).destroy
+        end
+      end
+      unless new_image_params[:images][0] == " "
+        new_image_params[:images].each do |image|
+          @item.item_images.create(image: image, item_id: @item.id)
+        end
+      end
+      flash[:notice] = '編集が完了しました'
+      redirect_to item_path(@item), data: {turbolinks: false}
+    else
+      flash[:alert] = '未入力項目があります'
+      redirect_back(fallback_location: root_path)
+    end
+
   end
 
   def destroy
@@ -92,6 +121,10 @@ class ItemsController < ApplicationController
 
   def set_item
     params.require(:id)
+  end
+
+  def registered_image_params
+    params.require(:registered_images_ids).permit({ids: []})
   end
 
   def new_image_params
