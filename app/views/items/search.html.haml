@@ -22,6 +22,9 @@
           = f.label '価格'
           
           = f.submit
+
+          -# - if params[:q].present? && params[:q][:name_or_description_cont].present?
+          -#   Search name: #{params[:q][:name_or_description_cont]}
     .search-results__content__items
       .search-results__content__items__text
         検索結果
