@@ -31,6 +31,7 @@
         display: flex;
         justify-content: space-between;
         margin: 18px;
+        z-index: 100;
         &__left{
           &__price{
             font-size: 17px;
@@ -53,6 +54,7 @@
       &__link{
         &__box{
           position: absolute;
+          z-index: 5;
           top: 0;
           left: 0;
           height: 100%;

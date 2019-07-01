@@ -37,4 +37,6 @@ Rails.application.routes.draw do
     resources :user_addresses, only:[:edit, :update]
     resources :user_informations, only:[:edit, :update]
   end
+
+  resources :likes, only:[:create, :destroy]
 end
