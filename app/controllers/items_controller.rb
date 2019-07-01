@@ -88,6 +88,7 @@ class ItemsController < ApplicationController
     @q = Item.ransack(params[:q])
     @categories = Category.where(ancestry: nil)
     @result = @q.result(distinct: true)
+
   end
   
   def category_search
