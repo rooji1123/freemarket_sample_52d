@@ -543,3 +543,10 @@ body{
   display: none;
   }
 }
+
+.sell-form__detail__form-box__size{
+  display: none;
+  &__select{
+  display: none;
+  }
+}

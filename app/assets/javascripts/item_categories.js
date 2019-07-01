@@ -31,9 +31,6 @@ $(function () {
     $('.sell-form__detail__form-box__size').css({
       'display': 'none'
     });
-    $('.hidden').css({
-      'display': 'none'
-    });
     $.ajax({
       url: '/items/category_search',
       type: "GET",
@@ -58,9 +55,6 @@ $(function () {
       'display': 'none'
     });
     $('.sell-form__detail__form-box__size').css({
-      'display': 'none'
-    });
-    $('.hidden').css({
       'display': 'none'
     });
     $.ajax({
@@ -96,16 +90,4 @@ $(function () {
       'display': 'block'
     });
   });
-  $(window).ready(function () {
-    var path = location.pathname
-    if (path == "/items/new") {
-      $('.sell-form__detail__form-box__size__select').css({
-        'display': 'none'
-      });
-      $('.sell-form__detail__form-box__size').css({
-        'display': 'none'
-      });
-    }
-  });
-
 });
