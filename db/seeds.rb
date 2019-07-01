@@ -21,6 +21,7 @@ ladys_clothes.children.create([
   {name: "ジャケット"},
   {name: "パンツ"},
   {name: "スカート"}
+  {name: "ワンピース"}
 ])
 
 ladys_shoes = ladys.children.create(name: "靴")
