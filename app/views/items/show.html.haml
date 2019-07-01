@@ -61,12 +61,10 @@
           = @item.description
       .detail__action
         .detail__action__likes
-          .detail__action__likes-image
-            = fa_icon("heart")
           .detail__action__likes-text
             いいね！
-          .detail__action__likes-count
-            2
+          .detail__action__likes-heart
+            = render partial: 'shared/like_items', locals: {item: @item}
         .detail__action-report
           = fa_icon("flag",text:"不適切な商品の報告")
         .detail__action-policy

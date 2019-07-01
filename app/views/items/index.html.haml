@@ -23,8 +23,7 @@
               .main__pickup__newitems__box__body__tax
                 (税込)
                 .main__pickup__newitems__box__body__tax__heart
-                  = fa_icon("heart")
-                  %span 1
+                  = render partial: 'shared/like_items', locals: {item: category.item}
     .main__pickup__view
       = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
 
@@ -47,8 +46,7 @@
               .main__pickup__newitems__box__body__tax
                 (税込)
                 .main__pickup__newitems__box__body__tax__heart
-                  = fa_icon("heart")
-                  %span 1
+                  = render partial: 'shared/like_items', locals: {item: category.item}
     .main__pickup__view
       = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
 
@@ -70,8 +68,7 @@
               .main__pickup__newitems__box__body__tax
                 (税込)
                 .main__pickup__newitems__box__body__tax__heart
-                  = fa_icon("heart")
-                  %span 1
+                  = render partial: 'shared/like_items', locals: {item: category.item}
     .main__pickup__view
       = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
 
@@ -95,8 +92,7 @@
                 .main__pickup__newitems__box__body__tax
                   (税込)
                   .main__pickup__newitems__box__body__tax__heart
-                    = fa_icon("heart")
-                    %span 1
+                    = render partial: 'shared/like_items', locals: {item: category.item}
       .main__pickup__view
         = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
 

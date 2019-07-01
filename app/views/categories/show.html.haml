@@ -16,6 +16,8 @@
               = image_tag item.item_images.first.image.to_s, class: "category-show__items__item__image__box"
             .category-show__items__item__name
               = item.name
+            .category-show__items__item__link
+              = link_to "", item_path(item.id), class: "category-show__items__item__link__box"
             .category-show__items__item__bottom
               .category-show__items__item__bottom__left
                 .category-show__items__item__bottom__left__price
@@ -23,11 +25,7 @@
                 .category-show__items__item__bottom__left__tax
                   (税込)
               .category-show__items__item__bottom__right
-                = fa_icon("heart")
-                %span.category-show__items__item__bottom__right__span
-                  1
-            .category-show__items__item__link
-              = link_to "", item_path(item.id), class: "category-show__items__item__link__box"
+                = render partial: 'shared/like_items', locals: {item: item}
     - else
       .category-show__not
         = "#{@category.name}に関する商品の出品はまだありません"
