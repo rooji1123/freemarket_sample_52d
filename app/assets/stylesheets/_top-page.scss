@@ -234,6 +234,7 @@
     background-size: cover;
     &__image{
       height: 100%;
+      object-fit: contain;
       &__box{
         height: 290px;
         width: 100%;
@@ -292,11 +293,11 @@
         color: #c3bfbf;
       }
       .prev-arrow{
-        left: 200px;
+        left: 50px;
         z-index: 100;
       }
       .next-arrow{
-        right: 200px;
+        right: 50px
       }
     }
   }
