@@ -7,62 +7,67 @@
     = breadcrumbs separator: " #{fa_icon("chevron-right")} "
 .search-results
   .search-results__content
-    .search-results__content__head
-      .search-results__content__head__left
+    .search-results__content__left
+      .search-results__content__left__sort
         並び替え
-      .search-results__content__head__right
+      .search-results__content__left__detail
         詳細検索
-        .search-results__content__head__right
-          = search_form_for(@q, url:search_items_path) do |f|
-            .search-results__content__head__right-keyword
-              = fa_icon("search")
-              = f.label :name_or_description_cont, 'キーワードを追加する'
-              = f.search_field :name_or_description_cont
-            .search-results__content__head__right-category
-              = fa_icon("list")
-              = f.label :items_categories_category_id_eq, 'カテゴリーで絞り込み'
-              = f.collection_select :items_categories_category_id_eq, @categories, :id, :name, include_blank: '指定なし'
-            .search-results__content__head__right-brand
-              = fa_icon("tag")
-              = f.label :brand_name_cont,'ブランド名から探す'
-              = f.search_field :brand_name_cont
-            .search-results__content__head__right-price
-              = fa_icon("coin")
-              = f.label '価格'
-              = f.search_field :price_gteq
-              = f.search_field :price_lteq
-            .search-results__content__head__right-state
-              = fa_icon("star")
-              = f.label :item_state_id_in, '商品状態'
-              = f.collection_check_boxes :item_state_id_in, @item_state, :id, :state
-            .search-results__content__head__right-fee
-              = fa_icon("truck")
-              = f.label :delivery_fee_in, '配送料の負担'
-              = f.collection_check_boxes :delivery_fee_id_in, @delivery_fee, :id, :fee
-            = f.submit
-    .search-results__content__items
-      .search-results__content__items__text
+        = search_form_for(@q, url:search_items_path) do |f|
+          .search-results__content__left__detail-keyword
+            = fa_icon("search")
+            = f.label :name_or_description_cont, 'キーワードを追加する'
+            .search-results__content__left__detail-search_field
+              = f.search_field :name_or_description_cont, class:"search-results__content__left__detail-search_field"
+          .search-results__content__left__detail-category
+            = fa_icon("list")
+            = f.label :items_categories_category_id_eq, 'カテゴリーで絞り込み'
+            .search-results__content__left__detail-category-label
+              = f.collection_select :items_categories_category_id_eq, @categories, :id, :name, include_blank: '指定なし', class: "search-results__content__left__detail-category-label"
+          .search-results__content__left__detail-brand
+            = fa_icon("tag")
+            = f.label :brand_name_cont,'ブランド名から探す'
+            .search-results__content__left__detail-search_field
+              = f.search_field :brand_name_cont, class: 'search-results__content__left__detail-search_field'
+          .search-results__content__left__detail-price
+            = fa_icon("coin")
+            = f.label '価格'
+            .search-results__content__left__detail-price-search_field
+              = f.search_field :price_gteq, class: 'search-results__content__left__detail-search_field'
+              〜
+              = f.search_field :price_lteq, class: 'search-results__content__left__detail-search_field'
+          .search-results__content__left__detail-state
+            = fa_icon("star")
+            = f.label :item_state_id_in, '商品状態'
+            .search-results__content__left__detail-state-checkbox
+              = f.collection_check_boxes :item_state_id_in, @item_state, :id, :state, class: 'search-results__content__left__detail-checkbox'
+          .search-results__content__left__detail-fee
+            = fa_icon("truck")
+            = f.label :delivery_fee_in, '配送料の負担'
+            .search-results__content__left__detail-fee-checkbox
+              = f.collection_check_boxes :delivery_fee_id_in, @delivery_fee, :id, :fee, class: 'search-results__content__left__detail-checkbox'
+          = f.submit
+    .search-results__content__right
+      .search-results__content__right__text
         検索結果
-      .search-results__content__items__numbers
+      .search-results__content__right__numbers
         0~20件表示
-
-    .main__pickup__newitems
-      - @result.each do |item|
-        .main__pickup__newitems__box
-          .main__pickup__newitems__box__photo
-            %a{href: "/items/#{item.id}"}
-              = image_tag item.item_images.first.image.to_s, size: "213x213"
-          .main__pickup__newitems__box__body
-            .main__pickup__newitems__box__body__name
-              = item.name
-            .main__pickup__newitems__box__body__value
-              ￥
-              = item.price.to_s(:delimited)
-            .main__pickup__newitems__box__body__tax
-              (税込)
-              .main__pickup__newitems__box__body__tax__heart
-                = fa_icon("heart")
-                %span 1
+      .search-results__content__right__items
+        - @result.each do |item|
+          .search-results__content__right__items__box
+            .search-results__content__right__items__box__photo
+              %a{href: "/items/#{item.id}"}
+                = image_tag item.item_images.first.image.to_s, size: "213x213"
+            .search-results__content__right__items__box__body
+              .search-results__content__right__items__box__body__name
+                = item.name
+              .search-results__content__right__items__box__body__value
+                ￥
+                = item.price.to_s(:delimited)
+              .search-results__content__right__items__box__body__tax
+                (税込)
+                .search-results__content__right__items__box__body__tax__heart
+                  = fa_icon("heart")
+                  %span 1
 
 = render "shared/display_icon"
 = render 'shared/footer'
