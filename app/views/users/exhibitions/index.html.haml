@@ -17,7 +17,7 @@
         - @items.each do |item|
           .exhibition__bottom__exhibitions__exhibition
             .exhibition__bottom__exhibitions__exhibition__image
-              = image_tag "https://static.mercdn.net/thumb/photos/m22044196498_1.jpg?1541915575", class: "exhibition__bottom__exhibitions__exhibition__image__box"
+              = image_tag item.item_images.first.image.to_s, class: "exhibition__bottom__exhibitions__exhibition__image__box"
             .exhibition__bottom__exhibitions__exhibition__details
               .exhibition__bottom__exhibitions__exhibition__details__detail
                 .exhibition__bottom__exhibitions__exhibition__details__detail__title
@@ -25,7 +25,8 @@
                 .exhibition__bottom__exhibitions__exhibition__details__detail__bottom
                   .exhibition__bottom__exhibitions__exhibition__details__detail__bottom__favorit.exhibition__bottom__exhibitions__exhibition__details__detail__bottom__box
                     = fa_icon("heart")
-                    %span 0
+                    %span
+                      = item.likes.count
                   .exhibition__bottom__exhibitions__exhibition__details__detail__bottom__comments.exhibition__bottom__exhibitions__exhibition__details__detail__bottom__box
                     = fa_icon("comment")
                     %span 0

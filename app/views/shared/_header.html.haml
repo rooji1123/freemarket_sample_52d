@@ -37,6 +37,6 @@
         - else
           .header__frame__bottom__list-right__mypage
             .header__frame__bottom__list-right__mypage__sign-up.header__frame__bottom__list-right__mypage__user
-              = link_to "新規登録", new_user_registration_path, class: "header__frame__bottom__list-right__mypage__user__link header__frame__bottom__list-right__mypage__user__link-red"
+              = link_to "新規登録", users_path, class: "header__frame__bottom__list-right__mypage__user__link header__frame__bottom__list-right__mypage__user__link-red"
             .header__frame__bottom__list-right__mypage__sign-in.header__frame__bottom__list-right__mypage__user
-              = link_to "ログイン", users_path, class: "header__frame__bottom__list-right__mypage__user__link header__frame__bottom__list-right__mypage__user__link-blue"
+              = link_to "ログイン", new_user_session_path, class: "header__frame__bottom__list-right__mypage__user__link header__frame__bottom__list-right__mypage__user__link-blue"

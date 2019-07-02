@@ -1,6 +1,6 @@
 class Users::ExhibitionsController < ApplicationController
   def index
-    @items = Item.where(seller_id: 1)
+    @items = Item.where(seller_id: current_user.id)
   end
 
   def show
