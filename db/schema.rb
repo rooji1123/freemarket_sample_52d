@@ -156,6 +156,8 @@ ActiveRecord::Schema.define(version: 2019_06_29_072323) do
     t.string "nickname", null: false
     t.text "introduction"
     t.string "avoter"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

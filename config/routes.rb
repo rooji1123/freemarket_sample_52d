@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => {
    :registrations => 'users/registrations',
+   omniauth_callbacks: 'users/omniauth_callbacks',
    :sessions => 'users/sessions',
    :passwords => 'users/passwords'
   }
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
   end
   resources :categories, only:[:index, :show]
   resources :brands, only:[:index, :show]
-  resources :users, onry: [:show] do
+  resources :users, only: [:index, :show] do
     scope module: 'users' do
       resources :user_cards, only:[:edit, :update]
       resources :user_identifications, only:[:edit, :update]
