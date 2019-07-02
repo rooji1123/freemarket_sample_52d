@@ -86,6 +86,7 @@ gem 'ransack'
 gem 'gon'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'dotenv-rails'
+gem 'kaminari'
 
 group :production do
   gem 'unicorn', '5.4.1'

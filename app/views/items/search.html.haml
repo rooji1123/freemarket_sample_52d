@@ -38,14 +38,16 @@
           .search-results__content__left__detail-state
             = fa_icon("star")
             = f.label :item_state_id_in, '商品状態'
-            .search-results__content__left__detail-state-checkbox
-              = f.collection_check_boxes :item_state_id_in, @item_state, :id, :state, class: 'search-results__content__left__detail-checkbox'
+            .search-results__content__left__detail-checkbox
+              = f.collection_check_boxes :item_state_id_in, @item_state, :id, :state, class: 'search-results__content__left__detail-checkbox' do |b|
+                = b.label { b.check_box + b.text }
           .search-results__content__left__detail-fee
             = fa_icon("truck")
             = f.label :delivery_fee_in, '配送料の負担'
-            .search-results__content__left__detail-fee-checkbox
-              = f.collection_check_boxes :delivery_fee_id_in, @delivery_fee, :id, :fee, class: 'search-results__content__left__detail-checkbox'
-          = f.submit
+            .search-results__content__left__detail-checkbox
+              = f.collection_check_boxes :delivery_fee_id_in, @delivery_fee, :id, :fee, class: 'search-results__content__left__detail-checkbox' do |b|
+                = b.label { b.check_box + b.text }
+          = f.submit'完了', class: 'search_btn'
     .search-results__content__right
       .search-results__content__right__text
         検索結果
@@ -68,6 +70,7 @@
                 .search-results__content__right__items__box__body__tax__heart
                   = fa_icon("heart")
                   %span 1
+    = paginate(@result)
 
 = render "shared/display_icon"
 = render 'shared/footer'

@@ -58,6 +58,7 @@ class ItemsController < ApplicationController
     @item_state = ItemState.all
     @delivery_fee = DeliveryFee.all
     @result = @q.result(distinct: true)
+    @result = @result.page(params[:page]).per(20)
   end
   
   def category_search
