@@ -1,7 +1,15 @@
 = render 'shared/header'
 .main 
   .main__visual
-    = image_tag 'https://www.mercari.com/jp/assets/img/common/jp/top/banner-6th-thanks.jpg', class: "main__visual__image"
+    %ul.main__visual__image
+      %li
+        = image_tag 'https://www.mercari.com/jp/assets/img/common/jp/top/banner-camp.jpg', class: "main__visual__image__box"
+      %li
+        = image_tag 'https://images-na.ssl-images-amazon.com/images/G/09/shazam/1065428-07-billboard-1940x500-N4ZvJ._V513174853_.png', class: "main__visual__image__box"
+      %li
+        = image_tag 'https://images-fe.ssl-images-amazon.com/images/G/09/JP-hq/2019/img/PR/XCM_Manual_1176463_Amazon_Story_76_2300x646_PR_XCM_Manual_2300x646_1561703175_jpg._CB443015486_.jpg', class: "main__visual__image__box"
+      %li
+        = image_tag 'http://funcushion-group.com/blog/wp-content/uploads/2018/08/r20180816.jpg', class: "main__visual__image__box"
   .main__pickup
     .main__pickup__head
       ピックアップカテゴリー
@@ -14,6 +22,10 @@
             .main__pickup__newitems__box__photo
               %a{href: "/items/#{category.item.id}"}
                 = image_tag category.item.item_images.first.image.to_s, size: "213x213"
+            - if  category.item.deal_state == 3 || category.item.deal_state == 4
+              .main__pickup__newitems__box__sold-out
+              .main__pickup__newitems__box__text
+                SOLD
             .main__pickup__newitems__box__body
               .main__pickup__newitems__box__body__name
                 = category.item.name
