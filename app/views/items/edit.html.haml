@@ -58,13 +58,19 @@
                 .select-warp
                   = f.collection_select :category_ids, @parents, :id, :name,{prompt: "---"}, class: "select-default", id: "parent-form", name: 'item[category_ids][]'
               #children-form-area
+                .select-warp.child-box
+                  %select#children-form.select-default{:name => "item[category_ids][]"}
+                    %option{:value => "${child.id}"} ${child.name}
               #grandchild-form-area
+                .select-warp.grandchild-box
+                  %select#grand-children-form.select-default{:name => "item[category_ids][]"}
+                    %option{:value => "${grandchild.id}"} ${grandchild.name}
             .sell-form__detail__form-box__size
               %h5
                 サイズ
               %span.new-item 必須
             .sell-form__detail__form-box__size__select
-              = f.select :size_id, Size.all.map{|t| [t.value, t.id]}, {include_blank: "---", selected: "---"}
+              = f.select :size_id, Size.all.map{|t| [t.value, t.id]}, {include_blank: "---"}
             .sell-form__detail__form-box__brand
               %h5
                 ブランド
