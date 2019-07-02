@@ -11,6 +11,10 @@
               - @images.each do |image|
                 .detail__item__info__image-big
                   = image_tag image.image.to_s, size: "300x300"
+                  - if  @item.deal_state == 3 || @item.deal_state == 4
+                    .main__pickup__newitems__box__sold-out
+                    .main__pickup__newitems__box__text
+                      SOLD
             .detail__item__info__image-dots
               - @images.each do |image|
                 .detail__item__info__image-dot
