@@ -84,6 +84,9 @@ gem 'activerecord-import'
 gem 'ransack'
 gem 'gon'
 gem 'recaptcha', require: "recaptcha/rails"
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 
 group :production do

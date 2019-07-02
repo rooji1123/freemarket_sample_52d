@@ -31,11 +31,70 @@
     border-bottom: 1px solid #f5f5f5;
   }
   &__form{
-    padding: 40px 0; 
+    padding-bottom: 40px; 
     &__content{
       max-width: 320px;
       margin: 0 auto 40px;
       padding: 0 16px;
+      &__sign_up_box{
+        padding: 64px 0;
+        &__btn{
+          display: block;
+          position: relative;
+          height: 50px;
+          width: 100%;
+          background-color: #eee;
+          font-size: 14px;
+          text-align: center;
+          line-height: 50px;
+          color: #000;
+          text-decoration: none;
+          &__icon{
+            position: absolute;
+            left: 15px;
+            font-size: 16px;
+            color: #ccc;
+          }
+        }
+        &__facebook_btn{
+          display: block;
+          position: relative;
+          height: 50px;
+          width: 100%;
+          margin: 16px auto;
+          background-color: #385185;
+          font-size: 14px;
+          text-align: center;
+          line-height: 50px;
+          color: #fff;
+          text-decoration: none;
+          &__icon{
+            position: absolute;
+            left: 15px;
+            font-size: 26px;
+            color: #fff;
+          }
+        }
+        &__google_btn{
+          display: block;
+          position: relative;
+          height: 50px;
+          width: 100%;
+          background-color: #fff;
+          font-size: 14px;
+          text-align: center;
+          line-height: 50px;
+          border: #979797 solid 1px;
+          color: #333;
+          text-decoration: none;
+          &__icon{
+            position: absolute;
+            left: 15px;
+            font-size: 16px;
+            color: #333;
+          }
+        }
+      }
       &__upper{
         display: flex;
         &__label{

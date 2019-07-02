@@ -5,34 +5,50 @@
       #form-first
         %h2.single-contents__header
           会員情報入力
-        .single-contents__form__content
-          .single-contents__form__content__upper
-            = f.label :nickname, "ニックネーム", class: "single-contents__form__content__upper__label"
-            .single-contents__form__content__upper__require-icon
-              必須
-          .single-contents__form__content__lower.notnull
-            = f.text_field :nickname, class: "single-contents__form__content__lower__field", placeholder: "例）メルカリ太郎", required: true, value: "rooji"
-        .single-contents__form__content
-          .single-contents__form__content__upper
-            = f.label :email, "メールアドレス", class: "single-contents__form__content__upper__label"
-            .single-contents__form__content__upper__require-icon
-              必須
-          .single-contents__form__content__lower.notnull
-            = f.email_field :email, class: "single-contents__form__content__lower__field", placeholder: "PC・携帯どちらでも可", required: true
-        .single-contents__form__content
-          .single-contents__form__content__upper
-            = f.label :password, "パスワード", class: "single-contents__form__content__upper__label"
-            .single-contents__form__content__upper__require-icon
-              必須
-          .single-contents__form__content__lower.notnull
-            = f.password_field :password, class: "single-contents__form__content__lower__field", placeholder: "6文字以上", required: true
-        .single-contents__form__content
-          .single-contents__form__content__upper
-            = f.label :password_confirmation, "パスワード(確認)", class: "single-contents__form__content__upper__label"
-            .single-contents__form__content__upper__require-icon
-              必須
-          .single-contents__form__content__lower.notnull
-            = f.password_field :password_confirmation, class: "single-contents__form__content__lower__field", placeholder: "6文字以上", required: true
+        - if session["devise.provider_data"]
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :nickname, "ニックネーム", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__require-icon
+                必須
+            .single-contents__form__content__lower
+              = f.text_field :nickname, class: "single-contents__form__content__lower__field", placeholder: "例）メルカリ太郎", value: session["devise.provider_data"].info.name, required: true
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :email, "メールアドレス", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__require-icon
+                必須
+            .single-contents__form__content__lower.notnull
+              = f.email_field :email, class: "single-contents__form__content__lower__field", placeholder: "PC・携帯どちらでも可", value: session["devise.provider_data"].info.email, required: true
+        - else
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :nickname, "ニックネーム", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__require-icon
+                必須
+            .single-contents__form__content__lower
+              = f.text_field :nickname, class: "single-contents__form__content__lower__field", placeholder: "例）メルカリ太郎", required: true
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :email, "メールアドレス", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__require-icon
+                必須
+            .single-contents__form__content__lower.notnull
+              = f.email_field :email, class: "single-contents__form__content__lower__field", placeholder: "PC・携帯どちらでも可", required: true
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :password, "パスワード", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__require-icon
+                必須
+            .single-contents__form__content__lower.notnull
+              = f.password_field :password, class: "single-contents__form__content__lower__field", placeholder: "6文字以上", required: true
+          .single-contents__form__content
+            .single-contents__form__content__upper
+              = f.label :password_confirmation, "パスワード(確認)", class: "single-contents__form__content__upper__label"
+              .single-contents__form__content__upper__require-icon
+                必須
+            .single-contents__form__content__lower.notnull
+              = f.password_field :password_confirmation, class: "single-contents__form__content__lower__field", placeholder: "6文字以上", required: true
         .single-contents__form__attend
           %h3.single-contents__form__attend__title
             本人確認
