@@ -1,0 +1,21 @@
+.item-like-link{
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  color: #333333;
+  cursor: pointer;
+  .iine__button{
+    height: 100%;
+    width: 100%;
+    color: #6d6d6d;
+    span{
+      color: #a7a1a1
+    }
+    &-like{
+      
+      span{
+        color: #eb4c4c;
+      }
+    }
+  }
+}

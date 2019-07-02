@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => {
    :registrations => 'users/registrations',
+   omniauth_callbacks: 'users/omniauth_callbacks',
    :sessions => 'users/sessions',
    :passwords => 'users/passwords'
   }
 
   root 'items#index'
-  resources :users, only:[:show, :edit]
+  resources :users, only:[:show, :edit] do
+    member do
+      get 'log_out'
+    end
+  end
   resources :items, only: [:index, :new, :create, :show, :destroy, :edit, :update] do
     collection do
       get :category_search
@@ -21,7 +26,7 @@ Rails.application.routes.draw do
   end
   resources :categories, only:[:index, :show]
   resources :brands, only:[:index, :show]
-  resources :users, onry: [:show] do
+  resources :users, only: [:index, :show] do
     scope module: 'users' do
       resources :user_cards, only:[:edit, :update]
       resources :user_identifications, only:[:edit, :update]
@@ -33,4 +38,6 @@ Rails.application.routes.draw do
     resources :user_addresses, only:[:edit, :update]
     resources :user_informations, only:[:edit, :update]
   end
+
+  resources :likes, only:[:create, :destroy]
 end

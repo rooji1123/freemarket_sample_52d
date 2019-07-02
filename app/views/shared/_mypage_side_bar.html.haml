@@ -140,7 +140,7 @@
           %i.side-bar__mypage-nav__list__item__icon-arrow-right
             = fa_icon 'chevron-right'
       %li.side-bar__mypage-nav__list__item
-        = link_to destroy_user_session_path, method: :delete, class: "side-bar__mypage-nav__list__item__link" do
+        = link_to log_out_user_path(current_user.id), class: "side-bar__mypage-nav__list__item__link" do
           ログアウト
           %span.side-bar__mypage-nav__list__item__number 0
           %i.side-bar__mypage-nav__list__item__icon-arrow-right

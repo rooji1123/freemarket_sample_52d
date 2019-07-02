@@ -1,0 +1,8 @@
+= render 'shared/header'
+.container
+  = render 'shared/mypage_side_bar'
+  .logout
+    .logout__box
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout__box__link"
+= render "shared/display_icon"
+= render "shared/footer"

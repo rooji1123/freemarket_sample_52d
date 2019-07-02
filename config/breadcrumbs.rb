@@ -24,10 +24,14 @@ end
 #   link grand_child.name, grand_child_path("")
 #   parent :categories, category, category.children
 # end
+crumb :users do
+  link "マイページ", users_path
+end
 
-
-crumb :items do
-  link "#{params[:keyword]}", search_items_path
+crumb :items do 
+  
+  
+  link "#{params[:q][:name_or_description_cont]}", search_items_path
 end
 
 # If you want to split your breadcrumbs configuration over multiple files, you

@@ -1,0 +1,19 @@
+.item-like-link
+  - if current_user.nil?
+    .iine__button
+      %p
+        %span
+          %i.far.fa-heart
+        = item.likes.count
+  - elsif Like.where(user_id: current_user.id).find_by(item_id: item.id)
+    .iine__button.iine__button-like.un-like{data: {item: item.id}}
+      %p
+        %span
+          %i.fas.fa-heart
+        = item.likes.count
+  - else
+    .iine__button.like{data: {item: item.id}}
+      %p
+        %span
+          %i.far.fa-heart
+        = item.likes.count

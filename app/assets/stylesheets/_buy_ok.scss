@@ -64,6 +64,9 @@
           span{
             font-weight: bold;
           }
+          &:hover{
+            background-color: #e8544c;
+          }
         }
       }
       &__price{

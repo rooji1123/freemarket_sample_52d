@@ -45,6 +45,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
   gem 'bullet'
   gem 'guard-livereload'
 end
@@ -84,9 +85,13 @@ gem 'payjp'
 gem 'activerecord-import'
 gem 'ransack'
 gem 'gon'
-gem "recaptcha", require: "recaptcha/rails"
+gem 'recaptcha', require: "recaptcha/rails"
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 gem 'kaminari'
+gem 'fog-aws'
 
 group :production do
   gem 'unicorn', '5.4.1'

@@ -1,4 +1,5 @@
 $(function(){
+  $("#form-first .single-contents__form__content:first").find(".single-contents__form__content__lower__field").focus()
   //validate submit ,hide and show views
   //form-first
   $('#submit-form-first').on('click', function(e){
@@ -27,25 +28,25 @@ $(function(){
       $("#user_email").parent().append(html)
     }
     //validate pass
-    var pass;
-    if($("#user_password").val().match(/^[A-Za-z0-9]{6,128}$/)){
-      pass = true
-    }else{
-      pass = false
-      var html = buildHtmlAttendPass()
-      $("#user_password").parent().children('.attend-pass').remove()
-      $("#user_password").parent().append(html)
-    }
+    // var pass;
+    // if($("#user_password").val().match(/^[A-Za-z0-9]{6,128}$/)){
+    //   pass = true
+    // }else{
+    //   pass = false
+    //   var html = buildHtmlAttendPass()
+    //   $("#user_password").parent().children('.attend-pass').remove()
+    //   $("#user_password").parent().append(html)
+    // }
     //validate confirm pass
-    var confirm;
-    if($("#user_password_confirmation").val().match($("#user_password").val())){
-      confirm = true
-    }else{
-      confirm = false
-      var html = buildHtmlAttendConfirmPass()
-      $("#user_password_confirmation").parent().children('.attend-pass-confirm').remove()
-      $("#user_password_confirmation").parent().append(html)
-    }
+    // var confirm;
+    // if($("#user_password_confirmation").val().match($("#user_password").val())){
+    //   confirm = true
+    // }else{
+    //   confirm = false
+    //   var html = buildHtmlAttendConfirmPass()
+    //   $("#user_password_confirmation").parent().children('.attend-pass-confirm').remove()
+    //   $("#user_password_confirmation").parent().append(html)
+    // }
     if(!noBot){
       function buildHtmlAttendSelect(){
         var htmlAttendSelect = `<p class='attend-select'>選択してください</p>`
@@ -55,11 +56,13 @@ $(function(){
       $('.g-recaptcha').append(buildHtmlAttendSelect)
       $('.single-contents__form__recaptcha').css('border', '1px solid #ea352d')
     }
-    if(nul == true || type == false || pass == false || confirm == false || noBot == false){
+    if(nul == true || type == false || noBot == false){
+      // except pass and confirm
       $("html,body").animate({scrollTop:0});
     }else{
       $('#form-first').hide();
       $('#form-second').show();
+      $("#form-second .single-contents__form__content:first").find(".single-contents__form__content__lower__field").focus()
       $("html,body").animate({scrollTop:0});
     }
   })
@@ -94,6 +97,7 @@ $(function(){
     }else{
       $('#form-second').hide();
       $('#form-third').show();
+      $("#form-third .single-contents__form__content:first").find(".single-contents__form__content__lower__field").eq(0).focus()
       $("html,body").animate({scrollTop:0});
     }
   })
@@ -128,6 +132,7 @@ $(function(){
     }else{
       $('#form-third').hide();
       $('#form-forth').show();
+      $("#form-forth .single-contents__form__content:first").find(".single-contents__form__content__lower__field").focus()
       $("html,body").animate({scrollTop:0});
     }
   })
@@ -167,7 +172,8 @@ $(function(){
       $(".new_security_code").parent().children('.attend-type-error').remove()
       $(".new_security_code").parent().append(html)
     }
-    if(nul == true || typeCardNumber == false || typeSecurityCode == false){
+    if(nul == true ||typeSecurityCode == false){
+      //except typeCardNumber == false || 
       $("html,body").animate({scrollTop:0});
     }else{
       var form = $(".single-contents__form"),

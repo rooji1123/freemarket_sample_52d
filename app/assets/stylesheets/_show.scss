@@ -28,6 +28,7 @@
                 height: 300px;
                 width: 300px;
                 object-fit: cover;
+                position: relative;
               }
             }
             .detail__item__info__image-dots{
@@ -90,7 +91,7 @@
       a{
         text-decoration: none;
         .detail__buy-btm{
-          background-color: red;
+          background-color: $mercari-red;
           text-align: center;
           margin: 18px 0 0;
           font-weight: 600;
@@ -101,7 +102,7 @@
         }
       }
       .detail__buy-btm{
-        background-color: red;
+        background-color: $mercari-red;
         text-align: center;
         margin: 18px 0 0;
         font-weight: 600;
@@ -109,6 +110,9 @@
         height: 56px; 
         font-size: 24px;
         line-height: 56px;
+        &-red{
+          background-color: rgb(131, 130, 130);
+        }
       }
       .detail__usercomment{
         width: 100%;
@@ -120,29 +124,40 @@
         display: inline-block;
         width: 100%;
         font-size: 12px;
+        display: flex;
         &__likes{
+          height: 30px;
+          width: 100px;
+          line-height: 30px;
+          text-align: center;
           display: inline-block;
           border: 1px solid red;
           color: red;
           border-radius: 40px;
-          padding: 8px 16px;
+          display: flex;
+          position: relative;
           &-image{
             display: inline;
           }
           &-text{
+            padding-left: 15px;
             display: inline;
           }
           &-count{
             display: inline;
+          }
+          &-heart{
           }
         }
         &-report{
           display: inline;
           background-color: #f5f5f5;
           border-radius: 40px;
+          margin-left: 30px;
           padding: 8px 16px;
         }
         &-policy{
+          margin-left: 100px;
           float: right;
           color: blue;
           padding: 8px 16px;

@@ -1,4 +1,5 @@
 class PurchasesController < ApplicationController
+  before_action :authenticate_user!
   before_action :item_deal, except: :purchase
 
   Payjp.api_key = 'sk_test_833ebfb77824020c76ea83f0'
