@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   }
 
   root 'items#index'
-  resources :users, only:[:show, :edit]
+  resources :users, only:[:show, :edit] do
+    member do
+      get 'log_out'
+    end
+  end
   resources :items, only: [:index, :new, :create, :show, :destroy, :edit, :update] do
     collection do
       get :category_search
@@ -34,4 +38,6 @@ Rails.application.routes.draw do
     resources :user_addresses, only:[:edit, :update]
     resources :user_informations, only:[:edit, :update]
   end
+
+  resources :likes, only:[:create, :destroy]
 end

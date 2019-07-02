@@ -153,30 +153,59 @@ $(function(){
       }
     })
     //validate card-number
-    // var typeCardNumber;
-    // if ($("#user_user_card_attributes_card_number").val().match(/^\d{16}$/)){
-    //   typeCardNumber = true
-    // }else{
-    //   typeCardNumber = false
-    //   var html = buildHtmlAttendTypeError()
-    //   $("#user_user_card_attributes_card_number").parent().children('.attend-type-error').remove()
-    //   $("#user_user_card_attributes_card_number").parent().append(html)
-    // }
+    var typeCardNumber;
+    if ($(".new_card_number").val().match(/^\d{16}$/)){
+      typeCardNumber = true
+    }else{
+      typeCardNumber = false
+      var html = buildHtmlAttendTypeError()
+      $(".new_card_number").parent().children('.attend-type-error').remove()
+      $(".new_card_number").parent().append(html)
+    }
     //validate security-code
     var typeSecurityCode;
-    if ($("#user_user_card_attributes_security_code").val().match(/^\d{3,4}$/)){
+    if ($(".new_security_code").val().match(/^\d{3,4}$/)){
       typeSecurityCode = true
     }else{
       typeSecurityCode = false
       var html = buildHtmlAttendTypeError()
-      $("#user_user_card_attributes_security_code").parent().children('.attend-type-error').remove()
-      $("#user_user_card_attributes_security_code").parent().append(html)
+      $(".new_security_code").parent().children('.attend-type-error').remove()
+      $(".new_security_code").parent().append(html)
     }
     if(nul == true ||typeSecurityCode == false){
       //except typeCardNumber == false || 
       $("html,body").animate({scrollTop:0});
     }else{
-      $('form').submit()
+      var form = $(".single-contents__form"),
+          number = form.find('input[name="card_number"]'),
+          cvc = form.find('input[name="security_code"]'),
+          exp_month = form.find('input[name="expiration_month"]'),
+          exp_year = form.find('input[name="expiration_year"]');
+      Payjp.setPublicKey('pk_test_1fc85b9008fbb18d92cb8f0b');
+
+      var card = {
+        number: number.val(),
+        cvc: cvc.val(),
+        exp_month: exp_month.val(),
+        exp_year: '20' + exp_year.val()
+      };
+
+      Payjp.createToken(card, function(s, response) {
+        if (response.error) {
+          $(".new_security_code").parent().children('.attend-type-error').remove()
+          $(".new_security_code").parent().append(`<p class='attend-type-error'>カード情報が間違っています</p>`)
+        } else {
+          $(".number").removeAttr("name");
+          $(".cvc").removeAttr("name");
+          $(".exp_month").removeAttr("name");
+          $(".exp_year").removeAttr("name");
+
+          var token = response.id;
+
+          form.append($('<input type="hidden" name="user[user_card_attributes][customer_id]" />').val(token));
+          form.get(0).submit();
+        }
+      });
     }
   })
 

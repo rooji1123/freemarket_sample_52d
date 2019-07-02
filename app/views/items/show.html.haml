@@ -39,7 +39,7 @@
                 %td 送料込み
               %tr
                 %th 発送の方法
-                %td データ
+                %td #{@item.delivery_choice.choice}
               %tr
                 %th 発送元地域
                 %td #{@item.prefecture.name}
@@ -54,19 +54,21 @@
           （税込）
         .detail__price-cost
           送料込み
-        %a{href: "/"}
-          .detail__buy-btm
-            購入画面に進む
+        - if @item.deal_state == 3 || @item.deal_state == 4
+          .detail__buy-btm.detail__buy-btm-red
+            売り切れました
+        - else
+          = link_to new_item_purchase_path(@item.id) do
+            .detail__buy-btm
+              購入画面に進む
         %p.detail__usercomment
           = @item.description
       .detail__action
         .detail__action__likes
-          .detail__action__likes-image
-            = fa_icon("heart")
           .detail__action__likes-text
             いいね！
-          .detail__action__likes-count
-            2
+          .detail__action__likes-heart
+            = render partial: 'shared/like_items', locals: {item: @item}
         .detail__action-report
           = fa_icon("flag",text:"不適切な商品の報告")
         .detail__action-policy
@@ -82,10 +84,10 @@
         .move__items-next-arrow
           ＜
         .move__items-next-name
-          プリティリトルシング　小さいサイズ　XS　ワンピース
+          = @categoryitems.shuffle.first.item.name
       .move__items-back
         .move__items-back-name
-          無印良品 シャンプー三本セット
+          = @categoryitems.shuffle.first.item.name
         .move__items-back-arrow
           ＞
     .links
@@ -103,35 +105,37 @@
         ーーさんのその他の出品
       .other__items__list
         - @selleritems.shuffle.first(6).each do |item|
-          .other__items__list__box
-            .other__items__list__box-photo
-              %a{href: "/items/#{item.id}"}
-                = image_tag item.item_images.first.image.to_s, size: "220x220"
-            .other__items__list__box__body
-              .other__items__list__box__body__name
-                = item.name
-              .other__items__list__box__body__value
-                ￥
-                = item.price.to_s(:delimited)
-              .other__items__list__box__body__tax
-                (税込)
-                = fa_icon("heart")
+          - unless item.item_images.empty?
+            .other__items__list__box
+              .other__items__list__box-photo
+                %a{href: "/items/#{item.id}"}
+                  = image_tag item.item_images.first.image.to_s, size: "220x220"
+              .other__items__list__box__body
+                .other__items__list__box__body__name
+                  = item.name
+                .other__items__list__box__body__value
+                  ￥
+                  = item.price.to_s(:delimited)
+                .other__items__list__box__body__tax
+                  (税込)
+                  = fa_icon("heart")
       .other__items-name
         その他のカテゴリーの商品
       .other__items__list
         - @categoryitems.shuffle.first(6).each do |category|
-          .other__items__list__box
-            .other__items__list__box-photo
-              %a{href: "/items/#{category.item.id}"}
-                = image_tag category.item.item_images.first.image.to_s, size: "220x220"
-            .other__items__list__box__body
-              .other__items__list__box__body__name
-                = category.item.name
-              .other__items__list__box__body__value
-                ￥
-                = category.item.price.to_s(:delimited)
-              .other__items__list__box__body__tax
-                (税込)
-                = fa_icon("heart")
+          - unless category.item.item_images.empty?
+            .other__items__list__box
+              .other__items__list__box-photo
+                %a{href: "/items/#{category.item.id}"}
+                  = image_tag category.item.item_images.first.image.to_s, size: "220x220"
+              .other__items__list__box__body
+                .other__items__list__box__body__name
+                  = category.item.name
+                .other__items__list__box__body__value
+                  ￥
+                  = category.item.price.to_s(:delimited)
+                .other__items__list__box__body__tax
+                  (税込)
+                  = fa_icon("heart")
 = render 'shared/footer'
 

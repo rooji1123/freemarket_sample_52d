@@ -10,6 +10,10 @@ class User < ApplicationRecord
   has_one :user_address, dependent: :destroy
   has_one :user_card, dependent: :destroy
 
+  has_many :points
+  has_many :likes, dependent: :destroy
+  has_many :items, through: :likes, dependent: :destroy
+
   accepts_nested_attributes_for :user_information
   accepts_nested_attributes_for :user_address
   accepts_nested_attributes_for :user_card

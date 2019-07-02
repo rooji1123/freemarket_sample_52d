@@ -343,17 +343,12 @@ select{
 .sell-form__delivery__form-box__choice{
   float: left;
   margin: 40px 0 0;
-  display: none;
 }
 
-#item_delivery_choice_id {
-  display: none;
-}
 
 .sell-form__detail__form-box__size{
   float: left;
   margin: 40px 0 0;
-  display: none;
 }
 
 .sell-form__detail__form-box__brand{
@@ -400,10 +395,6 @@ select{
   float: left;
 }
 
-.sell-form__detail__form-box__size__select{
-  display: none;
-  
-}
 .sell-form__selling-price__commission__right{
   font-size: 14px;
   color: #333333;

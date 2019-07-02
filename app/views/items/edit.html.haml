@@ -1,7 +1,7 @@
-= form_with model: @item, html: {id:'new_item'} do |f|
+= form_for @item, html: {id:'edit_item'} do |f|
   .container
     = render "shared/second__header"
-    .new-item__main
+    #edit_item
       .new-item__main__container
         .new-item__main__container__head
           %h2 商品の情報を入力

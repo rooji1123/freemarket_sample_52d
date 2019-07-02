@@ -195,14 +195,14 @@
               .single-contents__form__content__upper__norequire-icon
                 任意
             .single-contents__form__content__lower
-              = f.text_field :building_name, class: "single-contents__form__content__lower__field", placeholder: "例）柳ビル103", value: "1111"
+              = f.text_field :building_name, class: "single-contents__form__content__lower__field", placeholder: "例）柳ビル103"
           .single-contents__form__content
             .single-contents__form__content__upper
               = f.label :phone_number, "電話", class: "single-contents__form__content__upper__label"
               .single-contents__form__content__upper__norequire-icon
                 任意
             .single-contents__form__content__lower
-              = f.text_field :phone_number, class: "single-contents__form__content__lower__field", placeholder: "例）09012345678", value: "09010110010"
+              = f.text_field :phone_number, class: "single-contents__form__content__lower__field", placeholder: "例）09012345678"
           = f.submit "次へ進む", class: "single-contents__form__submit", id: "submit-form-third"
       #form-forth
         %h2.single-contents__header
@@ -210,35 +210,35 @@
         = f.fields_for :user_card do |f|
           .single-contents__form__content
             .single-contents__form__content__upper
-              = f.label :card_number, "カード番号", class: "single-contents__form__content__upper__label"
+              = label :card_number, "カード番号", class: "single-contents__form__content__upper__label"
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower
-              = f.text_field :card_number, class: "single-contents__form__content__lower__field", placeholder: "半角数字のみ", required: true
+              %input.single-contents__form__content__lower__field.new_card_number{name: "card_number", placeholder: "半角数字のみ", required: true}
           .single-contents__form__content
             .single-contents__form__content__upper
-              = f.label :expiration_date, "有効期限", class: "single-contents__form__content__upper__label"
+              = label :expiration_date, "有効期限", class: "single-contents__form__content__upper__label"
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower-effect
-              = f.text_field :expiration_month, class: "single-contents__form__content__lower-effect__field", placeholder: "01", required: true
+              %input.single-contents__form__content__lower-effect__field.new_expiration_month{name: "expiration_month", placeholder: "01", required: true}
               %span.single-contents__form__content__lower-effect__arrow
                 = fa_icon 'chevron-down'
               %span.single-contents__form__content__lower-effect__unit
                 月
             .single-contents__form__content__lower-effect
-              = f.text_field :expiration_year, class: "single-contents__form__content__lower-effect__field", placeholder: "19", required: true
+              %input.single-contents__form__content__lower-effect__field.new_expiration_year{name: "expiration_year", placeholder: "19", required: true}
               %span.single-contents__form__content__lower-effect__arrow
                 = fa_icon 'chevron-down'
               %span.single-contents__form__content__lower-effect__unit
                 年
           .single-contents__form__content
             .single-contents__form__content__upper
-              = f.label :security_code, "セキュリティコード", class: "single-contents__form__content__upper__label"
+              = label :security_code, "セキュリティコード", class: "single-contents__form__content__upper__label"
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower
-              = f.text_field :security_code, class: "single-contents__form__content__lower__field", placeholder: "カード背面4桁もしくは3桁の番号", required: true, value: "123"
+              %input.single-contents__form__content__lower__field.new_security_code{name: "security_code", placeholder: "カード背面4桁もしくは3桁の番号", required: true}
           .single-contents__form__guid
             = link_to root_path, class: "single-contents__form__guid__link" do
               %i

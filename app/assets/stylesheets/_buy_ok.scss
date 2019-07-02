@@ -58,6 +58,16 @@
         background-color: rgb(200, 200, 200);
         text-align: center;
         line-height: 50px;
+        &-red{
+          background-color: $mercari-red;
+          color: #f5f5f5;
+          span{
+            font-weight: bold;
+          }
+          &:hover{
+            background-color: #e8544c;
+          }
+        }
       }
       &__price{
         height: 50px;
