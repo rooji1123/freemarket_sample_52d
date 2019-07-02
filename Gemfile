@@ -47,6 +47,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
   gem 'bullet'
+  gem 'guard-livereload'
 end
 
 group :development do
@@ -89,6 +90,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
+gem 'kaminari'
 gem 'fog-aws'
 
 group :production do

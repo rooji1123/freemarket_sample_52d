@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(set_item)
     @selleritems = Item.where(seller_id: @item.seller_id).where.not(id: @item.id)
-    @categoryitems = ItemsCategory.where(category_id: @item.items_categories.last.category_id)
+    @categoryitems = ItemsCategory.where(category_id: @item.items_categories.last.category_id).includes(:item)
     @images = @item.item_images.where(params[:item_id])
   end
 
@@ -87,8 +87,10 @@ class ItemsController < ApplicationController
   def search
     @q = Item.ransack(params[:q])
     @categories = Category.where(ancestry: nil)
+    @item_state = ItemState.all
+    @delivery_fee = DeliveryFee.all
     @result = @q.result(distinct: true)
-
+    @result = @result.page(params[:page]).per(20)
   end
   
   def category_search
