@@ -46,6 +46,7 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
   gem 'bullet'
+  gem 'guard-livereload'
 end
 
 group :development do
