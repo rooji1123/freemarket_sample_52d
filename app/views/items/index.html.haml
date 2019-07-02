@@ -49,6 +49,10 @@
             .main__pickup__newitems__box__photo
               %a{href: "/items/#{category.item.id}"}
                 = image_tag category.item.item_images.first.image.to_s, size: "213x213"
+            - if  category.item.deal_state == 3 || category.item.deal_state == 4
+              .main__pickup__newitems__box__sold-out
+              .main__pickup__newitems__box__text
+                SOLD
             .main__pickup__newitems__box__body
               .main__pickup__newitems__box__body__name
                 = category.item.name
@@ -71,6 +75,10 @@
             .main__pickup__newitems__box__photo
               %a{href: "/items/#{category.item.id}"}
                 = image_tag category.item.item_images.first.image.to_s, size: "213x213"
+            - if  category.item.deal_state == 3 || category.item.deal_state == 4
+              .main__pickup__newitems__box__sold-out
+              .main__pickup__newitems__box__text
+                SOLD
             .main__pickup__newitems__box__body
               .main__pickup__newitems__box__body__name
                 = category.item.name
@@ -95,6 +103,10 @@
               .main__pickup__newitems__box__photo
                 %a{href: "/items/#{category.item.id}"}
                   = image_tag category.item.item_images.first.image.to_s, size: "213x213"
+            - if  category.item.deal_state == 3 || category.item.deal_state == 4
+              .main__pickup__newitems__box__sold-out
+              .main__pickup__newitems__box__text
+                SOLD
               .main__pickup__newitems__box__body
                 .main__pickup__newitems__box__body__name
                   = category.item.name
@@ -122,6 +134,10 @@
             .main__pickup__newitems__box__photo
               %a{href: "/items/#{item.id}"}
                 = image_tag item.item_images.first.image.to_s, size: "213x213"
+            - if  item.deal_state == 3 || item.deal_state == 4
+              .main__pickup__newitems__box__sold-out
+              .main__pickup__newitems__box__text
+                SOLD
             .main__pickup__newitems__box__body
               .main__pickup__newitems__box__body__name
                 = item.name[0..10]
