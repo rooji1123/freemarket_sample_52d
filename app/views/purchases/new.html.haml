@@ -42,7 +42,7 @@
             .item__addless__box__country
               = "#{Prefecture.find(@address.country_id)[:name]} #{@address.city} #{@address.address}"
             .item__addless__box__name
-              = "#{@information.first_name} #{@information.last_name}"
+              = "#{@information.last_name} #{@information.first_name}"
             .item__addless__box__link
               = link_to "変更する", '#', class: "item__addless__box__link__word"
         .item__card

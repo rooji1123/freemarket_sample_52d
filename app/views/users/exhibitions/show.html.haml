@@ -10,11 +10,15 @@
             .detail__item__info__image-top
               - @images.each do |image|
                 .detail__item__info__image-big
-                  = image.image
+                  = image_tag image.image.to_s, size: "300x300"
+                  - if  @item.deal_state == 3 || @item.deal_state == 4
+                    .main__pickup__newitems__box__sold-out
+                    .main__pickup__newitems__box__text
+                      SOLD
             .detail__item__info__image-dots
               - @images.each do |image|
                 .detail__item__info__image-dot
-                  = image.image
+                  = image_tag image.image.to_s, size: "60x60"
           .detail__item__info__table
             %table.table-out
               %tr
@@ -56,7 +60,7 @@
           = @item.description
     .exhibition-link
       .exhibition-link__box.exhibition-link__box-red
-        = link_to "商品の編集", edit_user_exhibition_path(1, @item.id), class: "exhibition-link__link"
+        = link_to "商品の編集", edit_item_path(@item.id), class: "exhibition-link__link"
       %p.exhibition-link__text or
       .exhibition-link__box.exhibition-link__box-red
         = link_to "出品を停止する", '#', class: "exhibition-link__link"
