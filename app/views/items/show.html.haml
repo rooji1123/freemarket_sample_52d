@@ -54,9 +54,13 @@
           （税込）
         .detail__price-cost
           送料込み
-        = link_to new_item_purchase_path(@item.id) do
-          .detail__buy-btm
-            購入画面に進む
+        - if @item.deal_state == 3 || @item.deal_state == 4
+          .detail__buy-btm.detail__buy-btm-red
+            売り切れました
+        - else
+          = link_to new_item_purchase_path(@item.id) do
+            .detail__buy-btm
+              購入画面に進む
         %p.detail__usercomment
           = @item.description
       .detail__action
