@@ -1,0 +1,31 @@
+= render 'shared/header'
+.breadcrumb
+  .breadcrumb__list
+
+.brands-show
+  .brands-show__title
+    = "#{@brands.name}の商品一覧"
+  .brands-show__items
+    - unless @items.empty?
+      - @items.each do |item|
+        - unless item.item_images.empty?
+          .brands-show__items__item
+            .brands-show__items__item__image
+              = image_tag item.item_images.first.image.to_s, class: "brands-show__items__item__image__box"
+            .brands-show__items__item__name
+              = item.name
+            .brands-show__items__item__link
+              = link_to "", item_path(item.id), class: "brands-show__items__item__link__box"
+            .brands-show__items__item__bottom
+              .brands-show__items__item__bottom__left
+                .brands-show__items__item__bottom__left__price
+                  = "¥ #{item.price.to_s(:delimited)}"
+                .brands-show__items__item__bottom__left__tax
+                  (税込)
+              .brands-show__items__item__bottom__right
+                = render partial: 'shared/like_items', locals: {item: item}
+    - else
+      .brands-show__not
+        = "#{@brands.name}に関する商品の出品はまだありません"
+= render "shared/display_icon"
+= render 'shared/footer'
