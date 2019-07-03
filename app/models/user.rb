@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :points
   has_many :likes, dependent: :destroy
   has_many :items, through: :likes, dependent: :destroy
+  has_many :items
 
   accepts_nested_attributes_for :user_information
   accepts_nested_attributes_for :user_address
