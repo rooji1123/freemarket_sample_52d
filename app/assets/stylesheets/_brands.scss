@@ -1,0 +1,66 @@
+.brands-show{
+  width: 700px;
+  margin: 0 auto;
+  margin-top: 70px;
+  margin-bottom: 80px;
+  &__title{
+    font-size: 22px;
+    font-weight: bold;
+  }
+  &__items{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    &__item{
+        background-color: #ffffff;
+        margin-right: 30px;
+        margin-bottom: 30px;
+        position: relative;
+      &__image{
+        &__box{
+          height: 200px;
+          width: 200px;
+        }
+      }
+      &__name{
+        text-align: center;
+        font-size: 19px;
+        margin-top: 15px;
+      }
+      &__bottom{
+        display: flex;
+        justify-content: space-between;
+        margin: 18px;
+        z-index: 100;
+        &__left{
+          &__price{
+            font-size: 17px;
+            font-weight: bold;
+          }
+          &__tax{
+            font-size: 12px;
+          }
+        }
+        &__right{
+          .fa-heart{
+            color: #d3d3d3
+          }
+          &__span{
+            font-size: 16px;
+            color: #666565;
+          }
+        }
+      }
+      &__link{
+        &__box{
+          position: absolute;
+          z-index: 5;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
