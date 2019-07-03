@@ -15,6 +15,7 @@ $(function() {
 
   $(document).on('click', ".like", function() {
     var item_id = $(this).data('item')
+    var target = $(this)
     $.ajax({
       type: 'POST',
       url: '/likes',
@@ -22,9 +23,10 @@ $(function() {
       dataType: 'json'
     })
     .done(function(item){
-      $(".item-like-link").empty()
+      var target_parent = $(target).parent()
+      $(target).parent().empty()
       html = un_like_html(item)
-      $(".item-like-link").append(html)
+      $(html).appendTo(target_parent)
     })
   })
 
