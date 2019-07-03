@@ -45,6 +45,7 @@ $(function() {
 
   $(document).on('click', ".un-like", function() {
     var item_id = $(this).data('item')
+    var target = $(this)
     $.ajax({
       type: 'DELETE',
       url: `/likes/${item_id}`,
@@ -52,9 +53,10 @@ $(function() {
       dataType: 'json'
     })
     .done(function(item){
-      $(".item-like-link").empty()
+      var target_parent = $(target).parent()
+      $(target).parent().empty()
       html = like_html(item)
-      $(".item-like-link").append(html)
+      $(html).appendTo(target_parent)
     })
   })
 })
