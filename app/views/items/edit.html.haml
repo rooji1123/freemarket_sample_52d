@@ -74,8 +74,12 @@
                 ブランド
               %span.gray 任意
             .sell-form__detail__form-box__brand__select
-              = f.text_field :brand_id, class: 'brand__select', id:'brand', placeholder: "例） シャネル"
+              - unless @item.brand_id == 0
+                = f.text_field :brand_id, class: 'brand__select', id:'brand', placeholder: "例） シャネル", value: Brand.find(@item.brand_id).name
+              - else
+                = f.text_field :brand_id, class: 'brand__select', id:'brand', placeholder: "例） シャネル"
               .sell-form__detail__form-box__brand__select__results
+                %input{type: "hidden", name: "brand_id", value: @item.brand_id}
             .sell-form__detail__form-box__status
               %h5
                 商品の状態
