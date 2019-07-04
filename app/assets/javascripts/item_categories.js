@@ -105,7 +105,12 @@ $(function () {
       $('.sell-form__detail__form-box__size').css({
         'display': 'none'
       });
+      $('.sell-form__detail__form-box__brand').css({
+        'display': 'none'
+      });
+      $('.sell-form__detail__form-box__brand__select').css({
+        'display': 'none'
+      });
     }
   });
-
 });

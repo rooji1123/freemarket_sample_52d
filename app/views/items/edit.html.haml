@@ -55,23 +55,31 @@
               %span.new-item 必須
             %div
               #parent-form-area
-                .select-warp
+                .parent-box
                   = f.collection_select :category_ids, @parents, :id, :name,{prompt: "---"}, class: "select-default", id: "parent-form", name: 'item[category_ids][]'
               #children-form-area
+                .child-box
+                  = f.collection_select :category_ids,@children, :id, :name,{prompt: "---"}, class: "select-default", id: "parent-form", selected: @item.category_ids[1], name: 'item[category_ids][]'
               #grandchild-form-area
+                .grandchild-box
+                  = f.collection_select :category_ids,@grand_children, :id, :name,{prompt: "---"}, class: "select-default", id: "parent-form", selected: @item.category_ids[2], name: 'item[category_ids][]'
             .sell-form__detail__form-box__size
               %h5
                 サイズ
               %span.new-item 必須
             .sell-form__detail__form-box__size__select
-              = f.select :size_id, Size.all.map{|t| [t.value, t.id]}, {include_blank: "---", selected: "---"}
+              = f.select :size_id, Size.all.map{|t| [t.value, t.id]}, include_blank: "---"
             .sell-form__detail__form-box__brand
               %h5
                 ブランド
               %span.gray 任意
             .sell-form__detail__form-box__brand__select
-              = f.text_field :brand_id, class: 'brand__select', id:'brand', placeholder: "例） シャネル"
+              - unless @item.brand_id == 0
+                = f.text_field :brand_id, class: 'brand__select', id:'brand', placeholder: "例） シャネル", value: Brand.find(@item.brand_id).name
+              - else
+                = f.text_field :brand_id, class: 'brand__select', id:'brand', placeholder: "例） シャネル"
               .sell-form__detail__form-box__brand__select__results
+                %input{type: "hidden", name: "brand_id", value: @item.brand_id}
             .sell-form__detail__form-box__status
               %h5
                 商品の状態

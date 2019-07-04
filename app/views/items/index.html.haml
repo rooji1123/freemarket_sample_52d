@@ -14,7 +14,7 @@
     .main__pickup__head
       ピックアップカテゴリー
     .main__pickup__text
-      = link_to "レディース 新着アイテム", item_path(10), class: "newitem"
+      = link_to "レディース 新着アイテム", category_path(1), class: "newitem"
     .main__pickup__newitems
       - @ladies.first(4).each do |category|
         - unless category.item.item_images.empty?
@@ -37,11 +37,11 @@
                 .main__pickup__newitems__box__body__tax__heart
                   = render partial: 'shared/like_items', locals: {item: category.item}
     .main__pickup__view
-      = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
+      = link_to "全ての商品を見る", category_path(1), class: "main__pickup__view__link"
 
 
     .main__pickup__text
-      = link_to "メンズ 新着アイテム", 'root_path', class: "newitem"
+      = link_to "メンズ 新着アイテム", category_path(2), class: "newitem"
     .main__pickup__newitems
       - @mens.first(4).each do |category|
         - unless category.item.item_images.empty?
@@ -64,10 +64,10 @@
                 .main__pickup__newitems__box__body__tax__heart
                   = render partial: 'shared/like_items', locals: {item: category.item}
     .main__pickup__view
-      = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
+      = link_to "全ての商品を見る", category_path(2), class: "main__pickup__view__link"
 
     .main__pickup__text
-      = link_to "ベビー・キッズ 新着アイテム", 'root_path', class: "newitem"
+      = link_to "ベビー・キッズ 新着アイテム", category_path(3), class: "newitem"
     .main__pickup__newitems
       - @babys.first(4).each do |category|
         - unless category.item.item_images.empty?
@@ -90,10 +90,10 @@
                 .main__pickup__newitems__box__body__tax__heart
                   = render partial: 'shared/like_items', locals: {item: category.item}
     .main__pickup__view
-      = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
+      = link_to "全ての商品を見る", category_path(3), class: "main__pickup__view__link"
 
     .main__pickup__text
-      = link_to "コスメ・香水・美容 新着アイテム", 'root_path', class: "newitem"
+      = link_to "コスメ・香水・美容 新着アイテム", category_path(7), class: "newitem"
 
     .main__pickup__newitems
       .main__pickup__newitems__box
@@ -118,7 +118,7 @@
                   .main__pickup__newitems__box__body__tax__heart
                     = render partial: 'shared/like_items', locals: {item: category.item}
       .main__pickup__view
-        = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
+        = link_to "全ての商品を見る", category_path(7), class: "main__pickup__view__link"
 
     .main__pickup__head
       ピックアップブランド

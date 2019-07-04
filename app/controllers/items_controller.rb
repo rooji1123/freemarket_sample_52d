@@ -40,14 +40,28 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(set_item)
     @parents = Category.where(ancestry: nil).order("id ASC")
+    @children = @item.categories[0].children
+    @grand_children = @item.categories[1].children
     gon.item = @item
     gon.item_images = @item.item_images
     require 'base64'
     gon.item_images_binary_datas = []
+    if Rails.env.production?
+      client = Aws::S3::Client.new(
+                             region: 'ap-northeast-1',
+                             access_key_id: Rails.application.credentials.aws[:access_key_id],
+                             secret_access_key: Rails.application.credentials.aws[:secret_access_key],
+                             )
+      @item.item_images.each do |image|
+        binary_data = client.get_object(bucket: 'freemarket52', key: image.image.file.path).body.read
+        gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
+      end
+    else
       @item.item_images.each do |image|
         binary_data = File.read(image.image.file.file)
         gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
       end
+    end
   end
 
   def update
@@ -70,10 +84,8 @@ class ItemsController < ApplicationController
           @item.item_images.create(image: image, item_id: @item.id)
         end
       end
-      flash[:notice] = '編集が完了しました'
       redirect_to item_path(@item), data: {turbolinks: false}
     else
-      flash[:alert] = '未入力項目があります'
       redirect_back(fallback_location: root_path)
     end
 

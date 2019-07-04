@@ -15,22 +15,29 @@
           .item__main__burden
             .item__main__burden__price
               = "¥ #{@item.price.to_s(:delimited)}"
-              = f.hidden_field :price, value: @item.price
+              = f.hidden_field :true_price, value: @item.price, class: "item__main__burden__price__true"
+              = f.hidden_field :price, value: @item.price, class: "item__main__burden__price__hidden"
             .item__main__burden__text
               送料込み
           .item__main__point
             - if @point_all == 0
               = "ポイントはありません"
             - else
-              %p.item__main__point-red
-                %span= @point_all
-                ポイント使用できます
+              .item__main__point__exist{data:{point: @point_all}}
+                = f.hidden_field :point, value: 0, class: "item__main__point__exist__use-point"
+                %p.item__main__point__exist-red.item__main__point__exist__text
+                  %span= @point_all
+                  ポイント使用できます
+                .item__main__point__exist__select
+                  %ul.item__main__point__exist__select__ul
 
           .item__main__price
             .item__main__price__left
               支払い金額
             .item__main__price__right
-              = "¥ #{@item.price.to_s(:delimited)}"
+              ¥
+              %span.item__main__price__right__span
+                = @item.price.to_s(:delimited)
           .item__main__buy
             = f.submit "購入する", class: "item__main__buy__link"
         .item__addless

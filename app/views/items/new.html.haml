@@ -64,7 +64,7 @@
                 サイズ
               %span.new-item 必須
             .sell-form__detail__form-box__size__select
-              = f.select :size_id, Size.all.map{|t| [t.value, t.id]}, prompt: "---"
+              = f.select :size_id, Size.all.map{|t| [t.value, t.id]}, include_blank: "---"
             .sell-form__detail__form-box__brand
               %h5
                 ブランド
