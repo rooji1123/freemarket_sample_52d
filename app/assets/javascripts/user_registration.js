@@ -364,6 +364,7 @@ $("#user_password_confirmation").on('focusout', function(){
     $('.signup__radius4').addClass('signup__header__nav__red')
     $('.signup__header__nav__box__li__bottom__third').css('background-color', 'red')
     $('.signup__radius5').addClass('signup__header__nav__red')
+    $('.signup__header__nav__box__li__bottom__forth').css('background-color', 'red')
     $('.signup__header__nav__box__li__bottom__end').css('background-color', 'red')
   }
 })
