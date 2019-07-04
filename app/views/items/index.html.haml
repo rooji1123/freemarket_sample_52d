@@ -19,13 +19,13 @@
       - @ladies.first(4).each do |category|
         - unless category.item.item_images.empty?
           .main__pickup__newitems__box
-            .main__pickup__newitems__box__photo
-              %a{href: "/items/#{category.item.id}"}
+            = link_to "/items/#{category.item.id}", class: "main__pickup__newitems__box__link" do
+              .main__pickup__newitems__box__photo
                 = image_tag category.item.item_images.first.image.to_s, size: "213x213"
-            - if  category.item.deal_state == 3 || category.item.deal_state == 4
-              .main__pickup__newitems__box__sold-out
-              .main__pickup__newitems__box__text
-                SOLD
+              - if  category.item.deal_state == 3 || category.item.deal_state == 4
+                .main__pickup__newitems__box__sold-out
+                .main__pickup__newitems__box__text
+                  SOLD
             .main__pickup__newitems__box__body
               .main__pickup__newitems__box__body__name
                 = category.item.name
@@ -46,13 +46,13 @@
       - @mens.first(4).each do |category|
         - unless category.item.item_images.empty?
           .main__pickup__newitems__box
-            .main__pickup__newitems__box__photo
-              %a{href: "/items/#{category.item.id}"}
+            = link_to "/items/#{category.item.id}", class: "main__pickup__newitems__box__link" do
+              .main__pickup__newitems__box__photo
                 = image_tag category.item.item_images.first.image.to_s, size: "213x213"
-            - if  category.item.deal_state == 3 || category.item.deal_state == 4
-              .main__pickup__newitems__box__sold-out
-              .main__pickup__newitems__box__text
-                SOLD
+              - if  category.item.deal_state == 3 || category.item.deal_state == 4
+                .main__pickup__newitems__box__sold-out
+                .main__pickup__newitems__box__text
+                  SOLD
             .main__pickup__newitems__box__body
               .main__pickup__newitems__box__body__name
                 = category.item.name
@@ -72,13 +72,13 @@
       - @babys.first(4).each do |category|
         - unless category.item.item_images.empty?
           .main__pickup__newitems__box
-            .main__pickup__newitems__box__photo
-              %a{href: "/items/#{category.item.id}"}
+            = link_to "/items/#{category.item.id}", class: "main__pickup__newitems__box__link" do
+              .main__pickup__newitems__box__photo
                 = image_tag category.item.item_images.first.image.to_s, size: "213x213"
-            - if  category.item.deal_state == 3 || category.item.deal_state == 4
-              .main__pickup__newitems__box__sold-out
-              .main__pickup__newitems__box__text
-                SOLD
+              - if  category.item.deal_state == 3 || category.item.deal_state == 4
+                .main__pickup__newitems__box__sold-out
+                .main__pickup__newitems__box__text
+                  SOLD
             .main__pickup__newitems__box__body
               .main__pickup__newitems__box__body__name
                 = category.item.name
@@ -100,13 +100,13 @@
         - @cosme.first(4).each do |category|
           - unless category.item.item_images.empty?
             .main__pickup__newitems__box
-              .main__pickup__newitems__box__photo
-                %a{href: "/items/#{category.item.id}"}
+              = link_to "/items/#{category.item.id}", class: "main__pickup__newitems__box__link" do
+                .main__pickup__newitems__box__photo
                   = image_tag category.item.item_images.first.image.to_s, size: "213x213"
-            - if  category.item.deal_state == 3 || category.item.deal_state == 4
-              .main__pickup__newitems__box__sold-out
-              .main__pickup__newitems__box__text
-                SOLD
+                - if  category.item.deal_state == 3 || category.item.deal_state == 4
+                  .main__pickup__newitems__box__sold-out
+                  .main__pickup__newitems__box__text
+                    SOLD
               .main__pickup__newitems__box__body
                 .main__pickup__newitems__box__body__name
                   = category.item.name
@@ -131,13 +131,13 @@
         - items = brand.items.limit(4)
         - items.each do |item|
           .main__pickup__newitems__box
-            .main__pickup__newitems__box__photo
-              %a{href: "/items/#{item.id}"}
+            = link_to "/items/#{item.id}", class: "main__pickup__newitems__box__link" do
+              .main__pickup__newitems__box__photo
                 = image_tag item.item_images.first.image.to_s, size: "213x213"
-            - if  item.deal_state == 3 || item.deal_state == 4
-              .main__pickup__newitems__box__sold-out
-              .main__pickup__newitems__box__text
-                SOLD
+              - if  item.deal_state == 3 || item.deal_state == 4
+                .main__pickup__newitems__box__sold-out
+                .main__pickup__newitems__box__text
+                  SOLD
             .main__pickup__newitems__box__body
               .main__pickup__newitems__box__body__name
                 = item.name[0..10]

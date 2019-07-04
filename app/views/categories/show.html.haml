@@ -11,21 +11,24 @@
     - unless @items.empty?
       - @items.each do |item|
         - unless item.item_images.empty?
-          .category-show__items__item
-            .category-show__items__item__image
-              = image_tag item.item_images.first.image.to_s, class: "category-show__items__item__image__box"
-            .category-show__items__item__name
-              = item.name
-            .category-show__items__item__link
-              = link_to "", item_path(item.id), class: "category-show__items__item__link__box"
-            .category-show__items__item__bottom
-              .category-show__items__item__bottom__left
-                .category-show__items__item__bottom__left__price
-                  = "¥ #{item.price.to_s(:delimited)}"
-                .category-show__items__item__bottom__left__tax
-                  (税込)
-              .category-show__items__item__bottom__right
-                = render partial: 'shared/like_items', locals: {item: item}
+          .main__pickup__newitems__box
+            = link_to "/items/#{item.id}", class: "main__pickup__newitems__box__link" do
+              .main__pickup__newitems__box__photo
+                = image_tag item.item_images.first.image.to_s, size: "213x213"
+              - if  item.deal_state == 3 || item.deal_state == 4
+                .main__pickup__newitems__box__sold-out
+                .main__pickup__newitems__box__text
+                  SOLD
+            .main__pickup__newitems__box__body
+              .main__pickup__newitems__box__body__name
+                = item.name[0..10]
+              .main__pickup__newitems__box__body__value
+                ￥
+                = item.price.to_s(:delimited)
+              .main__pickup__newitems__box__body__tax
+                (税込)
+                .main__pickup__newitems__box__body__tax__heart
+                  = render partial: 'shared/like_items', locals: {item: item}
     - else
       .category-show__not
         = "#{@category.name}に関する商品の出品はまだありません"
