@@ -17,25 +17,24 @@
       = link_to "レディース 新着アイテム", category_path(1), class: "newitem"
     .main__pickup__newitems
       - @ladies.first(4).each do |category|
-        - unless category.item.item_images.empty?
-          .main__pickup__newitems__box
-            = link_to "/items/#{category.item.id}", class: "main__pickup__newitems__box__link" do
-              .main__pickup__newitems__box__photo
-                = image_tag category.item.item_images.first.image.to_s, size: "213x213"
-              - if  category.item.deal_state == 3 || category.item.deal_state == 4
-                .main__pickup__newitems__box__sold-out
-                .main__pickup__newitems__box__text
-                  SOLD
-            .main__pickup__newitems__box__body
-              .main__pickup__newitems__box__body__name
-                = category.item.name
-              .main__pickup__newitems__box__body__value
-                ￥
-                = category.item.price.to_s(:delimited)
-              .main__pickup__newitems__box__body__tax
-                (税込)
-                .main__pickup__newitems__box__body__tax__heart
-                  = render partial: 'shared/like_items', locals: {item: category.item}
+        .main__pickup__newitems__box
+          = link_to "/items/#{category.item.id}", class: "main__pickup__newitems__box__link" do
+            .main__pickup__newitems__box__photo
+              = image_tag category.item.item_images.first.image.to_s, size: "213x213"
+            - if  category.item.deal_state == 3 || category.item.deal_state == 4
+              .main__pickup__newitems__box__sold-out
+              .main__pickup__newitems__box__text
+                SOLD
+          .main__pickup__newitems__box__body
+            .main__pickup__newitems__box__body__name
+              = category.item.name
+            .main__pickup__newitems__box__body__value
+              ￥
+              = category.item.price.to_s(:delimited)
+            .main__pickup__newitems__box__body__tax
+              (税込)
+              .main__pickup__newitems__box__body__tax__heart
+                = render partial: 'shared/like_items', locals: {item: category.item}
     .main__pickup__view
       = link_to "全ての商品を見る", category_path(1), class: "main__pickup__view__link"
 
@@ -44,25 +43,24 @@
       = link_to "メンズ 新着アイテム", category_path(2), class: "newitem"
     .main__pickup__newitems
       - @mens.first(4).each do |category|
-        - unless category.item.item_images.empty?
-          .main__pickup__newitems__box
-            = link_to "/items/#{category.item.id}", class: "main__pickup__newitems__box__link" do
-              .main__pickup__newitems__box__photo
-                = image_tag category.item.item_images.first.image.to_s, size: "213x213"
-              - if  category.item.deal_state == 3 || category.item.deal_state == 4
-                .main__pickup__newitems__box__sold-out
-                .main__pickup__newitems__box__text
-                  SOLD
-            .main__pickup__newitems__box__body
-              .main__pickup__newitems__box__body__name
-                = category.item.name
-              .main__pickup__newitems__box__body__value
-                ￥
-                = category.item.price.to_s(:delimited)
-              .main__pickup__newitems__box__body__tax
-                (税込)
-                .main__pickup__newitems__box__body__tax__heart
-                  = render partial: 'shared/like_items', locals: {item: category.item}
+        .main__pickup__newitems__box
+          = link_to "/items/#{category.item.id}", class: "main__pickup__newitems__box__link" do
+            .main__pickup__newitems__box__photo
+              = image_tag category.item.item_images.first.image.to_s, size: "213x213"
+            - if  category.item.deal_state == 3 || category.item.deal_state == 4
+              .main__pickup__newitems__box__sold-out
+              .main__pickup__newitems__box__text
+                SOLD
+          .main__pickup__newitems__box__body
+            .main__pickup__newitems__box__body__name
+              = category.item.name
+            .main__pickup__newitems__box__body__value
+              ￥
+              = category.item.price.to_s(:delimited)
+            .main__pickup__newitems__box__body__tax
+              (税込)
+              .main__pickup__newitems__box__body__tax__heart
+                = render partial: 'shared/like_items', locals: {item: category.item}
     .main__pickup__view
       = link_to "全ての商品を見る", category_path(2), class: "main__pickup__view__link"
 
@@ -70,25 +68,24 @@
       = link_to "ベビー・キッズ 新着アイテム", category_path(3), class: "newitem"
     .main__pickup__newitems
       - @babys.first(4).each do |category|
-        - unless category.item.item_images.empty?
-          .main__pickup__newitems__box
-            = link_to "/items/#{category.item.id}", class: "main__pickup__newitems__box__link" do
-              .main__pickup__newitems__box__photo
-                = image_tag category.item.item_images.first.image.to_s, size: "213x213"
-              - if  category.item.deal_state == 3 || category.item.deal_state == 4
-                .main__pickup__newitems__box__sold-out
-                .main__pickup__newitems__box__text
-                  SOLD
-            .main__pickup__newitems__box__body
-              .main__pickup__newitems__box__body__name
-                = category.item.name
-              .main__pickup__newitems__box__body__value
-                ￥
-                = category.item.price.to_s(:delimited)
-              .main__pickup__newitems__box__body__tax
-                (税込)
-                .main__pickup__newitems__box__body__tax__heart
-                  = render partial: 'shared/like_items', locals: {item: category.item}
+        .main__pickup__newitems__box
+          = link_to "/items/#{category.item.id}", class: "main__pickup__newitems__box__link" do
+            .main__pickup__newitems__box__photo
+              = image_tag category.item.item_images.first.image.to_s, size: "213x213"
+            - if  category.item.deal_state == 3 || category.item.deal_state == 4
+              .main__pickup__newitems__box__sold-out
+              .main__pickup__newitems__box__text
+                SOLD
+          .main__pickup__newitems__box__body
+            .main__pickup__newitems__box__body__name
+              = category.item.name
+            .main__pickup__newitems__box__body__value
+              ￥
+              = category.item.price.to_s(:delimited)
+            .main__pickup__newitems__box__body__tax
+              (税込)
+              .main__pickup__newitems__box__body__tax__heart
+                = render partial: 'shared/like_items', locals: {item: category.item}
     .main__pickup__view
       = link_to "全ての商品を見る", category_path(3), class: "main__pickup__view__link"
 
@@ -98,25 +95,24 @@
     .main__pickup__newitems
       .main__pickup__newitems__box
         - @cosme.first(4).each do |category|
-          - unless category.item.item_images.empty?
-            .main__pickup__newitems__box
-              = link_to "/items/#{category.item.id}", class: "main__pickup__newitems__box__link" do
-                .main__pickup__newitems__box__photo
-                  = image_tag category.item.item_images.first.image.to_s, size: "213x213"
-                - if  category.item.deal_state == 3 || category.item.deal_state == 4
-                  .main__pickup__newitems__box__sold-out
-                  .main__pickup__newitems__box__text
-                    SOLD
-              .main__pickup__newitems__box__body
-                .main__pickup__newitems__box__body__name
-                  = category.item.name
-                .main__pickup__newitems__box__body__value
-                  ￥
-                  = category.item.price.to_s(:delimited)
-                .main__pickup__newitems__box__body__tax
-                  (税込)
-                  .main__pickup__newitems__box__body__tax__heart
-                    = render partial: 'shared/like_items', locals: {item: category.item}
+          .main__pickup__newitems__box
+            = link_to "/items/#{category.item.id}", class: "main__pickup__newitems__box__link" do
+              .main__pickup__newitems__box__photo
+                = image_tag category.item.item_images.first.image.to_s, size: "213x213"
+              - if  category.item.deal_state == 3 || category.item.deal_state == 4
+                .main__pickup__newitems__box__sold-out
+                .main__pickup__newitems__box__text
+                  SOLD
+            .main__pickup__newitems__box__body
+              .main__pickup__newitems__box__body__name
+                = category.item.name
+              .main__pickup__newitems__box__body__value
+                ￥
+                = category.item.price.to_s(:delimited)
+              .main__pickup__newitems__box__body__tax
+                (税込)
+                .main__pickup__newitems__box__body__tax__heart
+                  = render partial: 'shared/like_items', locals: {item: category.item}
       .main__pickup__view
         = link_to "全ての商品を見る", category_path(7), class: "main__pickup__view__link"
 

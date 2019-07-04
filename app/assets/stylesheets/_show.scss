@@ -41,6 +41,9 @@
                 width: 60px;
                 object-fit: cover;
                 opacity: .4;
+                &:hover{
+                  opacity: 1;
+                }
               }
             }
           }
