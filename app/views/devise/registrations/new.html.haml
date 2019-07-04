@@ -89,17 +89,17 @@
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower-date
-              = f.text_field :birth_year, class: "single-contents__form__content__lower-date__field", required: true
+              = f.select :birth_year, BirthYear.all.map{|t| [t.name, t.id]}, prompt: "--", require: true
               %span.single-contents__form__content__lower-date__arrow-year
                 = fa_icon 'chevron-down'
               %span.single-contents__form__content__lower-date__unit
                 年
-              = f.text_field :birth_month, class: "single-contents__form__content__lower-date__field", required: true
+              = f.select :birth_month, Month.all.map{|t| [t.name, t.id]}, prompt: "--", require: true
               %span.single-contents__form__content__lower-date__arrow-month
                 = fa_icon 'chevron-down'
               %span.single-contents__form__content__lower-date__unit
                 月
-              = f.text_field :birth_day, class: "single-contents__form__content__lower-date__field", required: true
+              = f.select :birth_day, BirthDay.all.map{|t| [t.name, t.id]}, prompt: "--", require: true
               %span.single-contents__form__content__lower-date__arrow-day
                 = fa_icon 'chevron-down'
               %span.single-contents__form__content__lower-date__unit
@@ -174,7 +174,9 @@
               .single-contents__form__content__upper__require-icon
                 必須
             .single-contents__form__content__lower
-              = f.text_field :country_id, class: "single-contents__form__content__lower__field", placeholder: "北海道", required: true
+              = f.select :country_id, Prefecture.all.map{|t| [t.name, t.id]}, require: true
+              %span.single-contents__form__content__lower__arrow
+                = fa_icon 'chevron-down'
           .single-contents__form__content
             .single-contents__form__content__upper
               = f.label :city, "市区町村", class: "single-contents__form__content__upper__label"
