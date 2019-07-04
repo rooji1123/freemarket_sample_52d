@@ -7,14 +7,14 @@
       .single-contents__form__content__sign_up_box
         = link_to new_user_registration_path, class: "single-contents__form__content__sign_up_box__btn" do
           %span.single-contents__form__content__sign_up_box__btn__icon
-            = fa_icon 'envelope'
+            %i.far.fa-envelope
           メールアドレスで登録
         = link_to user_facebook_omniauth_authorize_path, class: "single-contents__form__content__sign_up_box__facebook_btn" do
           %span.single-contents__form__content__sign_up_box__facebook_btn__icon
-            = fa_icon 'facebook-square'
+            %i.fab.fa-facebook-square
           Facebookで登録
         = link_to user_google_oauth2_omniauth_authorize_path, class: "single-contents__form__content__sign_up_box__google_btn" do
           %span.single-contents__form__content__sign_up_box__google_btn__icon
-            = fa_icon 'google'
+            %i.fab.fa-google
           Googleで登録
   = render 'shared/second__footer'

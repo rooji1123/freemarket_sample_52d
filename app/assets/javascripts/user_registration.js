@@ -28,25 +28,31 @@ $(function(){
       $("#user_email").parent().append(html)
     }
     //validate pass
-    // var pass;
-    // if($("#user_password").val().match(/^[A-Za-z0-9]{6,128}$/)){
-    //   pass = true
-    // }else{
-    //   pass = false
-    //   var html = buildHtmlAttendPass()
-    //   $("#user_password").parent().children('.attend-pass').remove()
-    //   $("#user_password").parent().append(html)
-    // }
-    //validate confirm pass
-    // var confirm;
-    // if($("#user_password_confirmation").val().match($("#user_password").val())){
-    //   confirm = true
-    // }else{
-    //   confirm = false
-    //   var html = buildHtmlAttendConfirmPass()
-    //   $("#user_password_confirmation").parent().children('.attend-pass-confirm').remove()
-    //   $("#user_password_confirmation").parent().append(html)
-    // }
+    var pass;
+    var confirm;
+      if($("#user_password").length){
+        if($("#user_password").val().match(/^[A-Za-z0-9]{6,128}$/)){
+          pass = true
+        }else{
+          pass = false
+          var html = buildHtmlAttendPass()
+          $("#user_password").parent().children('.attend-pass').remove()
+          $("#user_password").parent().append(html)
+        }
+        // validate confirm pass
+        if($("#user_password_confirmation").val().match($("#user_password").val())){
+          confirm = true
+        }else{
+          confirm = false
+          var html = buildHtmlAttendConfirmPass()
+          $("#user_password_confirmation").parent().children('.attend-pass-confirm').remove()
+          $("#user_password_confirmation").parent().append(html)
+        }
+      }else{
+        pass = true
+        confirm = true
+      }
+      
     if(!noBot){
       function buildHtmlAttendSelect(){
         var htmlAttendSelect = `<p class='attend-select'>選択してください</p>`
@@ -56,12 +62,13 @@ $(function(){
       $('.g-recaptcha').append(buildHtmlAttendSelect)
       $('.single-contents__form__recaptcha').css('border', '1px solid #ea352d')
     }
-    if(nul == true || type == false || noBot == false){
-      // except pass and confirm
+    if(nul == true || type == false || noBot == false || pass == false || confirm == false){
       $("html,body").animate({scrollTop:0});
     }else{
       $('#form-first').hide();
       $('#form-second').show();
+      $('.signup__radius2').addClass('signup__header__nav__red')
+      $('.signup__header__nav__box__li__bottom__first').css('background-color', 'red')
       $("#form-second .single-contents__form__content:first").find(".single-contents__form__content__lower__field").focus()
       $("html,body").animate({scrollTop:0});
     }
@@ -97,6 +104,8 @@ $(function(){
     }else{
       $('#form-second').hide();
       $('#form-third').show();
+      $('.signup__radius3').addClass('signup__header__nav__red')
+      $('.signup__header__nav__box__li__bottom__second').css('background-color', 'red')
       $("#form-third .single-contents__form__content:first").find(".single-contents__form__content__lower__field").eq(0).focus()
       $("html,body").animate({scrollTop:0});
     }
@@ -132,6 +141,8 @@ $(function(){
     }else{
       $('#form-third').hide();
       $('#form-forth').show();
+      $('.signup__radius4').addClass('signup__header__nav__red')
+      $('.signup__header__nav__box__li__bottom__third').css('background-color', 'red')
       $("#form-forth .single-contents__form__content:first").find(".single-contents__form__content__lower__field").focus()
       $("html,body").animate({scrollTop:0});
     }
@@ -172,8 +183,7 @@ $(function(){
       $(".new_security_code").parent().children('.attend-type-error').remove()
       $(".new_security_code").parent().append(html)
     }
-    if(nul == true ||typeSecurityCode == false){
-      //except typeCardNumber == false || 
+    if(nul == true ||typeCardNumber == false || typeSecurityCode == false){
       $("html,body").animate({scrollTop:0});
     }else{
       var form = $(".single-contents__form"),
@@ -218,7 +228,8 @@ $(function(){
   $(".single-contents__form :required").on('focusout', function(){
     $(this).siblings('.attend-null').remove()
     var value = $(this).val()
-    if (value == ""){
+    if (value == "" || value == prompt){
+      console.log(value)
       var label = $(this).parent().siblings('.single-contents__form__content__upper').children('label').text()
       var html = buildHtmlAttendNull(label)
       $(this).parent().append(html)
@@ -333,16 +344,26 @@ $("#user_password_confirmation").on('focusout', function(){
     }
   })
     //validate type security-code
-    $("#user_user_card_attributes_security-code").on('focusout', function(){
-      $(this).parent().children('.attend-type-error').remove()
-      var value = $(this).val()
-      if(value == ""){
-  
-      }else if (value.match(/^\d{3,4}$/)){
-        
-      }else{
-        var html = buildHtmlAttendTypeError()
-        $(this).parent().append(html)
-      }
-    })
+  $("#user_user_card_attributes_security-code").on('focusout', function(){
+    $(this).parent().children('.attend-type-error').remove()
+    var value = $(this).val()
+    if(value == ""){
+
+    }else if (value.match(/^\d{3,4}$/)){
+    
+    }else{
+      var html = buildHtmlAttendTypeError()
+      $(this).parent().append(html)
+    }
+  })
+  if($('.single-contents__advertisement').length){
+    $('.signup__radius2').addClass('signup__header__nav__red')
+    $('.signup__header__nav__box__li__bottom__first').css('background-color', 'red')
+    $('.signup__radius3').addClass('signup__header__nav__red')
+    $('.signup__header__nav__box__li__bottom__second').css('background-color', 'red')
+    $('.signup__radius4').addClass('signup__header__nav__red')
+    $('.signup__header__nav__box__li__bottom__third').css('background-color', 'red')
+    $('.signup__radius5').addClass('signup__header__nav__red')
+    $('.signup__header__nav__box__li__bottom__end').css('background-color', 'red')
+  }
 })

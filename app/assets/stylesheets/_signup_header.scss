@@ -2,11 +2,12 @@
   &__header{
     $header-height: 15vh;
     min-height: 15vh;
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     &__logo{
+      width: 193px;
       height: $header-height;
       position: relative;
       &__link{
@@ -29,14 +30,26 @@
           margin: 0 20px;
           &__bottom{
             height: 2px;
-            width: 190%;
             margin-top: 10px;
             background-color: #cccccc;
-            &__start{
+            &__first{
+              width: 195%;
+              margin-left: 52%;
+            }
+            &__second{
+              width: 190%;
+              margin-left: 50%;
+            }
+            &__third{
+              width: 120%;
+              margin-left: 50%;
+            }
+            &__forth{
+              width: 140%;
               margin-left: 50%;
             }
             &__end{
-              width: 10px;
+              width: 1px;
             }
           }
           &__box{
@@ -64,7 +77,7 @@
             .signup__radius5{
               margin-left: 8px;
             }
-            .signup__header__nav__box__li__box__radius-red{
+            .signup__header__nav__red{
               background-color: red;
             }
           }
