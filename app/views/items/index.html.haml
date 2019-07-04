@@ -125,9 +125,9 @@
     - brands = ["SAVAS", "シャネル", "ナイキ", "メルセデス・ベンツ"]
     - brands.each do |brand|
       .main__pickup__text
-        = link_to "#{brand} 新着アイテム", 'root_path', class: "newitem"
-      .main__pickup__newitems
         - brand = Brand.find_by(name: brand)
+        = link_to "#{brand.name} 新着アイテム", "/brands/#{brand.id}", class: "newitem"
+      .main__pickup__newitems
         - items = brand.items.limit(4)
         - items.each do |item|
           .main__pickup__newitems__box
@@ -149,7 +149,7 @@
                 .main__pickup__newitems__box__body__tax__heart
                   = render partial: 'shared/like_items', locals: {item: item}
       .main__pickup__view
-        = link_to "全ての商品を見る", 'root_path', class: "main__pickup__view__link"
+        = link_to "全ての商品を見る", "/brands/#{brand.id}", class: "main__pickup__view__link"
 
 = render "shared/display_icon"
 = render 'shared/footer'

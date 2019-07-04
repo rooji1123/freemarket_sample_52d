@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(set_item)
+    @user = User.find_by(id: @item.seller_id)
     @selleritems = Item.where(seller_id: @item.seller_id).where.not(id: @item.id)
     @categoryitems = ItemsCategory.where(category_id: @item.items_categories.last.category_id).includes(:item)
     @images = @item.item_images.where(params[:item_id])

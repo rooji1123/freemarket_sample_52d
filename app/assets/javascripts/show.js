@@ -1,12 +1,20 @@
-$(function() {
-  $('.detail__item__info__image-top').slick({
-    arrows: false,
-    asNavFor:'.detail__item__info__image-dots'
+$(function(){
+  var slider = ".detail__item__info__image-top";
+  var thumbnailItem = ".detail__item__info__image-dot";
+  
+  $(thumbnailItem).each(function(){
+   var index = $(thumbnailItem).index(this);
+   $(this).attr("data-index",index);
   });
-  $('.detail__item__info__image-dots').slick({
-    slidesToShow: 5,
+
+  $(slider).slick({
     arrows: false,
-    asNavFor:'.detail__item__info__image-top',
-    focusOnSelect: true
+    infinite: false,
+    waitForAnimate: false
   });
+  $(thumbnailItem).on('mouseover',function(){
+    var index = $(this).attr("data-index");
+    $(slider).slick("slickGoTo",index,false);
+  });
+  
 });
