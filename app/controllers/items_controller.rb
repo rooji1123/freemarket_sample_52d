@@ -24,6 +24,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @parents = Category.where(ancestry: nil).order("id ASC")
     respond_to do |format|
       if @item.save && new_image_params[:images][0] != " "
         new_image_params[:images].each do |image|
