@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   has_many :items_categories, dependent: :destroy
   has_many :categories, through: :items_categories
   belongs_to :brand, optional: true
-  belongs_to :user
+  belongs_to :user, optional: true
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
