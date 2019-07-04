@@ -29,11 +29,11 @@
               %tr
                 %th カテゴリー
                 %td
-                  %a{href: "/category/#{@item.items_categories.first.category.id}"}
+                  %a{href: "/categories/#{@item.items_categories.first.category.id}"}
                     %div ＞#{@item.items_categories.first.category.name}
-                  %a{href: "/category/#{@item.items_categories.second.category.id}"}
+                  %a{href: "/categories/#{@item.items_categories.second.category.id}"}
                     %div ＞#{@item.items_categories.second.category.name}
-                  %a{href: "/category/#{@item.items_categories.last.category.id}"}
+                  %a{href: "/categories/#{@item.items_categories.last.category.id}"}
                     %div #{@item.items_categories.last.category.name}
               %tr
                 %th ブランド
@@ -119,35 +119,45 @@
         - @selleritems.shuffle.first(6).each do |item|
           - unless item.item_images.empty?
             .other__items__list__box
-              .other__items__list__box-photo
+              .other__items__list__box__photo
                 %a{href: "/items/#{item.id}"}
-                  = image_tag item.item_images.first.image.to_s, size: "220x220"
+                  = image_tag item.item_images.first.image.to_s, size: "220x220",class: "other__items__list__box__photo"
+              - if  item.deal_state == 3 || item.deal_state == 4
+                .other__items__list__box__sold-out
+                .other__items__list__box__text
+                  SOLD
               .other__items__list__box__body
                 .other__items__list__box__body__name
-                  = item.name
+                  = item.name[0..10]
                 .other__items__list__box__body__value
                   ￥
                   = item.price.to_s(:delimited)
                 .other__items__list__box__body__tax
                   (税込)
-                  = fa_icon("heart")
+                  .other__items__list__box__body__tax__heart
+                    = render partial: 'shared/like_items', locals: {item: item}
       .other__items-name
         その他のカテゴリーの商品
       .other__items__list
         - @categoryitems.shuffle.first(6).each do |category|
           - unless category.item.item_images.empty?
             .other__items__list__box
-              .other__items__list__box-photo
+              .other__items__list__box__photo
                 %a{href: "/items/#{category.item.id}"}
-                  = image_tag category.item.item_images.first.image.to_s, size: "220x220"
+                  = image_tag category.item.item_images.first.image.to_s, size: "220x220",class: "other__items__list__box__photo"
+              - if  category.item.deal_state == 3 || category.item.deal_state == 4
+                .other__items__list__box__sold-out
+                .other__items__list__box__text
+                  SOLD
               .other__items__list__box__body
                 .other__items__list__box__body__name
-                  = category.item.name
+                  = category.item.name[0..10]
                 .other__items__list__box__body__value
                   ￥
                   = category.item.price.to_s(:delimited)
                 .other__items__list__box__body__tax
                   (税込)
-                  = fa_icon("heart")
+                  .other__items__list__box__body__tax__heart
+                    = render partial: 'shared/like_items', locals: {item: category.item}
 = render 'shared/footer'
 
