@@ -56,13 +56,13 @@
             %div
               #parent-form-area
                 .parent-box
-                  = f.collection_select :category_ids, @parents, :id, :name,{prompt: "---"}, class: "select-default", id: "parent-form", name: 'item[category_ids][]'
+                  = f.collection_select :category_ids, @parents, :id, :name,{include_blank: "---"}, class: "select-default", id: "parent-form", name: 'item[category_ids][]'
               #children-form-area
                 .child-box
-                  = f.collection_select :category_ids,@children, :id, :name,{prompt: "---"}, class: "select-default", id: "parent-form", selected: @item.category_ids[1], name: 'item[category_ids][]'
+                  = f.collection_select :category_ids,@children, :id, :name,{include_blank: "---"}, class: "select-default", id: "parent-form", selected: @item.category_ids[1], name: 'item[category_ids][]'
               #grandchild-form-area
                 .grandchild-box
-                  = f.collection_select :category_ids,@grand_children, :id, :name,{prompt: "---"}, class: "select-default", id: "parent-form", selected: @item.category_ids[2], name: 'item[category_ids][]'
+                  = f.collection_select :category_ids,@grand_children, :id, :name,{include_blank: "---"}, class: "select-default", id: "parent-form", selected: @item.category_ids[2], name: 'item[category_ids][]'
             .sell-form__detail__form-box__size
               %h5
                 サイズ
@@ -85,7 +85,7 @@
                 商品の状態
               %span.new-item 必須
             .sell-form__detail__form-box__status__select
-              = f.select :item_state_id, ItemState.all.map{|t| [t.state, t.id]}, prompt: "---"
+              = f.select :item_state_id, ItemState.all.map{|t| [t.state, t.id]}, include_blank: "---"
         .sell-form__delivery
           %h3 
             配送について
@@ -96,25 +96,25 @@
                 配送料の負担
               %span.new-item 必須
             .sell-form__delivery__form-box__fee__select
-              = f.select :delivery_fee_id, DeliveryFee.all.map{|t| [t.fee, t.id]}, prompt: "---", id: "delivery_fee"
+              = f.select :delivery_fee_id, DeliveryFee.all.map{|t| [t.fee, t.id]}, include_blank: "---", id: "delivery_fee"
             .sell-form__delivery__form-box__choice
               %h5
                 配送の方法
               %span.new-item 必須
             .sell-form__delivery__form-box__choice__select
-              = f.select :delivery_choice_id, DeliveryChoice.all.map{|t| [t.choice, t.id]}, prompt: "---", id: "delivery_choice"
+              = f.select :delivery_choice_id, DeliveryChoice.all.map{|t| [t.choice, t.id]}, include_blank: "---", id: "delivery_choice"
             .sell-form__delivery__form-box__disrict
               %h5
                 発送元の地域
               %span.new-item 必須
             .sell-form__delivery__form-box__disrict__select
-              = f.select :prefecture_id, Prefecture.all.map{|t| [t.name, t.id]}, prompt: "---"
+              = f.select :prefecture_id, Prefecture.all.map{|t| [t.name, t.id]}, include_blank: "---"
             .sell-form__delivery__form-box__date
               %h5
                 発送までの日数
               %span.new-item 必須
             .sell-form__delivery__form-box__date__select
-              = f.select :delivery_date_id, DeliveryDate.all.map{|t| [t.date, t.id]}, prompt: "---"
+              = f.select :delivery_date_id, DeliveryDate.all.map{|t| [t.date, t.id]}, include_blank: "---"
         .sell-form__selling-price
           %h3
             販売価格(300〜9,999,999)
