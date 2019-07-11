@@ -31,10 +31,10 @@ class PurchasesController < ApplicationController
         )
       end
       item.update(buyer_id: current_user.id, deal_state: 3)
-      Point.create(user_id: current_user.id, point: 0 - params[:point].to_i)
-      if params[:price].to_i != 0
-        Point.create(user_id: item.seller_id, point: item.price - item.price / 10)
+      if params[:point]
+        Point.create(user_id: current_user.id, point: 0 - params[:point].to_i)
       end
+      Point.create(user_id: item.seller_id, point: item.price - item.price / 10)
     rescue
       redirect_to  purchase_item_purchases_path(params[:item_id]), flash: { error: "クレジットカード情報に誤りがあります。"}
     end
@@ -52,9 +52,11 @@ class PurchasesController < ApplicationController
   end
 
   def point_exist
-    point = user_point
-    if point == 0
-      redirect_to  purchase_item_purchases_path(params[:item_id]), flash: { error: "ポイントでの購入に失敗しました"}
+    if params[:point]
+      point = user_point
+      if point == 0
+        redirect_to  purchase_item_purchases_path(params[:item_id]), flash: { error: "ポイントでの購入に失敗しました"}
+      end
     end
   end
 
