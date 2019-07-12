@@ -93,6 +93,8 @@ $(function(){
     var type;
     if ($("#user_user_information_attributes_check_phone_number").val().match(/^(070|080|090)\d{8}$/)){
       type = true
+    }else if ($("#user_user_information_attributes_check_phone_number").val().match(/^(070|080|090)-\d{4}-\d{4}$/)){
+        type = true
     }else{
       type = false
       var html = buildHtmlAttendTypeError()
@@ -129,6 +131,8 @@ $(function(){
     //validate postal-code
     var type;
     if ($("#user_user_address_attributes_postal_code").val().match(/^\d{3}-\d{4}$/)){
+      type = true
+    }else if ($("#user_user_address_attributes_postal_code").val().match(/^\d{7}$/)){
       type = true
     }else{
       type = false
@@ -311,6 +315,8 @@ $("#user_password_confirmation").on('focusout', function(){
     if(value == ""){
 
     }else if (value.match(/^(070|080|090)\d{8}$/)){
+
+    }else if (value.match(/^(070|080|090)-\d{4}-\d{4}$/)){
       
     }else{
       var html = buildHtmlAttendTypeError()
@@ -324,7 +330,9 @@ $("#user_password_confirmation").on('focusout', function(){
     if(value == ""){
 
     }else if (value.match(/^\d{3}-\d{4}$/)){
-      
+
+    }else if (value.match(/^\d{7}$/)){
+
     }else{
       var html = buildHtmlAttendTypeError()
       $(this).parent().append(html)
@@ -364,6 +372,7 @@ $("#user_password_confirmation").on('focusout', function(){
     $('.signup__radius4').addClass('signup__header__nav__red')
     $('.signup__header__nav__box__li__bottom__third').css('background-color', 'red')
     $('.signup__radius5').addClass('signup__header__nav__red')
+    $('.signup__header__nav__box__li__bottom__forth').css('background-color', 'red')
     $('.signup__header__nav__box__li__bottom__end').css('background-color', 'red')
   }
 })

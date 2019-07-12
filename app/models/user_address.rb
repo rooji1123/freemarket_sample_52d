@@ -5,7 +5,7 @@ class UserAddress < ApplicationRecord
   validates :first_name_address, presence: true
   validates :last_name_kana_address, presence: true
   validates :first_name_kana_address, presence: true
-  validates :postal_code, presence: true, format: { with: /\A\d{3}-\d{4}\Z/}
+  validates :postal_code, presence: true, format: { with: /\A\d{7}\Z/}
   validates :country_id, presence: true
   validates :city, presence: true
   validates :address, presence: true

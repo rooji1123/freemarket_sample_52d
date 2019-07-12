@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
+    @items = Item.last(4)
     @ladies = ItemsCategory.where(category_id:"1").includes(:item)
     @mens = ItemsCategory.where(category_id:"2").includes(:item)
     @babys = ItemsCategory.where(category_id:"3").includes(:item)

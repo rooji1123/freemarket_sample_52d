@@ -145,7 +145,10 @@ $(function () {
       type: "POST",
       data: formData,
       contentType: false,
-      processData: false,
+      processData: false
+    })
+    .done(function() {
+      window.location.href = "/";
     })
   });
 });

@@ -2,7 +2,6 @@ $(function(){
   function point_select(){
     var html = `
     <li class="item__main__point__exist__select__ul__list item__main__point__exist__select__ul__list-all">ポイントを全て使用する</li>
-    <li class="item__main__point__exist__select__ul__list item__main__point__exist__select__ul__list-input">使用するポイントを入力する</li>
     `
     return html
   };
