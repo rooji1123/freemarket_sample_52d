@@ -9,12 +9,11 @@ $(function(){
 
   $(slider).slick({
     arrows: false,
-    infinite: false,
     waitForAnimate: false
   });
+  
   $(thumbnailItem).on('mouseover',function(){
     var index = $(this).attr("data-index");
     $(slider).slick("slickGoTo",index,false);
   });
-  
 });

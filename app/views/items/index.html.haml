@@ -93,8 +93,8 @@
       = link_to "コスメ・香水・美容 新着アイテム", category_path(7), class: "newitem"
 
     .main__pickup__newitems
-      .main__pickup__newitems__box
-        - @cosme.first(4).each do |category|
+      - @cosme.first(4).each do |category|
+        .main__pickup__newitems__box
           .main__pickup__newitems__box
             = link_to "/items/#{category.item.id}", class: "main__pickup__newitems__box__link" do
               .main__pickup__newitems__box__photo
