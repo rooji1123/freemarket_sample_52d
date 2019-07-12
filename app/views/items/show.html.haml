@@ -115,8 +115,8 @@
     .other__items
       .other__items-name
         #{@user.nickname}さんのその他の出品
-      .other__items__list
-        - @selleritems.shuffle.first(6).each do |item|
+      - @selleritems.shuffle.first(6).each do |item|
+        .other__items__list
           - unless item.item_images.empty?
             .other__items__list__box
               .other__items__list__box__photo
@@ -138,8 +138,8 @@
                     = render partial: 'shared/like_items', locals: {item: item}
       .other__items-name
         その他のカテゴリーの商品
-      .other__items__list
-        - @categoryitems.shuffle.first(6).each do |category|
+      - @categoryitems.shuffle.first(6).each do |category|
+        .other__items__list
           - unless category.item.item_images.empty?
             .other__items__list__box
               .other__items__list__box__photo

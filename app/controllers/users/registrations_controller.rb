@@ -1,4 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  before_action :edit_format, only: [:create]
   before_action :configure_sign_up_params, only: [:create]
   def index
   end
@@ -25,6 +26,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                         user_information_attributes: [:last_name, :first_name, :last_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day, :check_phone_number],
                                         user_address_attributes: [:last_name_address, :first_name_address, :last_name_kana_address, :first_name_kana_address, :postal_code, :country_id, :city, :address, :building_name, :phone_number],
                                         user_card_attributes: [:customer_id]])
+  end
+
+  def edit_format
+    params[:user][:user_information_attributes][:check_phone_number].gsub!(/-/, "")
+    params[:user][:user_address_attributes][:postal_code].gsub!(/-/, "")
+    params[:user][:user_address_attributes][:phone_number].gsub!(/-/, "")
   end
 
   def set_customer
